@@ -8,6 +8,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 import Signin from '../page/Signin/Signin';
 
 import { Home } from '../page/Home';
+import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail'
 
 const Stack = createStackNavigator();
 function StackNaviga() {
@@ -36,6 +37,7 @@ function StackNaviga() {
             <Stack.Navigator>
                 {/* <Stack.Screen name="Signin" component={Signin} options={MainPageOptionNoBack} /> */}
                 <Stack.Screen name="Home" component={BottomTabNavigator} options={MainPageOptionNoBack} />
+                <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
             </Stack.Navigator>
         </NavigationContainer>
     );

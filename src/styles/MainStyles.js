@@ -92,11 +92,9 @@ export default StyleSheet.create({
         textAlign: 'center'
     },
     textAlignLeft: {
-        flex: 1,
         textAlign: 'left'
     },
     textAlignRight: {
-        flex: 1,
         textAlign: 'right'
     },
     textflexShrink: {
@@ -174,7 +172,36 @@ export default StyleSheet.create({
         fontFamily: 'Prompt-Bold',
         color: '#ffac2a'
     },
+    textBlue: {
+        fontFamily: 'Prompt-Regular',
+        color: '#459FD2'
+    },
 
+    
+    BorderBottomGrayWhite:{
+        borderWidth: 0.5,
+        borderColor: '#e4e4e4',
+        marginTop: 15,
+        marginBottom: 15,
+    },
+    BorderBottomGrayWhiteLight:{
+        borderWidth: 0.5,
+        borderColor: '#f5f5f5',
+        marginTop: 10,
+        marginBottom: 10,
+    },
+    BorderBottomGrayWhiteLightSmall:{
+        borderWidth: 0.5,
+        borderColor: '#f5f5f5',
+        marginTop: 7,
+        marginBottom: 7,
+    },
+    BorderBottomDash:{
+        width: '100%',
+        height: 1,
+        marginTop: 10,
+        marginBottom: 15,
+    },
 
     Flex: {
         flex: 1,
