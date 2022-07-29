@@ -181,7 +181,6 @@ export default class TouristAttractionDetail extends Component {
                                     <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textAlignLeft , MainStyles.textGray ]}>ได้รับรางวัลอะไรบ้าง ?</Text>
                                     <Text allowFontScaling={false} style={[MainStyles.Text12 , MainStyles.textAlignLeft , MainStyles.textGrayLight ]}>ปี 2560 พระเจ้าหลานเธอ พระองค์เจ้าสิริภาจุฑาภรณ์ พระราชทานพระราชวโรกาสให้ พนักงานร้านลำพูนไทยซิลค์ และ เหล่าช่างทอผ้าไหมลำพูน เฝ้าทูลละอองธุลีพระบาทเป็นการส่วนพระองค์ ณ ที่ประทับกองบิน 41 จ. เชียงใหม่ ถวายรายงานเกี่ยวกับการทอผ้าไหมยกดอกลำพูน เหล่าข้าพระพุทธเจ้า สำนึกในพระมหากรุณาธิคุณ</Text>
                                 </View>
-                                <Icon name="user" size={30} color="#900" />
                             </View>
                             
                         </View>
