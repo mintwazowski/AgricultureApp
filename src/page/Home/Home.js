@@ -62,15 +62,61 @@ export default class Home extends Component {
         ]
 
         return (
-            <SafeAreaView style={[MainStyles.contentBG]}>
-                <View style={[MainStyles.content]}>
+            <SafeAreaView style={[MainStyles.content]}>
+                <View style={[MainStyles.contentBG]}>
 
                     {/* Search Content */}
                     <Search />
 
+                    {/* Banner Content */}
+                    <View style={{ marginTop: 15, flex: 0.45 }}>
+                        <Swiper
+                            showsButtons={false}
+                            dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                            activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                        >
+                            <View style={styles.slide1}>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/1.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 120,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
+                                        <View style={{ width: '50%', paddingRight: 3 }}>
+                                            <Image
+                                                resizeMode={'cover'}
+                                                source={require('../../../assets/images/2.png')}
+                                                style={{
+                                                    width: '100%',
+                                                    height: 90,
+                                                    borderRadius: 10,
+                                                }}
+                                            />
+                                        </View>
+                                        <View style={{ width: '50%', paddingLeft: 3 }}>
+                                            <Image
+                                                resizeMode={'cover'}
+                                                source={require('../../../assets/images/3.png')}
+                                                style={{
+                                                    width: '100%',
+                                                    height: 90,
+                                                    borderRadius: 10,
+                                                }}
+                                            />
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                        </Swiper>
+                    </View>
 
                     {/* Flash Sale Content */}
-                    <View>
+                    <View style={{ marginTop: 15 }}>
                         <View style={{ flexDirection: "row" }}>
                             <View style={{ flexDirection: "row" }}>
                                 <Image
@@ -90,31 +136,126 @@ export default class Home extends Component {
                                 <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}>ดูสินค้าเพิ่มเติม {`>`} </Text>
                             </View>
                         </View>
-                        <View style={{ flex: 1 }}>
-                            <Swiper
-                                style={styles.wrapper}
-                                showsButtons={true}
-                                height='100%'
-                            >
-                                <View style={styles.slide1}>
+                    </View>
+                    <View style={{ flex: 0.37 }}>
+                        <Swiper
+                            showsButtons={false}
+                            dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                            activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                        >
+                            <View style={styles.slide1}>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
                                     <Image
-                                        resizeMode={'contain'}
-                                        style={{ width: 50, height: 50, marginRight: 15 }}
+                                        resizeMode={'cover'}
                                         source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
                                     />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
                                 </View>
-                                <View style={styles.slide2}>
-                                    <Text style={styles.text}>Beautiful</Text>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
                                 </View>
-                                <View style={styles.slide3}>
-                                    <Text style={styles.text}>And simple</Text>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
                                 </View>
-                            </Swiper>
-                        </View>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
+                                </View>
+                            </View>
+                            <View style={styles.slide2}>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
+                                </View>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
+                                </View>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
+                                </View>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/4.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
+                                </View>
+                            </View>
+                        </Swiper>
                     </View>
 
                 </View>
-            </SafeAreaView>
+            </SafeAreaView >
         );
     }
 }
@@ -137,25 +278,11 @@ const styles = StyleSheet.create({
         marginHorizontal: -5
     },
 
-    wrapper: {
-    },
     slide1: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#9DD6EB'
+        flexDirection: 'row'
     },
     slide2: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#97CAE5'
-    },
-    slide3: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#92BBD9'
+        flexDirection: 'row'
     },
     text: {
         color: '#fff',
