@@ -36,13 +36,13 @@ export default class TopTabNavigator extends Component {
                         />
                         <Image
                             resizeMode={'contain'}
-                            style={[NavigatorStyles.icon]}
-                            source={require('../../assets/icon/cart.jpeg')}
+                            style={[NavigatorStyles.icon2]}
+                            source={require('../../assets/icon/msg.png')}
                         />
                         <Image
                             resizeMode={'contain'}
-                            style={[NavigatorStyles.icon]}
-                            source={require('../../assets/icon/cart.jpeg')}
+                            style={[NavigatorStyles.icon3]}
+                            source={require('../../assets/icon/hamburger.png')}
                         />
                     </View>
                 </View>

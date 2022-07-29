@@ -92,7 +92,8 @@ export default StyleSheet.create({
         textAlign: 'center'
     },
     textAlignLeft: {
-        textAlign: 'left'
+        textAlign: 'left',
+        flex: 1,
     },
     textAlignRight: {
         textAlign: 'right'
@@ -177,26 +178,26 @@ export default StyleSheet.create({
         color: '#459FD2'
     },
 
-    
-    BorderBottomGrayWhite:{
+
+    BorderBottomGrayWhite: {
         borderWidth: 0.5,
         borderColor: '#e4e4e4',
         marginTop: 15,
         marginBottom: 15,
     },
-    BorderBottomGrayWhiteLight:{
+    BorderBottomGrayWhiteLight: {
         borderWidth: 0.5,
         borderColor: '#f5f5f5',
         marginTop: 10,
         marginBottom: 10,
     },
-    BorderBottomGrayWhiteLightSmall:{
+    BorderBottomGrayWhiteLightSmall: {
         borderWidth: 0.5,
         borderColor: '#f5f5f5',
         marginTop: 7,
         marginBottom: 7,
     },
-    BorderBottomDash:{
+    BorderBottomDash: {
         width: '100%',
         height: 1,
         marginTop: 10,
@@ -225,6 +226,12 @@ export default StyleSheet.create({
         fontFamily: 'Prompt-Regular',
         textAlign: 'center',
     },
+    btnBlueWhiteTextDark: {
+        fontSize: 12,
+        color: '#333333',
+        fontFamily: 'Prompt-Regular',
+        textAlign: 'center',
+    },
 
     btnGreenWhite: {
         width: '100%',
@@ -249,6 +256,22 @@ export default StyleSheet.create({
         alignSelf: 'center',
     },
     btnGreenWhiteSmallText: {
+        fontSize: 12,
+        color: '#fff',
+        fontFamily: 'Prompt-Regular',
+        textAlign: 'center',
+    },
+
+
+    btnLoadMore: {
+        width: '40%',
+        backgroundColor: '#448165',
+        borderRadius: 10,
+        padding: 7,
+        alignSelf: 'center',
+        marginTop: 15
+    },
+    btnLoadMoreText: {
         fontSize: 12,
         color: '#fff',
         fontFamily: 'Prompt-Regular',

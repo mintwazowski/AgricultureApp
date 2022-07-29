@@ -18,7 +18,7 @@ const BottomTabNavigator = () => {
             tabBarComponent="TabBarTop"
             tabBarPosition="top"
             tabBarOptions={{
-                showLabel: false,
+                showLabel: true,
                 style: {
                     borderTopWidth: 0,
                     elevation: 2,
@@ -31,6 +31,7 @@ const BottomTabNavigator = () => {
                 tabStyle: {
                     borderTopLeftRadius: 25,
                     borderTopRightRadius: 25,
+                    height: 70,
                 },
                 style: {
                     borderTopColor: "transparent",
@@ -44,11 +45,14 @@ const BottomTabNavigator = () => {
                 name="Home"
                 component={Home}
                 options={{
+                    tabBarLabel: ({ focused }) => (
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> หน้าหลัก </Text>
+                    ),
                     tabBarIcon: ({ focused }) => (
                         <Image
                             resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/home2.png') : require('../../assets/tabbar/home.png')}
-                            style={focused ? { height: 22, width: '100%' } : { height: 22, width: '100%' }}
+                            source={focused ? { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u18.png?token=1ae963d9b58ef3225136d8c461dc8debdeb2396bacafc185376a1b0b445602fe' } : { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u18.png?token=1ae963d9b58ef3225136d8c461dc8debdeb2396bacafc185376a1b0b445602fe' }}
+                            style={focused ? { height: 22, width: '100%', marginTop: 0 } : { height: 22, width: '100%', marginTop: 0 }}
                         />
                     )
                 }}
@@ -58,11 +62,14 @@ const BottomTabNavigator = () => {
                 name="Product"
                 component={Product}
                 options={{
+                    tabBarLabel: ({ focused }) => (
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> สินค้าเกษตร </Text>
+                    ),
                     tabBarIcon: ({ focused }) => (
                         <Image
                             resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/categories2.png') : require('../../assets/tabbar/categories.png')}
-                            style={focused ? { height: 22, width: '100%' } : { height: 22, width: '100%' }}
+                            source={focused ? require('../../assets/tabbar/cart.png') : require('../../assets/tabbar/cart.png')}
+                            style={focused ? { height: 27, width: '100%', marginTop: 0 } : { height: 27, width: '100%', marginTop: 0 }}
                         />
                     )
                 }}
@@ -72,12 +79,14 @@ const BottomTabNavigator = () => {
                 name="Event"
                 component={Event}
                 options={{
-
+                    tabBarLabel: ({ focused }) => (
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive : TabBarBottomStyles.tabBarLabelColor}> งานแสดงสินค้าเกษตร </Text>
+                    ),
                     tabBarIcon: ({ focused }) => (
                         <Image
                             resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/chat.png') : require('../../assets/tabbar/chat2.png')}
-                            style={focused ? { height: 22, width: '100%' } : { height: 22, width: '100%' }}
+                            source={focused ? require('../../assets/tabbar/event.png') : require('../../assets/tabbar/event.png')}
+                            style={focused ? { height: 22, width: '100%', marginTop: 15 } : { height: 22, width: '100%', marginTop: 15 }}
                         />
                     )
                 }}
@@ -87,11 +96,14 @@ const BottomTabNavigator = () => {
                 name="SourceOfProduct"
                 component={SourceOfProduct}
                 options={{
+                    tabBarLabel: ({ focused }) => (
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive : TabBarBottomStyles.tabBarLabelColor}> แหล่งผลิตสินค้าเกษตร </Text>
+                    ),
                     tabBarIcon: ({ focused }) => (
                         <Image
                             resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/settings2.png') : require('../../assets/tabbar/settings.png')}
-                            style={focused ? { height: 22, width: '100%' } : { height: 22, width: '100%' }}
+                            source={focused ? { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u916.png?token=985dfd91fcd7eeaf4ece671bdf5aafe64f368d33fcba4f5a26217878ea19b200' } : { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u916.png?token=985dfd91fcd7eeaf4ece671bdf5aafe64f368d33fcba4f5a26217878ea19b200' }}
+                            style={focused ? { height: 22, width: '100%', marginTop: 15 } : { height: 22, width: '100%', marginTop: 15 }}
                         />
                     )
                 }}
@@ -101,11 +113,14 @@ const BottomTabNavigator = () => {
                 name="TouristAttraction"
                 component={TouristAttraction}
                 options={{
+                    tabBarLabel: ({ focused }) => (
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive : TabBarBottomStyles.tabBarLabelColor}> เส้นทางท่องเที่ยวเชิงเกษตร </Text>
+                    ),
                     tabBarIcon: ({ focused }) => (
                         <Image
                             resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/settings2.png') : require('../../assets/tabbar/settings.png')}
-                            style={focused ? { height: 22, width: '100%' } : { height: 22, width: '100%' }}
+                            source={focused ? require('../../assets/tabbar/location2.png') : require('../../assets/tabbar/location2.png')}
+                            style={focused ? { height: 22, width: '100%', marginTop: 15 } : { height: 22, width: '100%', marginTop: 15 }}
                         />
                     )
                 }}
@@ -115,3 +130,42 @@ const BottomTabNavigator = () => {
     );
 }
 export default BottomTabNavigator;
+
+
+const TabBarBottomStyles = StyleSheet.create({
+    tabBarLabelColor1: {
+        color: '#999999',
+        fontSize: 10,
+        fontFamily: 'Prompt-Regular',
+        marginTop: 0,
+        textAlign: 'center',
+        lineHeight: 12,
+        marginBottom: 10
+    },
+    tabBarLabelColorActive1: {
+        color: '#448165',
+        fontSize: 10,
+        fontFamily: 'Prompt-Regular',
+        marginTop: 0,
+        textAlign: 'center',
+        lineHeight: 12,
+        marginBottom: 10
+    },
+
+    tabBarLabelColor: {
+        color: '#999999',
+        fontSize: 10,
+        fontFamily: 'Prompt-Regular',
+        marginTop: 10,
+        textAlign: 'center',
+        lineHeight: 12
+    },
+    tabBarLabelColorActive: {
+        color: '#448165',
+        fontSize: 10,
+        fontFamily: 'Prompt-Regular',
+        marginTop: 10,
+        textAlign: 'center',
+        lineHeight: 12
+    },
+});

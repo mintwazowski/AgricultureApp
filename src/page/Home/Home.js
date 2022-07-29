@@ -13,8 +13,8 @@ import {
     AsyncStorage,
     ViewPropTypes,
     ActivityIndicator,
+    ScrollView
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler'
 
 import Search from '../Search/Search'
 import MainStyles from '../../styles/MainStyles';
@@ -53,17 +53,28 @@ export default class Home extends Component {
     render() {
         const { slider1ActiveSlide } = this.state
 
-        var getBannerFlashSale = [
+        const getBannerFlashSale = [
             { id: 1, img_src: require('../../../assets/images/4.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '250' },
             { id: 2, img_src: require('../../../assets/images/5.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
             { id: 3, img_src: require('../../../assets/images/6.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '25' },
             { id: 4, img_src: require('../../../assets/images/7.png'), name: 'น้ำมันเมล็ดชา Camellia Oleifera', price: '250' },
             { id: 5, img_src: require('../../../assets/images/8.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
         ]
+        const getProduct = [
+            { id: 1, img_src: require('../../../assets/images/11.png'), name: 'พืชผัก ผลไม้' },
+            { id: 2, img_src: require('../../../assets/images/12.png'), name: 'อาหาร เครื่องดื่ม' },
+            { id: 3, img_src: require('../../../assets/images/13.png'), name: 'ยา อาหารเสริม' },
+            { id: 4, img_src: require('../../../assets/images/14.png'), name: 'เครื่องสำอาง' },
+            { id: 5, img_src: require('../../../assets/images/15.png'), name: 'ต้นไม้ ไม้ประดับ' },
+            { id: 6, img_src: require('../../../assets/images/16.png'), name: 'เครื่องแต่งกาย' },
+            { id: 7, img_src: require('../../../assets/images/17.png'), name: 'ของฝากที่ระลึก' },
+            { id: 8, img_src: require('../../../assets/images/18.png'), name: 'สมุนไพร' },
+        ]
 
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <ScrollView showsVerticalScrollIndicator={false} >
+
                     <View style={[MainStyles.contentBG]}>
                         <View style={[MainStyles.m15]}>
 
@@ -171,8 +182,8 @@ export default class Home extends Component {
                         </View>
                     </View>
 
+                    {/* Best Sale Content */}
                     <View style={[MainStyles.m15]}>
-                        {/* Best Sale Content */}
                         <View style={{ flex: 0.45 }}>
                             <View style={{ flexDirection: "row", marginBottom: 15, }}>
                                 <View style={{ flexDirection: "row" }}>
@@ -197,31 +208,34 @@ export default class Home extends Component {
                                 <View style={styles.slide1}>
                                     {getBannerFlashSale.map((data, index) => {
                                         return (
-                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '33.3%', paddingHorizontal: 3 }}>
+                                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '33%', marginRight: 3, marginLeft: 3 }}>
                                                 <Image
                                                     resizeMode={'cover'}
                                                     source={getBannerFlashSale[index].img_src}
                                                     style={{
                                                         width: '100%',
                                                         height: 100,
-                                                        borderRadius: 10,
                                                     }}
                                                 />
-                                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
-                                                <View style={{ flexDirection: 'row' }}>
+                                                <View style={{ paddingHorizontal: 10, paddingBottom: 10 }}>
+                                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <View style={{ flexDirection: 'row' }}>
-                                                        <Image
-                                                            resizeMode={'cover'}
-                                                            source={require('../../../assets/icon/search.png')}
-                                                            style={{
-                                                                width: 10,
-                                                                height: 10,
-                                                            }}
-                                                        />
-                                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
-                                                    </View>
-                                                    <View style={{ flex: 1, alignSelf: "flex-end" }}>
-                                                        <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.textAlignRight]}>250 บาท</Text>
+                                                        <View style={{ flexDirection: 'row' }}>
+                                                            <Image
+                                                                resizeMode={'cover'}
+                                                                source={require('../../../assets/icon/star.png')}
+                                                                style={{
+                                                                    width: 12,
+                                                                    height: 12,
+                                                                    alignSelf: 'center',
+                                                                    marginRight: 3
+                                                                }}
+                                                            />
+                                                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
+                                                        </View>
+                                                        <View style={{ flex: 1, alignSelf: "flex-end" }}>
+                                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.textAlignRight]}>250 บาท</Text>
+                                                        </View>
                                                     </View>
                                                 </View>
                                             </View>
@@ -231,6 +245,234 @@ export default class Home extends Component {
                             </Swiper>
                         </View>
 
+                    </View>
+
+                    {/* Product Content */}
+                    <View style={[MainStyles.contentBG]}>
+                        <View style={[MainStyles.m15]}>
+                            <View style={{ flexDirection: 'column' }}>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignCenter, MainStyles.textCenterContent, MainStyles.Text16]}>เลือกชมสินค้าเกษตรคุณภาพ</Text>
+
+                                <View
+                                    style={{
+                                        width: '100%',
+                                        marginTop: 15,
+                                        flex: 1,
+                                        flexDirection: 'row',
+                                        flexWrap: 'wrap',
+                                        alignItems: 'flex-start'
+                                    }}
+                                >
+                                    {getProduct.map((data, index) => {
+                                        return (
+                                            <View style={{ width: '25%' }}>
+                                                <Image
+                                                    resizeMode={'cover'}
+                                                    source={getProduct[index].img_src}
+                                                    style={{
+                                                        width: 70,
+                                                        height: 70,
+                                                        borderRadius: 50,
+                                                        alignSelf: 'center'
+                                                    }}
+                                                />
+                                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>{getProduct[index].name}</Text>
+                                            </View>
+                                        )
+                                    })}
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+
+                    {/* Product season Content */}
+                    <View style={[MainStyles.m15]}>
+                        <View style={{ flex: 0.45 }}>
+                            <View style={{ flexDirection: "row", marginBottom: 10 }}>
+                                <View style={{ flexDirection: "row" }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>สินค้าสั่งจอง / จำหน่ายตามฤดูกาล</Text>
+                                </View>
+                                <View
+                                    style={{
+                                        flex: 1,
+                                        alignContent: 'flex-end',
+                                    }}
+                                >
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}>ดูสินค้าเพิ่มเติม {`>`} </Text>
+                                </View>
+                            </View>
+                            <View style={{ flexDirection: "row", marginBottom: 15 }}>
+                                <View
+                                    style={{
+                                        width: '40%',
+                                        backgroundColor: '#448165',
+                                        borderRadius: 5,
+                                        paddingVertical: 9,
+                                        paddingHorizontal: 9,
+                                        alignSelf: 'center',
+                                        marginRight: 5
+                                    }}
+                                >
+                                    <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteText}>สินค้าสั่งจองล่วงหน้า </Text>
+                                </View>
+                                <View
+                                    style={{
+                                        width: '40%',
+                                        backgroundColor: 'rgba(215, 215, 215, 1)',
+                                        borderRadius: 5,
+                                        paddingVertical: 9,
+                                        paddingHorizontal: 9,
+                                        alignSelf: 'center',
+                                    }}
+                                >
+                                    <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteTextDark}>สินค้าสั่งจองล่วงหน้า </Text>
+                                </View>
+                            </View>
+                            <Swiper
+                                height='100%'
+                                showsButtons={false}
+                                dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                                activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                            >
+                                <View style={styles.slide1}>
+                                    {getBannerFlashSale.map((data, index) => {
+                                        return (
+                                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '49%', marginRight: 3, marginLeft: 3 }}>
+                                                <Image
+                                                    resizeMode={'cover'}
+                                                    source={getBannerFlashSale[index].img_src}
+                                                    style={{
+                                                        width: '100%',
+                                                        height: 100,
+                                                    }}
+                                                />
+                                                <View style={{ paddingHorizontal: 10, paddingBottom: 10 }}>
+                                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
+                                                    <View style={{ flexDirection: 'row' }}>
+                                                        <View style={{ flexDirection: 'row' }}>
+                                                            <Image
+                                                                resizeMode={'cover'}
+                                                                source={require('../../../assets/icon/star.png')}
+                                                                style={{
+                                                                    width: 12,
+                                                                    height: 12,
+                                                                    alignSelf: 'center',
+                                                                    marginRight: 3
+                                                                }}
+                                                            />
+                                                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
+                                                        </View>
+                                                        <View style={{ flex: 1, alignSelf: "flex-end" }}>
+                                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.textAlignRight]}>250 บาท</Text>
+                                                        </View>
+                                                    </View>
+                                                </View>
+                                            </View>
+                                        )
+                                    })}
+                                </View>
+                            </Swiper>
+                        </View>
+
+                    </View>
+
+                    {/* Product Recommend Content */}
+                    <View style={[MainStyles.contentBG]}>
+                        <View style={[MainStyles.m15]}>
+                            <View style={{ flexDirection: "row", marginBottom: 10 }}>
+                                <View style={{ flexDirection: "row" }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>สินค้าแนะนำ สำหรับคุณ</Text>
+                                </View>
+                                <View
+                                    style={{
+                                        flex: 1,
+                                        alignContent: 'flex-end',
+                                    }}
+                                >
+                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}>ดูสินค้าเพิ่มเติม {`>`} </Text>
+                                </View>
+                            </View>
+                            <Swiper
+                                height='100%'
+                                showsButtons={false}
+                                dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                                activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                            >
+                                <View style={styles.slide1}>
+                                    <View
+                                        style={{
+                                            width: '100%',
+                                            flex: 1,
+                                            flexDirection: 'row',
+                                            flexWrap: 'wrap',
+                                            alignItems: 'flex-start'
+                                        }}
+                                    >
+                                        {getBannerFlashSale.map((data, index) => {
+                                            return (
+                                                <View
+                                                    style={{
+                                                        backgroundColor: '#fff',
+                                                        alignContent: 'center',
+                                                        width: '48%',
+                                                        marginLeft: '1%',
+                                                        marginRight: '1%',
+                                                        marginBottom: '2%',
+                                                    }}
+                                                >
+                                                    <View
+                                                        style={{
+                                                            shadowColor: "#000",
+                                                            shadowOffset: { height: 2 },
+                                                            shadowOpacity: 0.1,
+                                                            shadowRadius: 4,
+                                                            borderColor: "#f5f5f5",
+                                                            borderWidth: 1,
+                                                        }}
+                                                    >
+                                                        <Image
+                                                            resizeMode={'cover'}
+                                                            source={getBannerFlashSale[index].img_src}
+                                                            style={{
+                                                                width: '100%',
+                                                                height: 100,
+                                                            }}
+                                                        />
+                                                        <View style={{ paddingHorizontal: 10, paddingBottom: 10 }}>
+                                                            <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
+                                                            <View style={{ flexDirection: 'row' }}>
+                                                                <View style={{ flexDirection: 'row' }}>
+                                                                    <Image
+                                                                        resizeMode={'cover'}
+                                                                        source={require('../../../assets/icon/star.png')}
+                                                                        style={{
+                                                                            width: 12,
+                                                                            height: 12,
+                                                                            alignSelf: 'center',
+                                                                            marginRight: 3
+                                                                        }}
+                                                                    />
+                                                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
+                                                                </View>
+                                                                <View style={{ flex: 1, alignSelf: "flex-end" }}>
+                                                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.textAlignRight]}>250 บาท</Text>
+                                                                </View>
+                                                            </View>
+                                                        </View>
+                                                    </View>
+                                                </View>
+                                            )
+                                        })}
+                                    </View>
+                                </View>
+                            </Swiper>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={[MainStyles.btnLoadMore]}
+                            >
+                                <Text allowFontScaling={false} style={MainStyles.btnLoadMoreText}>โหลดเพิ่มเติม</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                 </ScrollView>

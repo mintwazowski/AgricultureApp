@@ -21,6 +21,18 @@ export default StyleSheet.create({
     icon: {
         width: 30,
         height: 30,
+        alignSelf: 'center',
+        marginRight: 10
+    },
+    icon2: {
+        width: 25,
+        height: 25,
+        alignSelf: 'center',
+        marginRight: 15
+    },
+    icon3: {
+        width: 25,
+        height: 25,
         alignSelf: 'center'
     }
 });
