@@ -16,6 +16,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import NavigatorStyles from '../styles/NavigatorStyles';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class TopTabNavigator extends Component {
 
@@ -29,21 +30,17 @@ export default class TopTabNavigator extends Component {
                         source={require('../../assets/logo.jpeg')}
                     />
                     <View style={[NavigatorStyles.hamMenu]}>
-                        <Image
-                            resizeMode={'contain'}
-                            style={[NavigatorStyles.icon]}
-                            source={require('../../assets/icon/cart.jpeg')}
-                        />
-                        <Image
-                            resizeMode={'contain'}
-                            style={[NavigatorStyles.icon2]}
-                            source={require('../../assets/icon/msg.png')}
-                        />
-                        <Image
-                            resizeMode={'contain'}
-                            style={[NavigatorStyles.icon3]}
-                            source={require('../../assets/icon/hamburger.png')}
-                        />
+                        <View style={[NavigatorStyles.icon2]}>
+                            <Icon name='shopping-cart'size={20} color="#448165" />
+                            <Text style={[NavigatorStyles.notify]}>0</Text>
+                        </View>
+                        <View style={[NavigatorStyles.icon2]}>
+                            <Icon name='comment-alt'size={20} color="#448165" />
+                            <Text style={[NavigatorStyles.notify]}>0</Text>
+                        </View>
+                        <View style={[NavigatorStyles.icon2]}>
+                            <Icon name='bars'size={20} color="#448165" />
+                        </View>
                     </View>
                 </View>
             </View>

@@ -9,6 +9,7 @@ import Product from '../page/Product/Product';
 import Event from '../page/Event/Event';
 import SourceOfProduct from '../page/SourceOfProduct/SourceOfProduct';
 import TouristAttraction from '../page/TouristAttraction/TouristAttraction';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -31,7 +32,7 @@ const BottomTabNavigator = () => {
                 tabStyle: {
                     borderTopLeftRadius: 25,
                     borderTopRightRadius: 25,
-                    height: 70,
+                    height: 55,
                 },
                 style: {
                     borderTopColor: "transparent",
@@ -49,11 +50,8 @@ const BottomTabNavigator = () => {
                         <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> หน้าหลัก </Text>
                     ),
                     tabBarIcon: ({ focused }) => (
-                        <Image
-                            resizeMode={'contain'}
-                            source={focused ? { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u18.png?token=1ae963d9b58ef3225136d8c461dc8debdeb2396bacafc185376a1b0b445602fe' } : { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u18.png?token=1ae963d9b58ef3225136d8c461dc8debdeb2396bacafc185376a1b0b445602fe' }}
-                            style={focused ? { height: 22, width: '100%', marginTop: 0 } : { height: 22, width: '100%', marginTop: 0 }}
-                        />
+                        focused ? <Icon name='home' size={20} color="#448165" /> : <Icon name='home' size={20} color="#999999" />
+
                     )
                 }}
                 hideTabBar={true}
@@ -66,11 +64,7 @@ const BottomTabNavigator = () => {
                         <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> สินค้าเกษตร </Text>
                     ),
                     tabBarIcon: ({ focused }) => (
-                        <Image
-                            resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/cart.png') : require('../../assets/tabbar/cart.png')}
-                            style={focused ? { height: 27, width: '100%', marginTop: 0 } : { height: 27, width: '100%', marginTop: 0 }}
-                        />
+                        focused ? <Icon name='shopping-basket' size={20} color="#448165" /> : <Icon name='shopping-basket' size={20} color="#999999" />
                     )
                 }}
                 hideTabBar={true}
@@ -80,14 +74,10 @@ const BottomTabNavigator = () => {
                 component={Event}
                 options={{
                     tabBarLabel: ({ focused }) => (
-                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive : TabBarBottomStyles.tabBarLabelColor}> งานแสดงสินค้าเกษตร </Text>
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> งานแสดงสินค้า</Text>
                     ),
                     tabBarIcon: ({ focused }) => (
-                        <Image
-                            resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/event.png') : require('../../assets/tabbar/event.png')}
-                            style={focused ? { height: 22, width: '100%', marginTop: 15 } : { height: 22, width: '100%', marginTop: 15 }}
-                        />
+                        focused ? <Icon name='calendar' size={20} color="#448165" /> : <Icon name='calendar' size={20} color="#999999" />
                     )
                 }}
                 hideTabBar={true}
@@ -97,14 +87,10 @@ const BottomTabNavigator = () => {
                 component={SourceOfProduct}
                 options={{
                     tabBarLabel: ({ focused }) => (
-                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive : TabBarBottomStyles.tabBarLabelColor}> แหล่งผลิตสินค้าเกษตร </Text>
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> แหล่งผลิตสินค้า</Text>
                     ),
                     tabBarIcon: ({ focused }) => (
-                        <Image
-                            resizeMode={'contain'}
-                            source={focused ? { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u916.png?token=985dfd91fcd7eeaf4ece671bdf5aafe64f368d33fcba4f5a26217878ea19b200' } : { uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u916.png?token=985dfd91fcd7eeaf4ece671bdf5aafe64f368d33fcba4f5a26217878ea19b200' }}
-                            style={focused ? { height: 22, width: '100%', marginTop: 15 } : { height: 22, width: '100%', marginTop: 15 }}
-                        />
+                        focused ? <Icon name='building' size={20} color="#448165" /> : <Icon name='building' size={20} color="#999999" />
                     )
                 }}
                 hideTabBar={true}
@@ -114,14 +100,10 @@ const BottomTabNavigator = () => {
                 component={TouristAttraction}
                 options={{
                     tabBarLabel: ({ focused }) => (
-                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive : TabBarBottomStyles.tabBarLabelColor}> เส้นทางท่องเที่ยวเชิงเกษตร </Text>
+                        <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> สถานที่ท่องเที่ยว </Text>
                     ),
                     tabBarIcon: ({ focused }) => (
-                        <Image
-                            resizeMode={'contain'}
-                            source={focused ? require('../../assets/tabbar/location2.png') : require('../../assets/tabbar/location2.png')}
-                            style={focused ? { height: 22, width: '100%', marginTop: 15 } : { height: 22, width: '100%', marginTop: 15 }}
-                        />
+                        focused ? <Icon name='map-marker-alt' size={20} color="#448165" /> : <Icon name='map-marker-alt' size={20} color="#999999" />
                     )
                 }}
                 hideTabBar={true}

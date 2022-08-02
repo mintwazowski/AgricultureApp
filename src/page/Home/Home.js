@@ -22,6 +22,7 @@ import { sliderWidth, itemWidth } from '../../styles/SliderEntry.style';
 
 // import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Swiper from 'react-native-swiper'
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export const width1 = Dimensions.get('window').width - 80
 const SLIDER_1_FIRST_ITEM = 4;
@@ -221,16 +222,7 @@ export default class Home extends Component {
                                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <View style={{ flexDirection: 'row' }}>
                                                         <View style={{ flexDirection: 'row' }}>
-                                                            <Image
-                                                                resizeMode={'cover'}
-                                                                source={require('../../../assets/icon/star.png')}
-                                                                style={{
-                                                                    width: 12,
-                                                                    height: 12,
-                                                                    alignSelf: 'center',
-                                                                    marginRight: 3
-                                                                }}
-                                                            />
+                                                            <Icon name='star'size={15} style={{ marginRight:5 }} color="#e9b266" />
                                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                                         </View>
                                                         <View style={{ flex: 1, alignSelf: "flex-end" }}>
@@ -350,16 +342,7 @@ export default class Home extends Component {
                                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <View style={{ flexDirection: 'row' }}>
                                                         <View style={{ flexDirection: 'row' }}>
-                                                            <Image
-                                                                resizeMode={'cover'}
-                                                                source={require('../../../assets/icon/star.png')}
-                                                                style={{
-                                                                    width: 12,
-                                                                    height: 12,
-                                                                    alignSelf: 'center',
-                                                                    marginRight: 3
-                                                                }}
-                                                            />
+                                                            <Icon name='star'size={15} style={{ marginRight:5 }} color="#e9b266" />
                                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                                         </View>
                                                         <View style={{ flex: 1, alignSelf: "flex-end" }}>
@@ -442,16 +425,7 @@ export default class Home extends Component {
                                                             <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                             <View style={{ flexDirection: 'row' }}>
                                                                 <View style={{ flexDirection: 'row' }}>
-                                                                    <Image
-                                                                        resizeMode={'cover'}
-                                                                        source={require('../../../assets/icon/star.png')}
-                                                                        style={{
-                                                                            width: 12,
-                                                                            height: 12,
-                                                                            alignSelf: 'center',
-                                                                            marginRight: 3
-                                                                        }}
-                                                                    />
+                                                                    <Icon name='star'size={15} style={{ marginRight:5 }} color="#e9b266" />
                                                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                                                 </View>
                                                                 <View style={{ flex: 1, alignSelf: "flex-end" }}>

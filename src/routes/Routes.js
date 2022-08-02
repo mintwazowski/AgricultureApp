@@ -5,7 +5,7 @@ import { createStackNavigator, useHeaderHeight } from '@react-navigation/stack';
 
 import TopTabNavigator from './TopTabNavigator';
 import BottomTabNavigator from './BottomTabNavigator';
-import DrawerTabNavigator from './DrawerTabNavigator';
+
 import Signin from '../page/Signin/Signin';
 
 import { Home } from '../page/Home';
@@ -50,7 +50,6 @@ export default class MainRoutes extends Component {
         return (
             <>
                 <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
-                <createDrawerNavigator />
                 <View style={{ flex: 0.15 }}>
                     <TopTabNavigator />
                 </View>

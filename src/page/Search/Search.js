@@ -16,6 +16,7 @@ import {
     ActivityIndicator,
 } from 'react-native';
 import MainStyles from '../../styles/MainStyles';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export default class Search extends Component {
 
@@ -46,11 +47,7 @@ export default class Search extends Component {
                     />
                 </View>
                 <View style={styles.iconInputFormContent}>
-                    <Image
-                        resizeMode={'contain'}
-                        style={styles.iconInputFormSearch}
-                        source={require('../../../assets/icon/search.png')}
-                    />
+                    <Icon name='search1' style={{ marginTop: 6 }} size={30} color="#448165" />
                 </View>
             </View>
         );
