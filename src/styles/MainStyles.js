@@ -75,6 +75,8 @@ export default StyleSheet.create({
     LineHeight28: { lineHeight: 28 },
     TextUnderLine: { textDecorationLine: 'underline' },
 
+    Text6: { fontSize: 6 },
+    Text8: { fontSize: 8 },
     Text10: { fontSize: 10 },
     Text11: { fontSize: 11 },
     Text12: { fontSize: 12 },
@@ -285,6 +287,30 @@ export default StyleSheet.create({
         fontFamily: 'Prompt-Regular',
         textAlign: 'center',
     },
+    btnCartRed: {
+        width: '40%',
+        backgroundColor: '#D0021B',
+        borderRadius: 20,
+        padding: 7,
+        alignSelf: 'center',
+        marginTop: 15
+    },
+    btnCartGreen: {
+        width: '40%',
+        backgroundColor: '#448165',
+        borderRadius: 20,
+        padding: 7,
+        alignSelf: 'center',
+        marginTop: 15
+    },
+    btnCartYellow: {
+        width: '40%',
+        backgroundColor: '#e9b266',
+        borderRadius: 20,
+        padding: 7,
+        alignSelf: 'center',
+        marginTop: 15
+    },
 
 
     btnProductDetailGreen: {
@@ -337,5 +363,32 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignSelf: "center",
     },
+
+
+    CheckBox: {
+        height: 20,
+        width: 20,
+        backgroundColor: '#fff',
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: '#a7a7a7',
+    },
+    CheckBoxActive: {
+        height: 20,
+        width: 20,
+    },
+    CheckBoxText: {
+        fontSize: 20,
+        fontFamily: 'Prompt-Regular',
+        color: '#333333'
+    },
+    CheckBoxTextBlueLine: {
+        fontSize: 20,
+        fontFamily: 'Prompt-Regular',
+        color: '#9D0B0B',
+        textDecorationLine: 'underline',
+        marginLeft: 5
+    },
+
 });
 

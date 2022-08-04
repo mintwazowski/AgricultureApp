@@ -19,17 +19,85 @@ import {
 
 import Search from '../Search/Search'
 import MainStyles from '../../styles/MainStyles';
+import ModalStyles from '../../styles/ModalStyles';
 
 import Swiper from 'react-native-swiper'
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Rating } from 'react-native-ratings';
 import * as Progress from 'react-native-progress';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import ModalLib from 'react-native-modal';
 
 export default class ProductDetail extends Component {
 
-    render() {
+    state = {
+        isAlert: null
+    }
 
+    onGetCart(type, info) {
+        alert = (<ModalLib isVisible={true}>
+            <View style={ModalStyles.ModalContent}>
+                <View style={{ flexDirection: 'row', alignSelf: 'center', marginBottom: 15 }}>
+                    <Image
+                        resizeMode={'cover'}
+                        source={require('../../../assets/icon/star.png')}
+                        style={{
+                            width: 35,
+                            height: 35,
+                            alignSelf: 'center',
+                            marginRight: 10
+                        }}
+                    />
+                    <Image
+                        resizeMode={'cover'}
+                        source={require('../../../assets/icon/star.png')}
+                        style={{
+                            width: 35,
+                            height: 35,
+                            alignSelf: 'center',
+                        }}
+                    />
+                </View>
+                <Text allowFontScaling={false} style={ModalStyles.ModalTitle}>คุณได้เพิ่มสินค้าลงในตะกร้าเรียบร้อยแล้ว</Text>
+                <View style={ModalStyles.content2Button}>
+                    <TouchableOpacity
+                        activeOpacity={1}
+                        style={ModalStyles.btnOne}
+                        onPress={() => this.onNextToProductAgain()}
+                    >
+                        <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ซื้อสินค้าต่อ</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        activeOpacity={1}
+                        style={ModalStyles.btnOneYellow}
+                        onPress={() => this.onNextToCart()}
+                    >
+                        <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ไปยังหน้าตะกร้าสินค้า</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </ModalLib>)
+        this.setState({
+            isAlert: alert,
+        });
+    }
+
+    onNextToCart() {
+        this.setState({
+            isAlert: null,
+        });
+        this.props.navigation.navigate('OrderList')
+    }
+
+    onNextToProductAgain() {
+        this.setState({
+            isAlert: false,
+        });
+        this.props.navigation.navigate('Product')
+    }
+
+    render() {
+        const { isAlert } = this.state
         const images = [
             {
                 url: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460',
@@ -102,13 +170,53 @@ export default class ProductDetail extends Component {
 
         return (
             <View style={{ flex: 1 }}>
-
+                {isAlert}
                 {/* <Modal
                     visible={true}
                     transparent={true}
                 >
                     <ImageViewer imageUrls={images} />
                 </Modal> */}
+                <View style={{ flexDirection: 'row', marginHorizontal: 15 }}>
+                    <View style={{}}>
+                        <Image
+                            resizeMode={'cover'}
+                            source={require('../../../assets/icon/star.png')}
+                            style={{
+                                width: 25,
+                                height: 25,
+                            }}
+                        />
+                    </View>
+                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/icon/star.png')}
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                }}
+                            />
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/icon/star.png')}
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                }}
+                            />
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/icon/star.png')}
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                }}
+                            />
+                        </View>
+                    </View>
+                </View>
 
                 <View style={[MainStyles.content]}>
                     <ScrollView showsVerticalScrollIndicator={false} >
@@ -479,6 +587,7 @@ export default class ProductDetail extends Component {
                         <TouchableOpacity
                             activeOpacity={1}
                             style={[MainStyles.btnProductDetailYellow]}
+                            onPress={() => this.onGetCart()}
                         >
                             <Image
                                 resizeMode={'cover'}
@@ -490,7 +599,7 @@ export default class ProductDetail extends Component {
                                     marginRight: 3,
                                 }}
                             />
-                            <Text allowFontScaling={false} style={MainStyles.btnProductDetailYellowText}>ติดต่อผู้ขาย</Text>
+                            <Text allowFontScaling={false} style={MainStyles.btnProductDetailYellowText}>นำลงตะกร้า</Text>
                             <Image
                                 resizeMode={'cover'}
                                 source={require('../../../assets/icon/star.png')}

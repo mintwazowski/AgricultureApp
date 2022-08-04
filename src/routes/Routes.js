@@ -9,8 +9,9 @@ import BottomTabNavigator from './BottomTabNavigator';
 import Signin from '../page/Signin/Signin';
 
 import { Home } from '../page/Home';
-import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail'
-import ProductDetail from '../page/Product/ProductDetail'
+import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail';
+import ProductDetail from '../page/Product/ProductDetail';
+import OrderList from '../page/Transaction/OrderList';
 
 const Stack = createStackNavigator();
 function StackNaviga() {
@@ -27,6 +28,7 @@ function StackNaviga() {
                 <Stack.Screen name="Home" component={BottomTabNavigator} options={MainPageOptionNoBack} />
                 <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
                 <Stack.Screen name="ProductDetail" component={ProductDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="OrderList" component={OrderList} options={MainPageOptionNoBack} />
             </Stack.Navigator>
         </NavigationContainer>
     );
