@@ -41,11 +41,11 @@ export default StyleSheet.create({
         marginRight: 10,
         position: 'absolute',
         backgroundColor: '#e9b266',
-        textAlign:'center',
+        textAlign: 'center',
         borderRadius: 9,
-        fontSize:12,
+        fontSize: 12,
         fontWeight: 'bold',
         top: -5,
-        left:10
+        left: 10
     },
 });

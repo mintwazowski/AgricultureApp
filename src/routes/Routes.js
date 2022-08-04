@@ -10,6 +10,7 @@ import Signin from '../page/Signin/Signin';
 
 import { Home } from '../page/Home';
 import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail'
+import ProductDetail from '../page/Product/ProductDetail'
 
 const Stack = createStackNavigator();
 function StackNaviga() {
@@ -19,26 +20,13 @@ function StackNaviga() {
         cardStyle: { backgroundColor: '#fff' },
         tabBarVisible: false
     }
-    const OptionOnlyArrowBack = {
-        title: '',
-        headerBackTitleVisible: false,
-        headerTransparent: true,
-        headerStyle: { backgroundColor: '#fff', shadowOpacity: 0, elevation: 0, },
-        cardStyle: { backgroundColor: '#fff' },
-        // headerBackImage: () => (
-        //     <Image
-        //         resizeMode={'contain'}
-        //         source={require("../../assets/icon/backappred.png")}
-        //         style={[TabBarBottomStyles.setheaderBackImage]}
-        //     />
-        // ),
-    }
     return (
         <NavigationContainer>
             <Stack.Navigator>
                 {/* <Stack.Screen name="Signin" component={Signin} options={MainPageOptionNoBack} /> */}
                 <Stack.Screen name="Home" component={BottomTabNavigator} options={MainPageOptionNoBack} />
                 <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="ProductDetail" component={ProductDetail} options={MainPageOptionNoBack} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -16,6 +16,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B015AC7B28937E4E00078C77 /* Prompt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B015AC7928937E4E00078C77 /* Prompt-Bold.ttf */; };
 		B015AC7C28937E4E00078C77 /* Prompt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B015AC7A28937E4E00078C77 /* Prompt-Regular.ttf */; };
+		B018454828993A1B00CA7EAA /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = B018454728993A1B00CA7EAA /* Fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		9F2E6C8C21D769C484FED1B9 /* libPods-AgricultureApp-AgricultureAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgricultureApp-AgricultureAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B015AC7928937E4E00078C77 /* Prompt-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Prompt-Bold.ttf"; path = "../assets/fonts/Prompt-Bold.ttf"; sourceTree = "<group>"; };
 		B015AC7A28937E4E00078C77 /* Prompt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Prompt-Regular.ttf"; path = "../assets/fonts/Prompt-Regular.ttf"; sourceTree = "<group>"; };
+		B018454728993A1B00CA7EAA /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		BD6709FC3F67819417502B12 /* Pods-AgricultureApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgricultureApp.release.xcconfig"; path = "Target Support Files/Pods-AgricultureApp/Pods-AgricultureApp.release.xcconfig"; sourceTree = "<group>"; };
 		E3BCC5A655EEC8CC43523F5E /* libPods-AgricultureApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgricultureApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -90,6 +92,7 @@
 		13B07FAE1A68108700A75B9A /* AgricultureApp */ = {
 			isa = PBXGroup;
 			children = (
+				B018454728993A1B00CA7EAA /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -156,12 +159,11 @@
 			sourceTree = "<group>";
 		};
 		C2077306EB524DEA86AACBBB /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -255,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B018454828993A1B00CA7EAA /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B015AC7B28937E4E00078C77 /* Prompt-Bold.ttf in Resources */,

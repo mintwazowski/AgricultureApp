@@ -104,6 +104,9 @@ export default StyleSheet.create({
     textCenterContent: {
         alignSelf: 'center'
     },
+    textEndContent: {
+        alignSelf: 'flex-end'
+    },
 
 
     textBD: {
@@ -152,6 +155,11 @@ export default StyleSheet.create({
     textGreen: {
         fontFamily: 'Prompt-Regular',
         color: '#448165'
+    },
+    textGreenBd: {
+        fontFamily: 'Prompt-Bold',
+        color: '#448165',
+        fontWeight: '600'
     },
     textYellow: {
         fontFamily: 'Prompt-Regular',
@@ -276,6 +284,58 @@ export default StyleSheet.create({
         color: '#fff',
         fontFamily: 'Prompt-Regular',
         textAlign: 'center',
+    },
+
+
+    btnProductDetailGreen: {
+        backgroundColor: '#448165',
+        paddingHorizontal: 10,
+        alignSelf: 'center',
+        flexDirection: 'row',
+        height: '100%',
+        marginRight: 10,
+        marginLeft: 20
+    },
+    btnProductDetailGreenText: {
+        fontSize: 12,
+        color: '#fff',
+        fontFamily: 'Prompt-Regular',
+        textAlign: 'center',
+        alignSelf: 'center'
+    },
+    btnProductDetailYellow: {
+        backgroundColor: '#e9b266',
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        alignSelf: 'center',
+        flexDirection: 'row',
+        height: '100%'
+    },
+    btnProductDetailYellowText: {
+        fontSize: 12,
+        color: '#fff',
+        fontFamily: 'Prompt-Regular',
+        textAlign: 'center',
+        alignSelf: 'center'
+    },
+
+
+
+    customBadgeYellow: {
+        width: 30,
+        height: 30,
+        borderRadius: 50,
+        backgroundColor: "#e9b266",
+        justifyContent: "center",
+        alignSelf: "center",
+    },
+    customBadgeGreen: {
+        width: 30,
+        height: 30,
+        borderRadius: 50,
+        backgroundColor: "#2eb16d",
+        justifyContent: "center",
+        alignSelf: "center",
     },
 });
 

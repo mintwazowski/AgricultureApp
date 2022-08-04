@@ -23,6 +23,10 @@ import Swiper from 'react-native-swiper'
 
 export default class Product extends Component {
 
+    onDetail() {
+        this.props.navigation.navigate('ProductDetail')
+    }
+
     render() {
         const getBannerFlashSale = [
             { id: 1, img_src: require('../../../assets/images/4.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '250' },
@@ -82,7 +86,9 @@ export default class Product extends Component {
                                     >
                                         {getBannerFlashSale.map((data, index) => {
                                             return (
-                                                <View
+                                                <TouchableOpacity
+                                                    activeOpacity={1}
+                                                    onPress={() => this.onDetail()}
                                                     style={{
                                                         backgroundColor: '#fff',
                                                         alignContent: 'center',
@@ -90,8 +96,7 @@ export default class Product extends Component {
                                                         marginLeft: '1%',
                                                         marginRight: '1%',
                                                         marginBottom: '2%',
-                                                    }}
-                                                >
+                                                    }}                                                >
                                                     <View
                                                         style={{
                                                             shadowColor: "#000",
@@ -132,7 +137,7 @@ export default class Product extends Component {
                                                             </View>
                                                         </View>
                                                     </View>
-                                                </View>
+                                                </TouchableOpacity>
                                             )
                                         })}
                                     </View>
