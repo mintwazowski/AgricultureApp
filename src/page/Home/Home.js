@@ -172,6 +172,8 @@ export default class Home extends Component {
                                                             borderRadius: 10,
                                                         }}
                                                     />
+                                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5 ,  styles.getFree ]}>ซื้อ 1 แถม 1</Text>
+                                                    
                                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
                                                 </View>
@@ -338,9 +340,12 @@ export default class Home extends Component {
                                                         height: 100,
                                                     }}
                                                 />
+                                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5 ,  styles.advance ]}>จองล่วงหน้า</Text>
+
                                                 <View style={{ paddingHorizontal: 10, paddingBottom: 10 }}>
                                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <View style={{ flexDirection: 'row' }}>
+
                                                         <View style={{ flexDirection: 'row' }}>
                                                             <Icon name='star'size={15} style={{ marginRight:5 }} color="#e9b266" />
                                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
@@ -485,5 +490,11 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
 
-    }
+    },
+    getFree : {
+        backgroundColor:'#ffd60c' , position : 'absolute' , left:3, top: -10 , paddingHorizontal : 7 
+    },
+    advance : {
+        backgroundColor:'#448165' , position : 'absolute' , left:0, top: -10 , padding : 10 , color: 'white' 
+    },
 });
