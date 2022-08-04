@@ -19,6 +19,7 @@ import Search from '../Search/Search'
 
 import MainStyles from '../../styles/MainStyles';
 import InputStyles from '../../styles/InputStyles';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class Signin extends Component {
 
@@ -63,9 +64,12 @@ export default class Signin extends Component {
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.my10]}>ลงชื่อเข้าใช้งานด้วย</Text>
                             <TouchableOpacity
                                 activeOpacity={1}
-                                style={[MainStyles.btnBlueWhite]}
+                                style={[MainStyles.btnBlueWhite , {flexDirection : 'row'}]}
                             >
-                                <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteText}>ลงชื่อเข้าใช้งานด้วยบัญชี ABC Account</Text>
+                                <Icon name='user-circle' style={{ marginHorizontal: 8 }} size={16} color="white" /> 
+                                <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteText}> 
+                                    ลงชื่อเข้าใช้งานด้วยบัญชี ABC Account
+                                </Text>
                             </TouchableOpacity>
 
                             <View style={[styles.orContent]}>

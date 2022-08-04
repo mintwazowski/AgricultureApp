@@ -20,6 +20,7 @@ import {
 import MainStyles from '../../styles/MainStyles';
 import Search from '../Search/Search'
 import Swiper from 'react-native-swiper'
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class TouristAttraction extends Component {
     onDetail() {
@@ -105,14 +106,18 @@ export default class TouristAttraction extends Component {
                                     }}
                                 />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>โหล่งฮิมคาว</Text>
-                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>โหล่งฮิมคาว' คือชุมชนงานคราฟต์ในอำเภอสันกำแพง จังหวัดเชียงใหม่</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>โหล่งฮิมคาว คือชุมชนงานคราฟต์ในอำเภอสันกำแพง จังหวัดเชียงใหม่</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={{ flexDirection: "row" }}>
-                                        <View style={{ flexDirection: "row" }}>
-                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt15]}>เชียงใหม่</Text>
+                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
+                                        
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Icon name='map-marker-alt'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>เชียงใหม่</Text>
                                         </View>
-                                        <View style={{ flex: 1, alignContent: 'flex-end', marginTop: 13 }} >
-                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]}>5</Text>
+                                        
+                                        <View style={{flex: 1 ,   alignContent: 'flex-end', flexDirection: "row"} } >
+                                            <Icon name='star'size={15} color="#e9b266" />
+                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
                                 </View>
