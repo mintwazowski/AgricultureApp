@@ -51,6 +51,7 @@ export default class TopTabNavigator extends Component {
     }
 
     onGoToMenu(type) {
+        this.setState({ showMenu: false })
         if (type === "Home") {
             this.props.navigation.navigate('Home')
         } else if (type === "TouristAttraction") {
@@ -59,8 +60,8 @@ export default class TopTabNavigator extends Component {
             this.props.navigation.navigate('Product')
         } else if (type === "SourceOfProduct") {
             this.props.navigation.navigate('SourceOfProduct')
-        } else if (type === "") {
-
+        } else if (type === "DashboardSeller") {
+            this.props.navigation.navigate('DashboardSeller')
         } else if (type === "") {
 
         }
@@ -127,50 +128,86 @@ export default class TopTabNavigator extends Component {
                                 />
                             </View>
                             <View style={[NavigatorStyles.hamMenuContent]} >
-                                <View style={[NavigatorStyles.hamMenuContentListActive]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentListActive}
+                                    onPress={() => this.onGoToMenu('Home')}
+                                >
                                     <Icon name='home' size={25} color="#fff" />
                                     <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>หน้าหลัก</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('TouristAttraction')}
+                                >
                                     <MaterialIcons name='park' size={25} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>แหล่งท่องเที่ยว</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('Product')}
+                                >
                                     <MaterialIcons name='shopping-cart' size={25} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>สินค้าเกษตร</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('SourceOfProduct')}
+                                >
                                     <Entypo name='shop' size={25} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ตลาดต้องชม ตลาดชุมชน</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('Home')}
+                                >
                                     <FontAwesome5 name='mountain' size={20} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>แหล่งผลิตสินค้าเกษตร</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('DashboardSeller')}
+                                >
                                     <FontAwesome5 name='building' size={23} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ผู้ประกอบการ Franchise</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('Home')}
+                                >
                                     <FontAwesome5 name='calendar' size={23} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>กิจกรรมงานขายสินค้าเกษตร</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('Home')}
+                                >
                                     <MaterialIcons name='location-pin' size={28} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>เส้นทางท่องเที่ยว</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
-                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={NavigatorStyles.hamMenuContentList}
+                                    onPress={() => this.onGoToMenu('Home')}
+                                >
                                     <FontAwesome5 name='phone-alt' size={20} color="#448165" />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ติดต่อเรา</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
                             </View>
 

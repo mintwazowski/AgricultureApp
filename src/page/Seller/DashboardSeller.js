@@ -17,6 +17,7 @@ import {
     Button,
 } from 'react-native';
 
+import TopTabNavigator from '../../routes/TopTabNavigator';
 import Search from '../Search/Search';
 import MainStyles from '../../styles/MainStyles';
 import ModalStyles from '../../styles/ModalStyles';
@@ -35,14 +36,38 @@ import Timeline from 'react-native-timeline-flatlist'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 export default class DashboardSeller extends Component {
-    onDetail() {
-        this.props.navigation.navigate('TouristAttractionDetail')
+
+    onRegisSeller() {
+        this.props.navigation.navigate('SellerRegister')
     }
+
+    onGoToChat() {
+        this.props.navigation.navigate('Home')
+    }
+    onGoToProduct() {
+        this.props.navigation.navigate('SellerProductList')
+    }
+    onGoToOrder() {
+        this.props.navigation.navigate('SellOrderList')
+    }
+    onGoToEent() {
+        this.props.navigation.navigate('SellerEvent')
+    }
+    onGoToTour() {
+        this.props.navigation.navigate('Home')
+    }
+
+
+
     render() {
         return (
-            <SafeAreaView style={[MainStyles.contentBG]}>
-                <ScrollView showsVerticalScrollIndicator={false} >
-                    <View style={{ flexDirection: "row", marginVertical: 30, alignSelf: 'center' }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ flex: 0.15, backgroundColor: 'white', paddingBottom: 15 }}>
+                    <TopTabNavigator navigation={this.props.navigation} />
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+
+                    <View style={{ flexDirection: "row", marginBottom: 30, alignSelf: 'center' }}>
                         <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
                             <TouchableOpacity
                                 activeOpacity={1}
@@ -54,25 +79,29 @@ export default class DashboardSeller extends Component {
                                     alignSelf: 'center',
                                 }}
                             >
-                                <Text allowFontScaling={false} style={[MainStyles.btnGreenWhiteText , MainStyles.Text18]}>Dashboard สำหรับผู้ขาย</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.btnGreenWhiteText, MainStyles.Text18]}>Dashboard สำหรับผู้ขาย</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
 
-                    
                     {/* Transaction Menu */}
-                    <View style={[styles.TransactionMenucontent , {backgroundColor:"#fdfdfd" , paddingVertical :20}]}>
-                        <View style={styles.TransactionMenucontentMenu}>
+                    <View style={[styles.TransactionMenucontent, { backgroundColor: "#fdfdfd", paddingVertical: 10 }]}>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={styles.TransactionMenucontentMenu}
+                            onPress={() => this.onGoToChat()}
+                        >
                             <View style={styles.TransactionMenucustomBadgeGray}>
                                 <MaterialIcons name='chat-bubble' style={styles.TransactionMenucustomIcon} size={22} color="#fff" />
                             </View>
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>แชท</Text>
                             <View style={styles.TransactionMenutextUnactive}></View>
-                        </View>
+                        </TouchableOpacity>
 
                         <TouchableOpacity
                             activeOpacity={1}
                             style={styles.TransactionMenucontentMenu}
+                            onPress={() => this.onGoToProduct()}
                         >
                             <View style={styles.TransactionMenucustomBadgeGreen}>
                                 <FontAwesome5 name='shopping-cart' style={styles.TransactionMenucustomIcon} size={20} color="#fff" />
@@ -84,21 +113,21 @@ export default class DashboardSeller extends Component {
                         <TouchableOpacity
                             activeOpacity={1}
                             style={styles.TransactionMenucontentMenu}
-                            onPress={() => this.onGoToNoti()}
+                            onPress={() => this.onGoToOrder()}
                         >
                             <View style={styles.TransactionMenucustomBadgeGray}>
                                 <FontAwesome5 name='store-alt' style={styles.TransactionMenucustomIcon} size={25} color="#fff" />
                             </View>
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>คำสั่งซื้อ</Text>
                             <View style={styles.TransactionMenutextUnactive}></View>
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12 , styles.notify ]}>0</Text>
+                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, styles.notify]}>0</Text>
 
                         </TouchableOpacity>
 
                         <TouchableOpacity
                             activeOpacity={1}
                             style={styles.TransactionMenucontentMenu}
-                            onPress={() => this.onGoToFav()}
+                            onPress={() => this.onGoToEent()}
                         >
                             <View style={styles.TransactionMenucustomBadgeGray}>
                                 <FontAwesome5 name='calendar-check' style={styles.TransactionMenucustomIcon} size={25} color="#fff" />
@@ -107,13 +136,17 @@ export default class DashboardSeller extends Component {
                             <View style={styles.TransactionMenutextUnactive}></View>
                         </TouchableOpacity>
 
-                        <View style={styles.TransactionMenucontentMenu}>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={styles.TransactionMenucontentMenu}
+                            onPress={() => this.onGoToTour()}
+                        >
                             <View style={styles.TransactionMenucustomBadgeGray}>
                                 <Foundation name='mountains' style={styles.TransactionMenucustomIcon} size={23} color="#fff" />
                             </View>
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>แหล่งเที่ยว</Text>
                             <View style={styles.TransactionMenutextUnactive}></View>
-                        </View>
+                        </TouchableOpacity>
                     </View >
 
                     {/* Content */}
@@ -127,46 +160,56 @@ export default class DashboardSeller extends Component {
                                 alignSelf: 'center',
                             }}
                         />
-                        <View style={{ flexDirection: 'row', width: '100%', paddingHorizontal: 7 , marginVertical:15}}>
-                            <View style={{ flexDirection: 'column', width: '50%', paddingHorizontal: 7}}>
-                                <View style={{ flexDirection: 'row', width: '100%'}}>
-                                    <View style={{ alignContent:'flex-start' }}>
+                        <View style={{ flexDirection: 'row', width: '100%', paddingHorizontal: 7, marginVertical: 15 }}>
+                            <View style={{ flexDirection: 'column', width: '50%', paddingHorizontal: 7 }}>
+                                <View style={{ flexDirection: 'row', width: '100%' }}>
+                                    <View style={{ alignContent: 'flex-start' }}>
                                         <View style={styles.TransactionMenucustomYellow}>
                                             <Fontisto name='shopping-basket' style={styles.TransactionMenucustomIcon} size={22} color="#fff" />
                                         </View>
                                     </View>
-                                    <View style={{ alignItems:'center' ,  width: '80%'}}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18 , {marginTop:10}]}>คำสั่งซื้อ</Text>
+                                    <View style={{ alignItems: 'center', width: '80%' }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, { marginTop: 10 }]}>คำสั่งซื้อ</Text>
                                     </View>
                                 </View>
-                                
-                                <View style={{ flexDirection: 'row', width: '100%', justifyContent:'center' , alignSelf:'center' , backgroundColor:'#e9b266' , paddingVertical:10 , marginTop:10 }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text20 , {color:'#fff'}]}>XX</Text>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12 , {marginTop:5 , marginLeft:15 , color:'#fff'}]}>รายการ</Text>
+
+                                <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'center', alignSelf: 'center', backgroundColor: '#e9b266', paddingVertical: 10, marginTop: 10 }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text20, { color: '#fff' }]}>XX</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, { marginTop: 5, marginLeft: 15, color: '#fff' }]}>รายการ</Text>
                                 </View>
                             </View>
-                            <View style={{ flexDirection: 'column', width: '50%', paddingHorizontal: 7}}>
+                            <View style={{ flexDirection: 'column', width: '50%', paddingHorizontal: 7 }}>
                                 <View style={{ flexDirection: 'row', width: '100%' }}>
-                                    <View style={{ alignContent:'flex-start' }}>
-                                        <View style={[styles.TransactionMenucustomGreen ]}>
+                                    <View style={{ alignContent: 'flex-start' }}>
+                                        <View style={[styles.TransactionMenucustomGreen]}>
                                             <Fontisto name='shopping-basket' style={styles.TransactionMenucustomIcon} size={22} color="#fff" />
                                         </View>
                                     </View>
-                                    <View style={{ alignItems:'center' ,  width: '80%' }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18 , {marginTop:10}]}>จองกิจกรรม</Text>
+                                    <View style={{ alignItems: 'center', width: '80%' }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, { marginTop: 10 }]}>จองกิจกรรม</Text>
                                     </View>
                                 </View>
-                                
-                                <View style={{ flexDirection: 'row', width: '100%', justifyContent:'center' , alignSelf:'center' , backgroundColor:'#448165' , paddingVertical:10 , marginTop:10 }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text20 , {color:'#fff'}]}>XX</Text>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12 , {marginTop:5 , marginLeft:15 , color:'#fff'}]}>รายการ</Text>
+
+                                <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'center', alignSelf: 'center', backgroundColor: '#448165', paddingVertical: 10, marginTop: 10 }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text20, { color: '#fff' }]}>XX</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, { marginTop: 5, marginLeft: 15, color: '#fff' }]}>รายการ</Text>
                                 </View>
                             </View>
-                
+
                         </View>
+
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={[MainStyles.btnCartGreen, { marginRight: 10, flexDirection: 'row', justifyContent: 'center' }]}
+                            onPress={() => this.onRegisSeller()}
+                        >
+                            <Text allowFontScaling={false} style={[MainStyles.btnLoadMoreText, { marginLeft: 10 }]}>สมัคร</Text>
+                        </TouchableOpacity>
+
                     </View>
+
                 </ScrollView>
-            </SafeAreaView>
+            </View>
         );
     }
 }
@@ -307,16 +350,16 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         flexDirection: 'row',
     },
-    notify:{
-        backgroundColor:'#cc3300' , 
-        position : 'absolute' , 
-        right:8, 
-        top: -5 , 
-        paddingHorizontal : 7 , 
-        color:'white' , 
-        borderRadius:50 , 
-        fontSize:15,
-        width:23 , 
-        height:23 
+    notify: {
+        backgroundColor: '#cc3300',
+        position: 'absolute',
+        right: 8,
+        top: -5,
+        paddingHorizontal: 7,
+        color: 'white',
+        borderRadius: 50,
+        fontSize: 15,
+        width: 23,
+        height: 23
     }
 });

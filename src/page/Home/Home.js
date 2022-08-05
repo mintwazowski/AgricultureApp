@@ -76,8 +76,8 @@ export default class Home extends Component {
         ]
 
         return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
-                <View style={{ flex: 0.15 }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ flex: 0.15, backgroundColor: 'white', paddingBottom: 15 }}>
                     <TopTabNavigator navigation={this.props.navigation} />
                 </View>
                 <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>

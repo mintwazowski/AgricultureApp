@@ -303,9 +303,38 @@ export default StyleSheet.create({
         alignSelf: 'center',
         marginTop: 15
     },
+    btnCartGreen2: {
+        width: '100%',
+        backgroundColor: '#448165',
+        borderRadius: 20,
+        padding: 5,
+        marginTop: 15
+    },
+    btnCartGreen3: {
+        width: '80%',
+        backgroundColor: '#448165',
+        borderRadius: 20,
+        padding: 7,
+        marginTop: 15
+    },
+    btnCartGreen4: {
+        width: '55%',
+        backgroundColor: '#448165',
+        borderRadius: 20,
+        padding: 7,
+        marginTop: 15
+    },
     btnCartYellow: {
         width: '40%',
         backgroundColor: '#e9b266',
+        borderRadius: 20,
+        padding: 7,
+        alignSelf: 'center',
+        marginTop: 15
+    },
+    btnCartGray: {
+        width: '40%',
+        backgroundColor: 'rgba(153, 153, 153, 1)',
         borderRadius: 20,
         padding: 7,
         alignSelf: 'center',
@@ -368,6 +397,44 @@ export default StyleSheet.create({
         alignSelf: 'center'
     },
 
+    btnGreenSmall: {
+        backgroundColor: '#448165',
+        paddingVertical: 15,
+        alignSelf: 'center',
+        width: '100%'
+    },
+    btnYellowSmall: {
+        backgroundColor: '#e9b266',
+        paddingVertical: 15,
+        alignSelf: 'center',
+        width: '100%'
+    },
+    btnGreenSmallBor: {
+        backgroundColor: '#448165',
+        paddingVertical: 15,
+        alignSelf: 'center',
+        width: '100%',
+        borderRadius: 9
+    },
+    btnYellowSmallBor: {
+        backgroundColor: '#e9b266',
+        paddingVertical: 15,
+        alignSelf: 'center',
+        width: '100%',
+        borderRadius: 9
+    },
+    btnSmall: {
+        fontSize: 10,
+        color: '#fff',
+        fontFamily: 'Prompt-Regular',
+        textAlign: 'center',
+    },
+    btnSmallBor: {
+        fontSize: 12,
+        color: '#fff',
+        fontFamily: 'Prompt-Regular',
+        textAlign: 'center',
+    },
 
 
     customBadgeYellow: {

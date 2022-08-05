@@ -9,7 +9,6 @@ import Product from '../page/Product/Product';
 import Event from '../page/Event/Event';
 import SourceOfProductMain from '../page/SourceOfProduct/SourceOfProductMain';
 import TouristAttraction from '../page/TouristAttraction/TouristAttraction';
-import DashboardSeller from '../page/Seller/DashboardSeller';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
