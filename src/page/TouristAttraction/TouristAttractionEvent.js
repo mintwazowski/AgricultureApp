@@ -18,7 +18,6 @@ import {
 } from 'react-native';
 
 import MainStyles from '../../styles/MainStyles';
-import ModalStyles from '../../styles/ModalStyles';
 import Search from '../Search/Search'
 import Swiper from 'react-native-swiper'
 import Fontisto from 'react-native-vector-icons/Fontisto';
@@ -29,83 +28,9 @@ import * as Progress from 'react-native-progress';
 
 import { Rating } from 'react-native-ratings';
 import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
-import ModalLib from 'react-native-modal';
-
-export default class TouristAttractionDetail extends Component {
-    state = {
-        isAlert: null
-    }
-
-    onEventAndLocation(type, info) {
-        alert = (<ModalLib isVisible={true}>
-            <View style={ModalStyles.ModalEvent}>
-                <View style={{ flexDirection: 'row', alignSelf: 'center', marginBottom: 10 }}>
-                    <Image
-                        resizeMode={'cover'}
-                        source={require('../../../assets/placeholder.jpg')}
-                        style={{
-                            width: '100%',
-                            height: 35,
-                            alignSelf: 'center',
-                        }}
-                    />
-                </View>
-                <Text allowFontScaling={false} style={[ModalStyles.Text18 , MainStyles.textGreen]}>Title</Text>
-                <Text allowFontScaling={false} style={[ModalStyles.Text10 , MainStyles.textGrayLight]}>Sub title</Text>
-                <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
-                    <View style={{ flexDirection: "row"}}>
-                        <Fontisto name='map-marker-alt' size={22} style={{ paddingHorizontal:20 , alignSelf:'center' }} />
-                        {/* <View style={{ flexDirection: "column" }}> */}
-                            <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGray]}>259 หมู่ 4 บ้านขัวแคร่ ถนนไฮเวย์เชียงใหม่-ลำปาง ตำบลศรีบัวบาน อำเภอเมือง จังหวัดลำพูน  
-                            <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textGreenBd ]}> &emsp; ดูแผนที่
-                            </Text>
-                            </Text>
-
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View style={{ flexDirection: "row"}}>
-                        <FontAwesome5 name='phone-alt' size={22} style={{ paddingHorizontal:20 , alignSelf:'center' }} />
-                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>087-3043220 , 089-6351607</Text>
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View style={{ flexDirection: "row"}}>
-                        <Fontisto name='email' size={22} style={{ paddingHorizontal:20 , alignSelf:'center' }} />
-                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>sale@lamphunthaisilk.com</Text>
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View style={{ flexDirection: "row"}}>
-                        <FontAwesome5 name='globe-asia' size={22} style={{ paddingHorizontal:20 , alignSelf:'center' }} />
-                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>http://www.lamphunthaisilk.com</Text>
-                    </View>
-
-                </View>
-                <View style={ModalStyles.content2Button}>
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        style={ModalStyles.btnOneYellow}
-                        onPress={() => this.onNextToCart()}
-                    >
-                         <View style={{ flexDirection: "row", justifyContent:'center'}}>
-                            <FontAwesome5 name='stamp' size={20} color="#fff" style={{ marginHorizontal: 15}} />
-                            <Text allowFontScaling={false} style={ModalStyles.btnOneText}>จองเข้าร่วมกิจกรรม</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        style={ModalStyles.btnOneBlue}
-                        onPress={() => this.onNextToProductAgain()}
-                    >
-                        <View style={{ flexDirection: "row", justifyContent:'center'}}>
-                            <FontAwesome5 name='comment-dots' size={20} color="#fff" style={{ marginHorizontal: 15}} />
-                            <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ส่งข้อความ</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </ModalLib>)
-        this.setState({
-            isAlert: alert,
-        });
+export default class TouristAttractionEvent extends Component {
+    onEventAndLocation() {
+        this.props.navigation.navigate('TouristAttractionEvent')
     }
 
     constructor(props) {
@@ -154,7 +79,7 @@ export default class TouristAttractionDetail extends Component {
 
     render() {
 
-        const { col, cards , isAlert } = this.state;
+        const { col, cards } = this.state;
 
         const getFavProduct = [
             { id: 1, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 5 },
@@ -218,7 +143,6 @@ export default class TouristAttractionDetail extends Component {
         return (
 
             <SafeAreaView style={[MainStyles.contentBG]}>
-                {isAlert}
                 <View style={[MainStyles.contentBG, MainStyles.mx15]}>
                     <ScrollView showsVerticalScrollIndicator={false} >
                         {/* Content */}

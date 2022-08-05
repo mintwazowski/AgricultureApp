@@ -10,6 +10,15 @@ export default StyleSheet.create({
         borderRadius: 7,
     },
 
+    ModalEvent: {
+        paddingTop: 10,
+        paddingBottom: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+        backgroundColor: '#fff',
+        borderRadius: 9,
+    },
+
     ModalTitle: {
         fontSize: 20,
         color: '#33333',
@@ -41,6 +50,13 @@ export default StyleSheet.create({
     btnOneYellow: {
         width: '100%',
         backgroundColor: '#e9b266',
+        borderRadius: 40,
+        padding: 7,
+        marginTop: 10
+    },
+    btnOneBlue: {
+        width: '100%',
+        backgroundColor: '#000066',
         borderRadius: 40,
         padding: 7,
         marginTop: 10

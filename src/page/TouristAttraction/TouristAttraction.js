@@ -20,7 +20,7 @@ import {
 import MainStyles from '../../styles/MainStyles';
 import Search from '../Search/Search'
 import Swiper from 'react-native-swiper'
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class TouristAttraction extends Component {
     onDetail() {
@@ -93,7 +93,7 @@ export default class TouristAttraction extends Component {
                             <TouchableOpacity
                                 activeOpacity={1}
                                 onPress={() => this.onDetail()}
-                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingRight: 7 }}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%'}}
                             >
 
                                 <Image
@@ -105,18 +105,18 @@ export default class TouristAttraction extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
+                                <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>โหล่งฮิมคาว</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>โหล่งฮิมคาว คือชุมชนงานคราฟต์ในอำเภอสันกำแพง จังหวัดเชียงใหม่</Text>
                                 <View style={[MainStyles.textBD]}>
                                     <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
-                                        
                                         <View style={ {flexDirection: "row"}}>
-                                            <Icon name='map-marker-alt'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
                                             <Text style={[MainStyles.textGreen, MainStyles.Text14]}>เชียงใหม่</Text>
                                         </View>
                                         
-                                        <View style={{flex: 1 ,   alignContent: 'flex-end', flexDirection: "row"} } >
-                                            <Icon name='star'size={15} color="#e9b266" />
+                                        <View style={[MainStyles.textAlignRight , {flex: 1 , flexDirection: "row" , justifyContent:'flex-end' , paddingEnd:15}] } >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
                                             <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
@@ -134,22 +134,26 @@ export default class TouristAttraction extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
+                                <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>เก็บชาเขียวหอมกรุ่น</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>ชาอู่หลงยอดน้ำค้าง คือชาที่เก็บเฉพาะช่วงฤดูหนาวที่มีน้ำค้างลง</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={{ flexDirection: "row" }}>
-                                        <View style={{ flexDirection: "row" }}>
-                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt15]}>เชียงราย</Text>
+                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>เชียงราย</Text>
                                         </View>
-                                        <View style={{ flex: 1, alignContent: 'flex-end', marginTop: 13 }} >
-                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]}>5</Text>
+                                        
+                                        <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
                                 </View>
                             </View>
                         </View>
                         <View style={{ flexDirection: "row", marginTop: 15 }}>
-                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingRight: 7 }}>
+                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%' }}>
                                 <Image
                                     resizeMode={'cover'}
                                     source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u101.png?token=09248a6cf9ea1bf538848901f87aa2a44ed5baf95bd9a18e60567b72d29ba6fb' }}
@@ -159,15 +163,19 @@ export default class TouristAttraction extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
+                                <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>บ้านหัตถกรรมไม้แกะสลัก</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>บ้านถวาย ถือว่าเป็นแหล่งท่องเที่ยวทางวัฒนธรรมที่ขึ้นชื่อที่สุดแห่งหนึ่ง</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={{ flexDirection: "row" }}>
-                                        <View style={{ flexDirection: "row" }}>
-                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt15]}>เชียงใหม่</Text>
+                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>เชียงใหม่</Text>
                                         </View>
-                                        <View style={{ flex: 1, alignContent: 'flex-end', marginTop: 13 }} >
-                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]}>5</Text>
+                                        
+                                        <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -183,15 +191,19 @@ export default class TouristAttraction extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
+                                <Icon name='heart-o' size={20} style={ [styles.heartIcon , {paddingHorizontal:8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ครามสกล</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>ถ้าพูกถึงครามต้องนึกถึง ครามสกลซึ่งเป็นจุดจำหน่ายผลิตภัณฑ์ฝ้ายย้อม</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={{ flexDirection: "row" }}>
-                                        <View style={{ flexDirection: "row" }}>
-                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt15]}>สกลนคร</Text>
+                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>สกลนคร</Text>
                                         </View>
-                                        <View style={{ flex: 1, alignContent: 'flex-end', marginTop: 13 }} >
-                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]}>5</Text>
+                                        
+                                        <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -250,5 +262,8 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 30,
         fontWeight: 'bold'
-    }
+    },
+    heartIcon : {
+        position : 'absolute' , right:5, top: 5 , color:'white'
+    },
 });

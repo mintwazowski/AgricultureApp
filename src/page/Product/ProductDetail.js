@@ -407,7 +407,7 @@ export default class ProductDetail extends Component {
                                 <View style={{ width: '45%', justifyContent: 'center' }}>
                                     <Progress.Bar
                                         progress={0.8}
-                                        borderWidth={false}
+                                        borderWidth={0}
                                         color='#448165'
                                         unfilledColor='#rgba(228, 228, 228, 1)'
                                     />
@@ -427,7 +427,7 @@ export default class ProductDetail extends Component {
                                 <View style={{ width: '45%', justifyContent: 'center' }}>
                                     <Progress.Bar
                                         progress={0.8}
-                                        borderWidth={false}
+                                        borderWidth={0}
                                         color='#448165'
                                         unfilledColor='#rgba(228, 228, 228, 1)'
                                     />
@@ -447,7 +447,7 @@ export default class ProductDetail extends Component {
                                 <View style={{ width: '45%', justifyContent: 'center' }}>
                                     <Progress.Bar
                                         progress={0.8}
-                                        borderWidth={false}
+                                        borderWidth={0}
                                         color='#448165'
                                         unfilledColor='#rgba(228, 228, 228, 1)'
                                     />

@@ -319,8 +319,8 @@ export default StyleSheet.create({
         alignSelf: 'center',
         flexDirection: 'row',
         height: '100%',
-        marginRight: 10,
-        marginLeft: 20
+        marginRight: 0,
+        marginLeft: 0
     },
     btnProductDetailGreenText: {
         fontSize: 12,
@@ -329,9 +329,24 @@ export default StyleSheet.create({
         textAlign: 'center',
         alignSelf: 'center'
     },
+    btnProductDetailGreenRadius: {
+        backgroundColor: '#448165',
+        paddingHorizontal: 8,
+        alignSelf: 'center',
+        flexDirection: 'row',
+        height: '100%',
+        borderRadius:9
+    },
+    btnProductDetailGreenRadiusText: {
+        fontSize: 12,
+        color: '#fff',
+        fontFamily: 'Prompt-Regular',
+        textAlign: 'center',
+        alignSelf: 'center'
+    },
     btnProductDetailYellow: {
         backgroundColor: '#e9b266',
-        paddingVertical: 5,
+        // paddingVertical: 5,
         paddingHorizontal: 10,
         alignSelf: 'center',
         flexDirection: 'row',
