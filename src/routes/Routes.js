@@ -10,6 +10,7 @@ import Signin from '../page/Signin/Signin';
 
 import { Home } from '../page/Home';
 import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail';
+import DashboardSeller from '../page/Seller/DashboardSeller';
 import ProductDetail from '../page/Product/ProductDetail';
 import OrderList from '../page/Transaction/OrderList';
 import Favorite from '../page/Transaction/Favorite';
@@ -29,6 +30,7 @@ function StackNaviga() {
                 {/* <Stack.Screen name="Signin" component={Signin} options={MainPageOptionNoBack} /> */}
                 <Stack.Screen name="Home" component={BottomTabNavigator} options={MainPageOptionNoBack} />
                 <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="DashboardSeller" component={DashboardSeller} options={MainPageOptionNoBack} />
                 <Stack.Screen name="ProductDetail" component={ProductDetail} options={MainPageOptionNoBack} />
                 <Stack.Screen name="OrderList" component={OrderList} options={MainPageOptionNoBack} />
                 <Stack.Screen name="Favorite" component={Favorite} options={MainPageOptionNoBack} />

@@ -9,6 +9,8 @@ import Product from '../page/Product/Product';
 import Event from '../page/Event/Event';
 import SourceOfProduct from '../page/SourceOfProduct/SourceOfProduct';
 import TouristAttraction from '../page/TouristAttraction/TouristAttraction';
+import DashboardSeller from '../page/Seller/DashboardSeller';
+
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
@@ -96,8 +98,8 @@ const BottomTabNavigator = () => {
                 hideTabBar={true}
             />
             <Tab.Screen
-                name="TouristAttraction"
-                component={TouristAttraction}
+                name="DashboardSeller"
+                component={DashboardSeller}
                 options={{
                     tabBarLabel: ({ focused }) => (
                         <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> สถานที่ท่องเที่ยว </Text>

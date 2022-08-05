@@ -24,8 +24,10 @@ import Swiper from 'react-native-swiper'
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/AntDesign';
 import * as Progress from 'react-native-progress';
+import RNPickerSelect from 'react-native-picker-select';
 
 import { Rating } from 'react-native-ratings';
 import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
@@ -33,7 +35,201 @@ import ModalLib from 'react-native-modal';
 
 export default class TouristAttractionDetail extends Component {
     state = {
-        isAlert: null
+        isAlert: null,
+        images : [
+            {
+                src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRpGmKrfBFE90_MyomlXre9OJhLyjMvfGm5w&usqp=CAU",
+                id: "12345"
+            }, {
+                src: "https://st.depositphotos.com/1007995/1274/i/600/depositphotos_12746726-stock-photo-fashion-man-wearing- sunglasses-thinking.jpg",
+                id: "12346"
+            }, {
+                src: "https://i.pinimg.com/736x/36/fc/e9/36fce9ed325c3303d858b01257bd76c3.jpg",
+                id: "12347"
+            }
+        ]
+    }
+
+    onEventReservation() {
+        alert = (<ModalLib isVisible={true}>
+            <View style={ModalStyles.ModalEvent}>
+                <ScrollView showsVerticalScrollIndicator={false} >
+                    <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+                        <Text allowFontScaling={false} style={[ModalStyles.Text20 , MainStyles.textGreen , MainStyles.textAlignLeft]}>ยืนยันการจองเข้าร่วมกิจกรรม</Text>
+                        <TouchableOpacity
+                                activeOpacity={1}
+                                style={{
+                                    width: '35%',
+                                    backgroundColor: '#448165',
+                                    borderRadius: 9,
+                                    paddingVertical: 5,
+                                    alignSelf: 'center',
+                                }}
+                            >
+                                <View style={{justifyContent:'center', flexDirection: "row"} } >
+                                    <MaterialIcons name='contacts' size={16} color="#fff" style={{ paddingRight: 8 }}/>
+                                    <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>ติดต่อสถานที่</Text>
+                                </View>
+                            </TouchableOpacity>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+                        <Image
+                            resizeMode={'cover'}
+                            source={require('../../../assets/placeholder.jpg')}
+                            style={{
+                                width: '30%',
+                                height: 85,
+                                alignSelf: 'center',
+                                borderRadius: 9,
+                            }}
+                        />
+                        <View style={{justifyContent:'center', flexDirection: "column" , paddingLeft:5, flexShrink: 1 } } >
+                            <Text allowFontScaling={false} style={[MainStyles.textGray , ModalStyles.mb5]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
+                            <Text allowFontScaling={false} style={[MainStyles.textGrayLight , {fontSize:10}]}>ผ้าไทย ถือเป็นหัตถกรรมและหัตถศิลป์มรดกอันล้ำค่าของเมืองไทย มีความงดงามของเส้นไหมที่เป็นเอกลักษณ์</Text>
+                            <View style={{ flexDirection: "row" , paddingLeft:5}}>
+                                <View style={{ flexDirection: "row" , paddingLeft:5}}>
+                                    <Fontisto name='map-marker-alt' size={16} style={{ paddingRight: 8 }}/>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGrayLight ,ModalStyles.Text10]}>province</Text>
+                                </View>
+                                <View style={{ alignItems:'flex-end' , flex:1 , paddingTop:5}}>
+                                    <Rating
+                                        type='star'
+                                        ratingCount={5}
+                                        imageSize={13}
+                                        isDisabled={true}
+                                    />
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={MainStyles.BorderBottomGrayWhite}></View>
+                    <View>
+                        <Text allowFontScaling={false} style={[ModalStyles.Text18 , MainStyles.textGray]}>รายละเอียด</Text>
+                        <View style={{ flexDirection: 'row' , paddingLeft:10 , marginTop:5}}>
+                            <Text allowFontScaling={false} style={[{fontSize:10} , MainStyles.textGrayLight]}>วันเสาร์ที่ 27 พฤศจิกายน 2564</Text>
+                            <View style={{ alignItems:'flex-end' , flex:1 }}>
+                                <Text allowFontScaling={false} style={[{fontSize:10}, MainStyles.textGrayLight]}>เวลา 08.00 น. - 10.00 น.</Text>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row' , paddingLeft:10 , marginTop:5}}>
+                            <Text allowFontScaling={false} style={[{fontSize:10} , MainStyles.textGrayLight]}>เข้าร่วมกิจกรรม  50.00 บาท  x 8 คน (ผู้ใหญ่)</Text>
+                            <View style={{ alignItems:'flex-end' , flex:1 }}>
+                                <Text allowFontScaling={false} style={[{fontSize:10}, MainStyles.textGrayLight]}>500.00 บาท</Text>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row' , paddingLeft:10 , marginTop:5}}>
+                            <Text allowFontScaling={false} style={[{fontSize:10} , MainStyles.textGrayLight]}>เข้าร่วมกิจกรรม  50.00 บาท  x 2 คน (เด็ก)</Text>
+                            <View style={{ alignItems:'flex-end' , flex:1 }}>
+                                <Text allowFontScaling={false} style={[{fontSize:10}, MainStyles.textGrayLight]}>500.00 บาท</Text>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row' , paddingLeft:10 , marginTop:5}}>
+                            <Text allowFontScaling={false} style={[{fontSize:10} , MainStyles.textGrayLight]}>อาหารเช้า  30.00 บาท  x 10 คน</Text>
+                            <View style={{ alignItems:'flex-end' , flex:1 }}>
+                                <Text allowFontScaling={false} style={[{fontSize:10}, MainStyles.textGrayLight]}>300.00 บาท</Text>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row' , marginTop:5 }}>
+                            <Text allowFontScaling={false} style={[{fontSize:12} , MainStyles.textGray]}>รวม</Text>
+                            <View style={{ alignItems:'flex-end' , flex:1 }}>
+                                <Text allowFontScaling={false} style={[{fontSize:12}, MainStyles.textGray]}>800.00 บาท</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={MainStyles.BorderBottomGrayWhite}></View>
+                    <View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text allowFontScaling={false} style={[{fontSize:12} , MainStyles.textGray]}>หมายเหตุ : เจ้าของสถานที่ต้องตอบรับคำขอจองเข้าร่วมกิจกรรมก่อน การยืนยันจองเข้าร่วมกิจกรรมจึงจะสมบูรณ์ (ภายใน 24 ชั่วโมง)</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' , marginTop:15 }}>
+                            <Text allowFontScaling={false} style={[{fontSize:12} , MainStyles.textGray]}>นโยบายการยกเลิกจองเข้าร่วมกิจกรรม ดูข้อมูลเพิ่มเติม</Text>
+                        </View>
+                    </View>
+                    <View>
+                        <View style={{ flexDirection: 'column' , marginTop:10}}>
+                            <Text allowFontScaling={false} style={[{fontSize:16} , MainStyles.textGray]}>กิจกรรมของคุณ</Text>
+                            <View style={{ flexDirection: 'row' , marginVertical:10 }}>
+                                <MaterialIcons name='event' size={22} color="#000" style={{ paddingHorizontal:10 , alignSelf:'center' }} />
+                                <Text allowFontScaling={false} style={[{fontSize:14} , MainStyles.textGray]}>วันที่และระยะเวลาร่วมกิจกรรม</Text>
+                            </View>
+                            <RNPickerSelect
+                                allowFontScaling={false}
+                                useNativeAndroidPickerStyle={false}
+                                style={SelectHaveBorderStyles}
+                                items={[
+                                    { label: '1 คน', value: '1 คน' },
+                                    { label: '5 คน', value: '5 คน' },
+                                    { label: '10 คน', value: '10 คน' },
+                                ]}
+                                onValueChange={(value) => console.log(value)}
+                                placeholder={{ label: "วันเสาร์ที่ 27 พฤศจิกายน 2564 เวลา 08.00 - 10.00 น." }}
+                            />
+                        </View>
+                        <View style={{ flexDirection: 'column' }}>
+                            <View style={{ flexDirection: 'row' , marginVertical:10 }}>
+                                <FontAwesome5 name='users' size={20} color="#000" style={{ paddingHorizontal:10 , alignSelf:'center' }} />
+                                <Text allowFontScaling={false} style={[{fontSize:14} , MainStyles.textGray]}>ผู้เข้าร่วมกิจกรรม</Text>
+                            </View>
+                            <RNPickerSelect
+                                allowFontScaling={false}
+                                useNativeAndroidPickerStyle={false}
+                                style={SelectHaveBorderStyles}
+                                items={[
+                                    { label: '1 คน', value: '1 คน' },
+                                    { label: '5 คน', value: '5 คน' },
+                                    { label: '10 คน', value: '10 คน' },
+                                ]}
+                                onValueChange={(value) => console.log(value)}
+                                placeholder={{ label: "ผู้เข้าร่วม 10 คน" }}
+                            />
+                        </View>
+                        <View style={{ flexDirection: 'column' }}>
+                            <View style={{ flexDirection: 'row' , marginVertical:10 }}>
+                                <MaterialIcons name='fastfood' size={22} color="#000" style={{ paddingHorizontal:10 , alignSelf:'center' }} />
+                                <Text allowFontScaling={false} style={[{fontSize:14} , MainStyles.textGray]}>อาหารและเครื่องดื่ม</Text>
+                            </View>
+                            <RNPickerSelect
+                                allowFontScaling={false}
+                                useNativeAndroidPickerStyle={false}
+                                style={SelectHaveBorderStyles}
+                                items={[
+                                    { label: '1 คน', value: '1 คน' },
+                                    { label: '5 คน', value: '5 คน' },
+                                    { label: '10 คน', value: '10 คน' },
+                                ]}
+                                onValueChange={(value) => console.log(value)}
+                                placeholder={{ label: "อาหารเช้า 10 คน" }}
+                            />
+                        </View>
+                        <View style={{ flexDirection: 'column' , marginTop:10}}>
+                            <Text allowFontScaling={false} style={[{fontSize:16} , MainStyles.textGray]}>ข้อควรทราบ</Text>
+
+                            <View style={{ flexDirection: 'column' , marginTop:10 , alignItems:'center'}}>
+                                <Text allowFontScaling={false} style={[{fontSize:12} , MainStyles.textGray]}>การเลือกปุ่มด้านข้างถือเป็นการยอมรับการจองเข้าร่วมกิจกรรม การสละสิทธิ์และยกเว้นความรับผิดของผู้เข้าร่วม นโยบายยกเลิกการจองและคำแนะนำว่าด้วยการรักษาระยะห่าง ระหว่างบุคคลและ COVID-19</Text>
+                            </View>
+
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={{
+                                    width: '60%',
+                                    backgroundColor: '#2eb16d',
+                                    borderRadius: 9,
+                                    paddingVertical: 9,
+                                    alignSelf: 'center',
+                                    marginTop:15
+                                }}
+                            >
+                                <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>ยืนยันการจองเข้าร่วมกิจกรรม</Text>
+                            </TouchableOpacity>
+                           
+                        </View>
+                    </View>
+                </ScrollView>
+            </View>
+        </ModalLib>)
+        this.setState({
+            isAlert: alert,
+        });
     }
 
     onEventAndLocation(type, info) {
@@ -152,9 +348,11 @@ export default class TouristAttractionDetail extends Component {
         });
     }
 
+    
     render() {
 
         const { col, cards , isAlert } = this.state;
+
 
         const getFavProduct = [
             { id: 1, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 5 },
@@ -224,6 +422,9 @@ export default class TouristAttractionDetail extends Component {
                         {/* Content */}
                         <View style={{ flex: 1, marginTop: 15 }}>
                             <View style={{ flexDirection: "row", marginTop: 15 }}>
+
+
+
                                 <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingRight: 7 }}>
                                     <Image
                                         resizeMode={'cover'}
@@ -328,9 +529,151 @@ export default class TouristAttractionDetail extends Component {
                                         <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGray]}>1 Day Workshop</Text>
                                         <Text allowFontScaling={false} style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>กลับคืนสู่ธรรมชาติ กับเครื่องนุ่งห่มที่ย้อมสีผ้าจากวัสดุธรรมชาติ ใช้วัสดุจากธรรมชาติซึ่งมีอยู่รอบๆ ตัว ใบไม้ กิ่งไม้ ผลไม้ ดอกไม้ ได้สีสันสวยเป็นธรรมชาติ และลวดลายที่ไม่ซ้ำใคร ออกแบบอย่างเป็นตัวเอง การย้อมผ้าเป็นศิลปะอย่างหนึ่งที่อยู่คู่กับเรามาอย่างยาวนานเป็นเรื่องพื้นฐานของทุกๆบ้าน เมื่อความเจริญมาถึงมนุษย์ก็ออกห่างจากกิจกรรมนี้ไปเรื่อยๆ การย้อมผ้าเป็น กิจกรรมที่สนุกและตื่นเต้นทุกขั้นตอน ที่จะได้แต่ละลวดลายและสีสันออกมา</Text>
                                     </View>
-                                    <View style={{ flex: 1, marginTop: 20 }}>
+                                    <View style={{ flex: 1, marginTop: 10 }}>
                                         <Text allowFontScaling={false} style={[MainStyles.Text20, MainStyles.textAlignLeft, MainStyles.textGreen, MainStyles.mb20]}>จองเข้าร่วมกิจกรรม</Text>
+                                        <View style={{
+                                            flexDirection:'row',
+                                            width:'100%'
+                                        }}>
+                                            <View style={{width:'50%'}}>
+                                                <View style={[SelectBorderStyles.selectForBank]}>
+                                                    <Text style={[MainStyles.textGrayLight , MainStyles.Text14]}>วันที่</Text>
+                                                </View>
+                                                <RNPickerSelect
+                                                    allowFontScaling={false}
+                                                    useNativeAndroidPickerStyle={false}
+                                                    style={SelectBorderStyles}
+                                                    items={[
+                                                        { label: 'Football', value: 'football' },
+                                                        { label: 'Baseball', value: 'baseball' },
+                                                        { label: 'Hockey', value: 'hockey' },
+                                                    ]}
+                                                    onValueChange={(value) => console.log(value)}
+                                                    placeholder={{ label: "วันที่จอง" }}
+                                                />
+                                            </View>
 
+                                            <View style={{width:'50%'}}>
+                                                <View style={[SelectBorderStyles.selectForBank]}>
+                                                    <Text style={[MainStyles.textGrayLight , MainStyles.Text14]}>ผู้เข้าร่วม</Text>
+                                                </View>
+                                                <RNPickerSelect
+                                                    allowFontScaling={false}
+                                                    useNativeAndroidPickerStyle={false}
+                                                    style={SelectBorderStyles}
+                                                    items={[
+                                                        { label: '1 คน', value: '1 คน' },
+                                                        { label: '5 คน', value: '5 คน' },
+                                                        { label: '10 คน', value: '10 คน' },
+                                                    ]}
+                                                    onValueChange={(value) => console.log(value)}
+                                                    placeholder={{ label: "จำนวน" }}
+                                                />
+                                            </View>
+
+                                        </View>
+
+                                        <View style={{
+                                            flexDirection:'row',
+                                            width:'100%',
+                                            marginBottom:15
+                                        }}>
+                                            <View style={{width:'60%'}}>
+                                                <Text style={[MainStyles.textGray , MainStyles.Text14]}>• รอบ 13.00 น. - 15.00 น.</Text>
+                                            </View>
+                                            <View style={{width:'40%' ,flexDirection:'row'}}>
+                                                <Text style={[MainStyles.textGray , MainStyles.Text14]}>50 บาท /คน</Text>
+                                                <TouchableOpacity
+                                                    activeOpacity={1}
+                                                    style={{
+                                                        width: '40%',
+                                                        backgroundColor: '#448165',
+                                                        borderRadius: 9,
+                                                        paddingVertical: 5,
+                                                        marginLeft:7,
+                                                        alignSelf: 'center',
+                                                        alignContent:'center'
+                                                    }}
+                                                    onPress={() => this.onEventReservation()}
+                                                >
+                                                        <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>จอง</Text>
+
+                                                </TouchableOpacity>
+                                            </View>
+                                        </View>
+                                        <View style={{
+                                            flexDirection:'row',
+                                            width:'100%',
+                                            marginBottom:15
+                                        }}>
+                                            <View style={{width:'60%'}}>
+                                                <Text style={[MainStyles.textGray , MainStyles.Text14]}>• รอบ 08.00 น. - 10.00 น.</Text>
+                                            </View>
+                                            <View style={{width:'40%' ,flexDirection:'row'}}>
+                                                <Text style={[MainStyles.textGray , MainStyles.Text14]}>50 บาท /คน</Text>
+                                                <TouchableOpacity
+                                                    activeOpacity={1}
+                                                    style={{
+                                                        width: '40%',
+                                                        backgroundColor: '#a9a9a9',
+                                                        borderRadius: 9,
+                                                        paddingVertical: 5,
+                                                        marginLeft:7,
+                                                        alignSelf: 'center',
+                                                        alignContent:'center'
+                                                    }}
+                                                >
+                                                        <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>เต็ม</Text>
+
+                                                </TouchableOpacity>
+                                            </View>
+                                        </View>
+                                        <View style={{
+                                            flexDirection:'row',
+                                            width:'100%',
+                                            marginBottom:15
+                                        }}>
+                                            <View style={{width:'60%'}}>
+                                                <Text style={[MainStyles.textGray , MainStyles.Text14]}>• รอบ 10.00 น. - 12.00 น.</Text>
+                                            </View>
+                                            <View style={{width:'40%' ,flexDirection:'row'}}>
+                                                <Text style={[MainStyles.textGray , MainStyles.Text14]}>50 บาท /คน</Text>
+                                                <TouchableOpacity
+                                                    activeOpacity={1}
+                                                    style={{
+                                                        width: '40%',
+                                                        backgroundColor: '#448165',
+                                                        borderRadius: 9,
+                                                        paddingVertical: 5,
+                                                        marginLeft:7,
+                                                        alignSelf: 'center',
+                                                        alignContent:'center'
+                                                    }}
+                                                    onPress={() => this.onEventReservation()}
+                                                >
+                                                        <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>จอง</Text>
+                                                </TouchableOpacity>
+                                            </View>
+                                        </View>
+                                        <View style={{ flexDirection: "row", alignSelf: 'center' }}>
+                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%' }}>
+                                                <TouchableOpacity
+                                                    activeOpacity={1}
+                                                    style={{
+                                                        width: '70%',
+                                                        backgroundColor: '#fff',
+                                                        borderRadius: 9,
+                                                        paddingVertical: 9,
+                                                        alignSelf: 'center',
+                                                    }}
+                                                >
+                                                    <View style={{ flexDirection: "row", justifyContent:'center'}}>
+                                                        <Text allowFontScaling={false} style={MainStyles.textGreen}>แสดงข้อมูลเพิ่มเติม</Text>
+                                                        <MaterialIcons name='keyboard-arrow-down' size={20} color="#448165" style={{ marginHorizontal: 15}} />
+                                                    </View>
+                                                </TouchableOpacity>
+                                            </View>
+                                        </View>
                                     </View>
                                     <View style={{ flex: 1, marginTop: 20 }}>
                                         <View style={{ flex: 1 , flexDirection: "row" , paddingVertical:10 }}>
@@ -697,3 +1040,137 @@ const styles = StyleSheet.create({
         borderColor: "#e0e0e0",
     },
 });
+
+const SelectHaveBorderStyles = StyleSheet.create({
+    inputIOS: {
+        fontSize: 14,
+        color: '#000000',
+        fontFamily: 'Prompt-Regular',
+        borderColor: "#bdbdbd",
+        borderWidth: 0.8,
+        borderRadius: 7,
+        padding: 5,
+        marginBottom: 10,
+        borderColor: '#e6e6e6',
+    },
+    inputAndroid: {
+        fontSize: 14,
+        color: '#000000',
+        fontFamily: 'Prompt-Regular',
+        borderColor: "#bdbdbd",
+        borderWidth: 0.8,
+        borderRadius: 7,
+        padding: 5,
+        marginBottom: 10,
+        borderColor: '#e6e6e6',
+    },
+    selectForBank: {
+        position: 'absolute',
+        zIndex: 1,
+        left: 15,
+        top: 15,
+    },
+    selectFormArrow: {
+        position: 'absolute',
+        zIndex: 1,
+        right: 15,
+        top: 10,
+    },
+    selectFormArrowIcon: {
+        height: 10,
+        width: 10,
+        marginRight: 10
+    },
+
+    selectCard: {
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: { height: 1 },
+        shadowOpacity: 0.10,
+        shadowRadius: 2,
+        borderWidth: 1,
+        borderColor: '#f3f3f3',
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+    },
+    selectCardText: {
+        fontSize: 20,
+        color: '#333333',
+        fontFamily: 'Prompt-Regular',
+    },
+    selectCardArrowIcon: {
+        height: 16,
+        width: 20,
+        marginRight: 10
+    },
+});
+const SelectBorderStyles = StyleSheet.create({
+    inputIOS: {
+        fontSize: 14,
+        color: '#000000',
+        fontFamily: 'Prompt-Regular',
+        borderColor: "#bdbdbd",
+        borderWidth: 0,
+        borderRadius: 7,
+        paddingVertical: 10,
+        paddingLeft: 80,
+        paddingRight: 20,
+        marginBottom: 10,
+        borderColor: '#e6e6e6',
+    },
+    inputAndroid: {
+        fontSize: 14,
+        color: '#000000',
+        fontFamily: 'Prompt-Regular',
+        borderColor: "#bdbdbd",
+        borderWidth: 0,
+        borderRadius: 7,
+        paddingVertical: 10,
+        paddingLeft: 80,
+        paddingRight: 20,
+        marginBottom: 10,
+        borderColor: '#e6e6e6',
+    },
+    selectForBank: {
+        position: 'absolute',
+        zIndex: 1,
+        left: 15,
+        top: 15,
+    },
+    selectFormArrow: {
+        position: 'absolute',
+        zIndex: 1,
+        right: 15,
+        top: 10,
+    },
+    selectFormArrowIcon: {
+        height: 10,
+        width: 10,
+        marginRight: 10
+    },
+
+    selectCard: {
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: { height: 1 },
+        shadowOpacity: 0.10,
+        shadowRadius: 2,
+        borderWidth: 1,
+        borderColor: '#f3f3f3',
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+    },
+    selectCardText: {
+        fontSize: 20,
+        color: '#333333',
+        fontFamily: 'Prompt-Regular',
+    },
+    selectCardArrowIcon: {
+        height: 16,
+        width: 20,
+        marginRight: 10
+    },
+});
+
