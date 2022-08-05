@@ -311,6 +311,14 @@ export default StyleSheet.create({
         alignSelf: 'center',
         marginTop: 15
     },
+    btnTransfer: {
+        width: '40%',
+        backgroundColor: '#333',
+        borderRadius: 5,
+        padding: 7,
+        alignSelf: 'center',
+        marginHorizontal: 10
+    },
 
 
     btnProductDetailGreen: {

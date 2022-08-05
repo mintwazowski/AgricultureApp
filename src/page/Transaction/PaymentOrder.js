@@ -20,6 +20,7 @@ import {
 import Search from '../Search/Search'
 import MainStyles from '../../styles/MainStyles';
 import ModalStyles from '../../styles/ModalStyles';
+import InputStyles from '../../styles/InputStyles';
 
 import Swiper from 'react-native-swiper'
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -31,20 +32,44 @@ import * as Progress from 'react-native-progress';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import ModalLib from 'react-native-modal';
 import RNPickerSelect from 'react-native-picker-select';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 export default class PaymentOrder extends Component {
 
     state = {
-        // content: "paymentOrder",
-        content: "paymentTransfer",
+        content: "paymentOrder",
         // content: "paymentTransfer",
-        checkShippingType: true
+        // content: "paymentTransfer",
+        checkShippingType: true,
+        getImagePhoto: ""
     }
 
     onChangeContent(isContent) {
         this.setState({
             content: isContent
         })
+    }
+
+    onChooseImage() {
+        const options = {
+            storageOptions: {
+                skipBackup: true,
+                path: 'images',
+                maxWidth: 250,
+                maxHeight: 250,
+                AccountImage: "",
+                dataProfile: "",
+            },
+            title: 'เลือก',
+            takePhotoButtonTitle: "ถ่ายรูปภาพ",
+            chooseFromLibraryButtonTitle: "เลือกจากคลังภาพ",
+            cancelButtonTitle: 'ยกเลิก',
+        };
+        launchImageLibrary(options, response => {
+            this.setState({
+                getImagePhoto: response.assets[0].uri,
+            });
+        });
     }
 
     render() {
@@ -316,7 +341,224 @@ export default class PaymentOrder extends Component {
 
                 {content === "paymentTransfer" ?
                     <View>
-
+                        <View style={{ flexDirection: 'column' }}>
+                            <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                <View style={styles.contentCartShop}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/placeholder.jpg')}
+                                        style={{
+                                            width: 55,
+                                            height: 55,
+                                            marginRight: 10,
+                                            borderRadius: 50
+                                        }}
+                                    />
+                                </View>
+                                <View style={{ flex: 1, flexDirection: 'column' }}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16]}>
+                                            ชื่อร้าน :
+                                        </Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text16]}>
+                                            ผ้าคราม สิงห์ล้านนา
+                                        </Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18]}>ยอดรวมสุทธิ</Text>
+                                        <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text18, MainStyles.ml10]}>
+                                                4,800.00  บาท
+                                            </Text>
+                                        </View>
+                                    </View>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>• กระเป๋าผ้าคราม 1 ชิ้น</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, { flex: 1, textAlign: 'right' }]}>2,000.00 บาท</Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>• กระเป๋าผ้าคราม 1 ชิ้น</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, { flex: 1, textAlign: 'right' }]}>2,000.00 บาท</Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>• กระเป๋าผ้าคราม 1 ชิ้น</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, { flex: 1, textAlign: 'right' }]}>2,000.00 บาท</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={[MainStyles.BorderBottomGrayWhite]}></View>
+                        </View>
+                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16]}>รูปภาพหลักฐานการชำระเงิน *</Text>
+                        <View style={{
+                            borderWidth: 1,
+                            borderColor: '#1562cd',
+                            borderRadius: 5,
+                            padding: 10,
+                            marginTop: 10,
+                            alignItems: 'center'
+                        }}>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={[MainStyles.btnTransfer, { marginBottom: 10, flexDirection: 'row', justifyContent: 'center' }]}
+                                onPress={() => this.onChooseImage()}
+                            >
+                                <FontAwesome5 name='plus-circle' style={styles.customIcon} size={15} solid color="#FFF" />
+                                <Text allowFontScaling={false} style={[MainStyles.btnLoadMoreText, { marginLeft: 10 }]}>เลือกไฟล์</Text>
+                            </TouchableOpacity>
+                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
+                                ลากไฟล์มาวางที่นีี่ หรือกดปุ่ม "เลือกไฟล์"
+                            </Text>
+                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
+                                แนบได้มากกว่า 1 ไฟล์
+                            </Text>
+                        </View>
+                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.mt10]}>รูปภาพหลักฐานการชำระเงิน *</Text>
+                        <View style={{
+                            flexDirection: 'row'
+                        }}>
+                            <View style={{
+                                width: '31%',
+                                marginRight: 10,
+                                marginTop: 10,
+                            }}>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignCenter]}>วัน</Text>
+                                <View style={{
+                                    marginTop: 10,
+                                }}>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectBorderStyles}
+                                        items={[
+                                            { label: 'Football', value: 'football' },
+                                            { label: 'Baseball', value: 'baseball' },
+                                            { label: 'Hockey', value: 'hockey' },
+                                        ]}
+                                        placeholder={{ label: "วัน" }}
+                                    />
+                                    <View style={SelectBorderStyles.selectFormArrow}>
+                                        <MaterialIcons name='keyboard-arrow-down' style={styles.customIcon} size={25} color="#33333" />
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={{
+                                width: '31%',
+                                marginRight: 10,
+                                marginTop: 10,
+                            }}>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignCenter]}>เดือน</Text>
+                                <View style={{
+                                    marginTop: 10,
+                                }}>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectBorderStyles}
+                                        items={[
+                                            { label: 'Football', value: 'football' },
+                                            { label: 'Baseball', value: 'baseball' },
+                                            { label: 'Hockey', value: 'hockey' },
+                                        ]}
+                                        placeholder={{ label: "เดือน" }}
+                                    />
+                                    <View style={SelectBorderStyles.selectFormArrow}>
+                                        <MaterialIcons name='keyboard-arrow-down' style={styles.customIcon} size={25} color="#33333" />
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={{
+                                width: '31%',
+                                marginRight: 10,
+                                marginTop: 10,
+                            }}>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignCenter]}>ปี</Text>
+                                <View style={{
+                                    marginTop: 10,
+                                }}>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectBorderStyles}
+                                        items={[
+                                            { label: 'Football', value: 'football' },
+                                            { label: 'Baseball', value: 'baseball' },
+                                            { label: 'Hockey', value: 'hockey' },
+                                        ]}
+                                        placeholder={{ label: "ปี" }}
+                                    />
+                                    <View style={SelectBorderStyles.selectFormArrow}>
+                                        <MaterialIcons name='keyboard-arrow-down' style={styles.customIcon} size={25} color="#33333" />
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.mt10]}>เวลา</Text>
+                        <View style={{
+                            flexDirection: 'row'
+                        }}>
+                            <View style={{
+                                width: '49%',
+                                marginRight: 10,
+                            }}>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignCenter]}>ชั่วโมง</Text>
+                                <View style={{
+                                    marginTop: 10,
+                                }}>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectBorderStyles}
+                                        items={[
+                                            { label: 'Football', value: 'football' },
+                                            { label: 'Baseball', value: 'baseball' },
+                                            { label: 'Hockey', value: 'hockey' },
+                                        ]}
+                                        placeholder={{ label: "ชั่วโมง" }}
+                                    />
+                                    <View style={SelectBorderStyles.selectFormArrow}>
+                                        <MaterialIcons name='keyboard-arrow-down' style={styles.customIcon} size={25} color="#33333" />
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={{
+                                width: '49%',
+                                marginRight: 10,
+                            }}>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignCenter]}>นาที</Text>
+                                <View style={{
+                                    marginTop: 10,
+                                }}>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectBorderStyles}
+                                        items={[
+                                            { label: 'Football', value: 'football' },
+                                            { label: 'Baseball', value: 'baseball' },
+                                            { label: 'Hockey', value: 'hockey' },
+                                        ]}
+                                        placeholder={{ label: "นาที" }}
+                                    />
+                                    <View style={SelectBorderStyles.selectFormArrow}>
+                                        <MaterialIcons name='keyboard-arrow-down' style={styles.customIcon} size={25} color="#33333" />
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={InputStyles.contentInputForm}>
+                            <Text allowFontScaling={false} style={[InputStyles.inputFormText, MainStyles.mb5, MainStyles.mt10]}>หมายเหตุ</Text>
+                            <TextInput
+                                allowFontScaling={false}
+                                numberOfLines={10}
+                                multiline={true}
+                                placeholder="หมายเหตุ"
+                                style={[InputStyles.inputFormArea, MainStyles.mb10]}
+                                placeholderTextColor="#838383"
+                                clearButtonMode="always"
+                                value={this.state.AccountName}
+                                onChange={e => this.handleChange(e, 'AccountName')}
+                            />
+                        </View>
                     </View>
                     : null
                 }
@@ -345,7 +587,7 @@ const SelectBorderStyles = StyleSheet.create({
         borderColor: '#e6e6e6',
     },
     inputAndroid: {
-        fontSize: 20,
+        fontSize: 14,
         color: '#000000',
         fontFamily: 'Prompt-Regular',
         borderColor: "#bdbdbd",
@@ -353,7 +595,8 @@ const SelectBorderStyles = StyleSheet.create({
         borderRadius: 7,
         paddingVertical: 10,
         paddingHorizontal: 20,
-        marginBottom: 10
+        marginBottom: 10,
+        borderColor: '#e6e6e6',
     },
     selectForBank: {
         position: 'absolute',

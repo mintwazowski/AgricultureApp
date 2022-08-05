@@ -51,6 +51,38 @@ export default StyleSheet.create({
         color: 'rgba(83, 127, 100, 1)',
         textAlign: 'center'
     },
+
+    inputFormArea: {
+        height: 80,
+        fontSize: 14,
+        color: '#000000',
+        fontFamily: 'Prompt-Regular',
+        borderColor: "#bdbdbd",
+        borderWidth: 0.5,
+        borderRadius: 7,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginBottom: 10,
+        borderColor: '#e6e6e6',
+    },
+    inputFormAreaGreen: {
+        height: 80,
+        fontSize: 14,
+        color: '#000000',
+        fontFamily: 'Prompt-Regular',
+        borderColor: 'rgba(83, 127, 100, 1)',
+        borderWidth: 0.5,
+        borderRadius: 7,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginBottom: 10,
+    },
+    inputFormText: {
+        fontSize: 16,
+        color: '#333333',
+        fontFamily: 'Prompt-Regular',
+        marginBottom: 3,
+    },
 });
 
 

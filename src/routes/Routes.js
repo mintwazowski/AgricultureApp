@@ -12,6 +12,8 @@ import { Home } from '../page/Home';
 import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail';
 import ProductDetail from '../page/Product/ProductDetail';
 import OrderList from '../page/Transaction/OrderList';
+import Favorite from '../page/Transaction/Favorite';
+import Notify from '../page/Transaction/Notify';
 
 const Stack = createStackNavigator();
 function StackNaviga() {
@@ -29,6 +31,8 @@ function StackNaviga() {
                 <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
                 <Stack.Screen name="ProductDetail" component={ProductDetail} options={MainPageOptionNoBack} />
                 <Stack.Screen name="OrderList" component={OrderList} options={MainPageOptionNoBack} />
+                <Stack.Screen name="Favorite" component={Favorite} options={MainPageOptionNoBack} />
+                <Stack.Screen name="Notify" component={Notify} options={MainPageOptionNoBack} />
             </Stack.Navigator>
         </NavigationContainer>
     );
