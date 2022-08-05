@@ -17,6 +17,7 @@ import {
     Modal,
 } from 'react-native';
 
+import TopTabNavigator from '../../routes/TopTabNavigator';
 import Search from '../Search/Search';
 import PaymentOrder from './PaymentOrder';
 import MainStyles from '../../styles/MainStyles';
@@ -34,22 +35,32 @@ import ModalLib from 'react-native-modal';
 import Timeline from 'react-native-timeline-flatlist'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
-export default class Notify extends Component {
+export default class ChatList extends Component {
 
     onBackToMain() {
         this.props.navigation.navigate('Home')
     }
+    onGoToCart() {
+        this.props.navigation.navigate('OrderList')
+    }
     onGoToFav() {
         this.props.navigation.navigate('Favorite')
     }
-    onGoToCart() {
-        this.props.navigation.navigate('OrderList')
+    onGoToNoti() {
+        this.props.navigation.navigate('Notify')
+    }
+
+    onGoChat() {
+        this.props.navigation.navigate('Chat')
     }
 
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
-                <ScrollView showsVerticalScrollIndicator={false} >
+            <View style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ flex: 0.15 }}>
+                    <TopTabNavigator navigation={this.props.navigation} />
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
 
                     <View style={[MainStyles.contentBG]}>
                         <View style={[MainStyles.m15]}>
@@ -79,13 +90,16 @@ export default class Notify extends Component {
 
                     {/* Transaction Menu */}
                     <View style={[styles.TransactionMenucontent]}>
-                        <View style={styles.TransactionMenucontentMenu}>
-                            <View style={styles.TransactionMenucustomBadgeGray}>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={styles.TransactionMenucontentMenu}
+                        >
+                            <View style={styles.TransactionMenucustomBadgeYellow}>
                                 <MaterialIcons name='chat-bubble' style={styles.TransactionMenucustomIcon} size={22} color="#fff" />
                             </View>
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>แชท</Text>
-                            <View style={styles.TransactionMenutextUnactive}></View>
-                        </View>
+                            <View style={styles.TransactionMenutextActive}></View>
+                        </TouchableOpacity>
 
                         <TouchableOpacity
                             activeOpacity={1}
@@ -102,12 +116,13 @@ export default class Notify extends Component {
                         <TouchableOpacity
                             activeOpacity={1}
                             style={styles.TransactionMenucontentMenu}
+                            onPress={() => this.onGoToNoti()}
                         >
-                            <View style={styles.TransactionMenucustomBadgeYellow}>
+                            <View style={styles.TransactionMenucustomBadgeGray}>
                                 <MaterialIcons name='notifications-active' style={styles.TransactionMenucustomIcon} size={25} color="#fff" />
                             </View>
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>แจ้งเตือน</Text>
-                            <View style={styles.TransactionMenutextActive}></View>
+                            <View style={styles.TransactionMenutextUnactive}></View>
                         </TouchableOpacity>
 
                         <TouchableOpacity
@@ -131,11 +146,14 @@ export default class Notify extends Component {
                         </View>
                     </View >
 
+                    <View style={[MainStyles.mx15, MainStyles.my15]}>
+                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.mb15, MainStyles.Text16]}>กล่องข้อความ</Text>
 
-                    <View style={[MainStyles.mx15, MainStyles.mb15]}>
-                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.my15, MainStyles.Text16]}>รายการแจ้งเตือน</Text>
-
-                        <View style={styles.contentCartShopProductGray}>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={styles.contentCartShopProduct}
+                            onPress={() => this.onGoChat()}
+                        >
                             <View style={styles.contentCartShopProductList}>
                                 <Image
                                     resizeMode={'cover'}
@@ -143,26 +161,25 @@ export default class Notify extends Component {
                                     style={{
                                         width: 60,
                                         height: 60,
+                                        borderRadius: 50
                                     }}
                                 />
                                 <View style={{ flexDirection: 'column', marginLeft: 10, width: '60%' }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text16]}>
-                                        กรุณาให้คะแนนรีวิวสินค้า
+                                        ผ้าคราม สิงห์ล้านนา
                                     </Text>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textflexShrink]}>
-                                        คุณได้ทำการสั่งซื้อสินค้าผ้าครามเสร็จสิ้น แล้วกรุณาให้คะแนนสินค้า
+                                        ขอสอบถามราคาสินค้าครับ
                                     </Text>
                                 </View>
-
                                 <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10]}>
                                         24 พ.ย. 2564
                                     </Text>
                                 </View>
                             </View>
-
-                        </View>
-
+                        </TouchableOpacity>
+                        <View style={[MainStyles.BorderBottomGrayWhite]}></View>
                         <View style={styles.contentCartShopProduct}>
                             <View style={styles.contentCartShopProductList}>
                                 <Image
@@ -171,58 +188,61 @@ export default class Notify extends Component {
                                     style={{
                                         width: 60,
                                         height: 60,
+                                        borderRadius: 50
                                     }}
                                 />
                                 <View style={{ flexDirection: 'column', marginLeft: 10, width: '60%' }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text16]}>
-                                        กรุณาให้คะแนนรีวิวสินค้า
+                                        ผ้าคราม สิงห์ล้านนา
                                     </Text>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textflexShrink]}>
-                                        คุณได้ทำการสั่งซื้อสินค้าผ้าครามเสร็จสิ้น แล้วกรุณาให้คะแนนสินค้า
+                                        ขอสอบถามราคาสินค้าครับ
                                     </Text>
                                 </View>
-
                                 <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10]}>
                                         24 พ.ย. 2564
                                     </Text>
                                 </View>
                             </View>
-
                         </View>
-
-                        <View style={styles.contentCartShopProductGray}>
+                        <View style={[MainStyles.BorderBottomGrayWhite]}></View>
+                        <View style={styles.contentCartShopProduct}>
                             <View style={styles.contentCartShopProductList}>
-                                <Image
-                                    resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
-                                    style={{
-                                        width: 60,
-                                        height: 60,
-                                    }}
-                                />
+                                <View>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/placeholder.jpg')}
+                                        style={{
+                                            width: 60,
+                                            height: 60,
+                                            borderRadius: 50
+                                        }}
+                                    />
+                                    <View style={[MainStyles.customBadgeAlert]}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12, MainStyles.textAlignCenter]}>3</Text>
+                                    </View>
+                                </View>
                                 <View style={{ flexDirection: 'column', marginLeft: 10, width: '60%' }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text16]}>
-                                        กรุณาให้คะแนนรีวิวสินค้า
+                                        ผ้าคราม สิงห์ล้านนา
                                     </Text>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textflexShrink]}>
-                                        คุณได้ทำการสั่งซื้อสินค้าผ้าครามเสร็จสิ้น แล้วกรุณาให้คะแนนสินค้า
+                                        ขอสอบถามราคาสินค้าครับ
                                     </Text>
                                 </View>
-
                                 <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10]}>
                                         24 พ.ย. 2564
                                     </Text>
                                 </View>
                             </View>
-
                         </View>
 
                     </View>
 
                 </ScrollView>
-            </SafeAreaView >
+            </View >
         );
     }
 }
@@ -272,14 +292,13 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignSelf: "center",
     },
+
     contentCartShopProductGray: {
         flexDirection: 'column',
         backgroundColor: "rgba(242, 242, 242, 1)",
-        padding: 10
     },
     contentCartShopProduct: {
         flexDirection: 'column',
-        padding: 10
     },
     contentCartShopProductList: {
         flexDirection: 'row',

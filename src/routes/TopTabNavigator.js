@@ -14,17 +14,60 @@ import {
     AsyncStorage,
     ViewPropTypes,
     ActivityIndicator,
+    Modal
 } from 'react-native';
+
 import NavigatorStyles from '../styles/NavigatorStyles';
+import MainStyles from '../styles/MainStyles';
+
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
 
 export default class TopTabNavigator extends Component {
 
-    onNextToCart() {
+    state = {
+        showMenu: false
+    }
+
+    onNextToCart = () => {
         this.props.navigation.navigate('OrderList')
+    }
+    onNextToChat() {
+        this.props.navigation.navigate('ChatList')
+    }
+    onShowMenuBur() {
+        this.setState({
+            showMenu: true
+        })
+    }
+    onCloseMenuBur() {
+        this.setState({
+            showMenu: false
+        })
+    }
+
+    onGoToMenu(type) {
+        if (type === "Home") {
+            this.props.navigation.navigate('Home')
+        } else if (type === "TouristAttraction") {
+            this.props.navigation.navigate('TouristAttraction')
+        } else if (type === "Product") {
+            this.props.navigation.navigate('Product')
+        } else if (type === "SourceOfProduct") {
+            this.props.navigation.navigate('SourceOfProduct')
+        } else if (type === "") {
+
+        } else if (type === "") {
+
+        }
     }
 
     render() {
+        const { showMenu } = this.state
         return (
             <View style={[NavigatorStyles.content]}>
                 <View style={[NavigatorStyles.contentToNavigat]}>
@@ -37,20 +80,104 @@ export default class TopTabNavigator extends Component {
                         <TouchableOpacity
                             activeOpacity={1}
                             style={NavigatorStyles.icon2}
-                        // onPress={() => this.onNextToCart()}
+                            onPress={() => this.onNextToCart()}
                         >
                             <Icon name='shopping-cart' size={20} color="#448165" />
                             <Text style={[NavigatorStyles.notify]}>0</Text>
                         </TouchableOpacity>
-                        <View style={[NavigatorStyles.icon2]}>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={NavigatorStyles.icon2}
+                            onPress={() => this.onNextToChat()}
+                        >
                             <Icon name='comment-alt' size={20} color="#448165" />
                             <Text style={[NavigatorStyles.notify]}>0</Text>
-                        </View>
-                        <View style={[NavigatorStyles.icon2]}>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={NavigatorStyles.icon2}
+                            onPress={() => this.onShowMenuBur()}
+                        >
                             <Icon name='bars' size={20} color="#448165" />
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
+
+                <Modal
+                    visible={showMenu}
+                    animationType="fade"
+                    transparent={true}
+                >
+                    <View style={[NavigatorStyles.hamContent]} >
+                        <View style={[NavigatorStyles.hamContentLeft]} >
+                        </View>
+                        <View style={[NavigatorStyles.hamContentRight]} >
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={NavigatorStyles.hamClose}
+                                onPress={() => this.onCloseMenuBur()}
+                            >
+                                <AntDesign name='closecircle' size={25} color="#448165" />
+                            </TouchableOpacity>
+                            <View style={[NavigatorStyles.hamLogoContent]} >
+                                <Image
+                                    resizeMode={'contain'}
+                                    style={[NavigatorStyles.hamLogo]}
+                                    source={require('../../assets/logo.jpeg')}
+                                />
+                            </View>
+                            <View style={[NavigatorStyles.hamMenuContent]} >
+                                <View style={[NavigatorStyles.hamMenuContentListActive]} >
+                                    <Icon name='home' size={25} color="#fff" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>หน้าหลัก</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <MaterialIcons name='park' size={25} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>แหล่งท่องเที่ยว</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <MaterialIcons name='shopping-cart' size={25} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>สินค้าเกษตร</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <Entypo name='shop' size={25} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ตลาดต้องชม ตลาดชุมชน</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <FontAwesome5 name='mountain' size={20} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>แหล่งผลิตสินค้าเกษตร</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <FontAwesome5 name='building' size={23} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ผู้ประกอบการ Franchise</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <FontAwesome5 name='calendar' size={23} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>กิจกรรมงานขายสินค้าเกษตร</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <MaterialIcons name='location-pin' size={28} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>เส้นทางท่องเที่ยว</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                <View style={[NavigatorStyles.hamMenuContentList]} >
+                                    <FontAwesome5 name='phone-alt' size={20} color="#448165" />
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ติดต่อเรา</Text>
+                                </View>
+                                <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                            </View>
+
+                        </View>
+                    </View>
+                </Modal>
+
             </View>
         );
     }

@@ -343,7 +343,7 @@ export default StyleSheet.create({
         alignSelf: 'center',
         flexDirection: 'row',
         height: '100%',
-        borderRadius:9
+        borderRadius: 9
     },
     btnProductDetailGreenRadiusText: {
         fontSize: 12,
@@ -385,6 +385,16 @@ export default StyleSheet.create({
         backgroundColor: "#2eb16d",
         justifyContent: "center",
         alignSelf: "center",
+    },
+    customBadgeAlert: {
+        width: 20,
+        height: 20,
+        borderRadius: 50,
+        backgroundColor: "#cc3300",
+        position: 'absolute',
+        right: 0,
+        top: -5,
+        zIndex: 999
     },
 
 

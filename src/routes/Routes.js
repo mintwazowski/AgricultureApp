@@ -15,6 +15,9 @@ import ProductDetail from '../page/Product/ProductDetail';
 import OrderList from '../page/Transaction/OrderList';
 import Favorite from '../page/Transaction/Favorite';
 import Notify from '../page/Transaction/Notify';
+import History from '../page/Transaction/History';
+import ChatList from '../page/Transaction/ChatList';
+import Chat from '../page/Transaction/Chat';
 
 const Stack = createStackNavigator();
 function StackNaviga() {
@@ -27,6 +30,8 @@ function StackNaviga() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
+
+
                 {/* <Stack.Screen name="Signin" component={Signin} options={MainPageOptionNoBack} /> */}
                 <Stack.Screen name="Home" component={BottomTabNavigator} options={MainPageOptionNoBack} />
                 <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
@@ -35,6 +40,12 @@ function StackNaviga() {
                 <Stack.Screen name="OrderList" component={OrderList} options={MainPageOptionNoBack} />
                 <Stack.Screen name="Favorite" component={Favorite} options={MainPageOptionNoBack} />
                 <Stack.Screen name="Notify" component={Notify} options={MainPageOptionNoBack} />
+                <Stack.Screen name="History" component={History} options={MainPageOptionNoBack} />
+                <Stack.Screen name="ChatList" component={ChatList} options={MainPageOptionNoBack} />
+                <Stack.Screen name="Chat" component={Chat} options={MainPageOptionNoBack} />
+
+                <Stack.Screen name="TopTabNavigator" component={TopTabNavigator} options={MainPageOptionNoBack} />
+
             </Stack.Navigator>
         </NavigationContainer>
     );
@@ -46,12 +57,7 @@ export default class MainRoutes extends Component {
         return (
             <>
                 <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
-                <View style={{ flex: 0.15 }}>
-                    <TopTabNavigator />
-                </View>
-                <View style={{ flex: 1 }}>
-                    <StackNaviga />
-                </View>
+                <StackNaviga />
             </>
         );
     }

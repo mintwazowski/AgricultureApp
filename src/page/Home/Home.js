@@ -13,8 +13,11 @@ import {
     AsyncStorage,
     ViewPropTypes,
     ActivityIndicator,
-    ScrollView
+    ScrollView,
+    Modal
 } from 'react-native';
+
+import TopTabNavigator from '../../routes/TopTabNavigator';
 
 import Search from '../Search/Search'
 import MainStyles from '../../styles/MainStyles';
@@ -73,8 +76,11 @@ export default class Home extends Component {
         ]
 
         return (
-            <SafeAreaView style={{ flex: 1 }}>
-                <ScrollView showsVerticalScrollIndicator={false} >
+            <View style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ flex: 0.15 }}>
+                    <TopTabNavigator navigation={this.props.navigation} />
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
 
                     <View style={[MainStyles.contentBG]}>
                         <View style={[MainStyles.m15]}>
@@ -172,8 +178,8 @@ export default class Home extends Component {
                                                             borderRadius: 10,
                                                         }}
                                                     />
-                                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5 ,  styles.getFree ]}>ซื้อ 1 แถม 1</Text>
-                                                    
+                                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5, styles.getFree]}>ซื้อ 1 แถม 1</Text>
+
                                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
                                                 </View>
@@ -224,7 +230,7 @@ export default class Home extends Component {
                                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <View style={{ flexDirection: 'row' }}>
                                                         <View style={{ flexDirection: 'row' }}>
-                                                            <Icon name='star'size={15} style={{ marginRight:5 }} color="#e9b266" />
+                                                            <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
                                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                                         </View>
                                                         <View style={{ flex: 1, alignSelf: "flex-end" }}>
@@ -340,14 +346,14 @@ export default class Home extends Component {
                                                         height: 100,
                                                     }}
                                                 />
-                                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5 ,  styles.advance ]}>จองล่วงหน้า</Text>
+                                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5, styles.advance]}>จองล่วงหน้า</Text>
 
                                                 <View style={{ paddingHorizontal: 10, paddingBottom: 10 }}>
                                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                     <View style={{ flexDirection: 'row' }}>
 
                                                         <View style={{ flexDirection: 'row' }}>
-                                                            <Icon name='star'size={15} style={{ marginRight:5 }} color="#e9b266" />
+                                                            <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
                                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                                         </View>
                                                         <View style={{ flex: 1, alignSelf: "flex-end" }}>
@@ -430,7 +436,7 @@ export default class Home extends Component {
                                                             <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                                             <View style={{ flexDirection: 'row' }}>
                                                                 <View style={{ flexDirection: 'row' }}>
-                                                                    <Icon name='star'size={15} style={{ marginRight:5 }} color="#e9b266" />
+                                                                    <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
                                                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                                                 </View>
                                                                 <View style={{ flex: 1, alignSelf: "flex-end" }}>
@@ -455,8 +461,7 @@ export default class Home extends Component {
                     </View>
 
                 </ScrollView>
-
-            </SafeAreaView >
+            </View >
         );
     }
 }
@@ -491,10 +496,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
 
     },
-    getFree : {
-        backgroundColor:'#ffd60c' , position : 'absolute' , left:3, top: -10 , paddingHorizontal : 7 
+    getFree: {
+        backgroundColor: '#ffd60c', position: 'absolute', left: 3, top: -10, paddingHorizontal: 7
     },
-    advance : {
-        backgroundColor:'#448165' , position : 'absolute' , left:0, top: -10 , padding : 10 , color: 'white' 
+    advance: {
+        backgroundColor: '#448165', position: 'absolute', left: 0, top: -10, padding: 10, color: 'white'
     },
 });

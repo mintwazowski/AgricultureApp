@@ -1,8 +1,8 @@
 import { StyleSheet, Platform } from 'react-native';
 export default StyleSheet.create({
     content: {
-        borderBottomColor: 'rgba(204, 204, 204, 1)',
-        borderBottomWidth: 1,
+        // borderBottomColor: 'rgba(204, 204, 204, 1)',
+        // borderBottomWidth: 1,
     },
     contentToNavigat: {
         marginLeft: 15,
@@ -47,5 +47,55 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         top: -5,
         left: 10
+    },
+
+    hamContent: {
+        height: '100%',
+        width: '100%',
+        flex: 1,
+        flexDirection: 'row'
+    },
+    hamContentLeft: {
+        height: '100%',
+        width: '30%',
+        backgroundColor: '#000',
+        opacity: 0.5
+    },
+    hamContentRight: {
+        height: '100%',
+        width: '70%',
+        backgroundColor: 'white',
+        alignSelf: 'flex-end',
+    },
+    hamClose: {
+        alignItems: 'flex-end',
+        marginTop: 40,
+        marginRight: 15
+    },
+    hamLogoContent: {
+        alignItems: 'center',
+    },
+    hamLogo: {
+        width: 150,
+    },
+    hamMenuContent: {
+        flexDirection: 'column'
+    },
+    hamMenuContentListActive: {
+        flexDirection: 'row',
+        padding: 15,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        backgroundColor: '#e9b266',
+    },
+    hamMenuContentList: {
+        flexDirection: 'row',
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+    },
+
+    BorderBottomGrayWhite: {
+        borderWidth: 0.5,
+        borderColor: 'rgba(204, 204, 204, 1)',
     },
 });

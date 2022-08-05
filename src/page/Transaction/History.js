@@ -34,7 +34,7 @@ import ModalLib from 'react-native-modal';
 import Timeline from 'react-native-timeline-flatlist'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
-export default class Notify extends Component {
+export default class History extends Component {
 
     onBackToMain() {
         this.props.navigation.navigate('Home')
@@ -77,63 +77,9 @@ export default class Notify extends Component {
                         </View>
                     </View>
 
-                    {/* Transaction Menu */}
-                    <View style={[styles.TransactionMenucontent]}>
-                        <View style={styles.TransactionMenucontentMenu}>
-                            <View style={styles.TransactionMenucustomBadgeGray}>
-                                <MaterialIcons name='chat-bubble' style={styles.TransactionMenucustomIcon} size={22} color="#fff" />
-                            </View>
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>แชท</Text>
-                            <View style={styles.TransactionMenutextUnactive}></View>
-                        </View>
-
-                        <TouchableOpacity
-                            activeOpacity={1}
-                            style={styles.TransactionMenucontentMenu}
-                            onPress={() => this.onGoToCart()}
-                        >
-                            <View style={styles.TransactionMenucustomBadgeGray}>
-                                <FontAwesome5 name='shopping-cart' style={styles.TransactionMenucustomIcon} size={20} color="#fff" />
-                            </View>
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>คำสั่งซื้อ</Text>
-                            <View style={styles.TransactionMenutextUnactive}></View>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity
-                            activeOpacity={1}
-                            style={styles.TransactionMenucontentMenu}
-                        >
-                            <View style={styles.TransactionMenucustomBadgeYellow}>
-                                <MaterialIcons name='notifications-active' style={styles.TransactionMenucustomIcon} size={25} color="#fff" />
-                            </View>
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>แจ้งเตือน</Text>
-                            <View style={styles.TransactionMenutextActive}></View>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity
-                            activeOpacity={1}
-                            style={styles.TransactionMenucontentMenu}
-                            onPress={() => this.onGoToFav()}
-                        >
-                            <View style={styles.TransactionMenucustomBadgeGray}>
-                                <MaterialIcons name='favorite' style={styles.TransactionMenucustomIcon} size={25} color="#fff" />
-                            </View>
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>รายการโปรด</Text>
-                            <View style={styles.TransactionMenutextUnactive}></View>
-                        </TouchableOpacity>
-
-                        <View style={styles.TransactionMenucontentMenu}>
-                            <View style={styles.TransactionMenucustomBadgeGray}>
-                                <MaterialIcons name='calendar-today' style={styles.TransactionMenucustomIcon} size={23} color="#fff" />
-                            </View>
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>กิจกรรม</Text>
-                            <View style={styles.TransactionMenutextUnactive}></View>
-                        </View>
-                    </View >
-
 
                     <View style={[MainStyles.mx15, MainStyles.mb15]}>
-                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.my15, MainStyles.Text16]}>รายการแจ้งเตือน</Text>
+                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.mb15, MainStyles.Text16]}>ประวัติการเข้าชมข้อมูล</Text>
 
                         <View style={styles.contentCartShopProductGray}>
                             <View style={styles.contentCartShopProductList}>
@@ -146,21 +92,18 @@ export default class Notify extends Component {
                                     }}
                                 />
                                 <View style={{ flexDirection: 'column', marginLeft: 10, width: '60%' }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text16]}>
-                                        กรุณาให้คะแนนรีวิวสินค้า
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16]}>
+                                        เมล็ดกาแฟ เขาทะลุ
                                     </Text>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textflexShrink]}>
-                                        คุณได้ทำการสั่งซื้อสินค้าผ้าครามเสร็จสิ้น แล้วกรุณาให้คะแนนสินค้า
+                                        กาแฟเขาทะชุมพร เริ่มต้นจากการเป็นครอบครัวเกษตรกร ชาวสวนกาแฟ
                                     </Text>
                                 </View>
 
                                 <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10]}>
-                                        24 พ.ย. 2564
-                                    </Text>
+                                    <FontAwesome5 name='trash' style={styles.TransactionMenucustomIcon} size={12} color="#333" />
                                 </View>
                             </View>
-
                         </View>
 
                         <View style={styles.contentCartShopProduct}>
@@ -174,21 +117,18 @@ export default class Notify extends Component {
                                     }}
                                 />
                                 <View style={{ flexDirection: 'column', marginLeft: 10, width: '60%' }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text16]}>
-                                        กรุณาให้คะแนนรีวิวสินค้า
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16]}>
+                                        เมล็ดกาแฟ เขาทะลุ
                                     </Text>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textflexShrink]}>
-                                        คุณได้ทำการสั่งซื้อสินค้าผ้าครามเสร็จสิ้น แล้วกรุณาให้คะแนนสินค้า
+                                        กาแฟเขาทะชุมพร เริ่มต้นจากการเป็นครอบครัวเกษตรกร ชาวสวนกาแฟ
                                     </Text>
                                 </View>
 
                                 <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10]}>
-                                        24 พ.ย. 2564
-                                    </Text>
+                                    <FontAwesome5 name='trash' style={styles.TransactionMenucustomIcon} size={12} color="#333" />
                                 </View>
                             </View>
-
                         </View>
 
                         <View style={styles.contentCartShopProductGray}>
@@ -202,21 +142,18 @@ export default class Notify extends Component {
                                     }}
                                 />
                                 <View style={{ flexDirection: 'column', marginLeft: 10, width: '60%' }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text16]}>
-                                        กรุณาให้คะแนนรีวิวสินค้า
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16]}>
+                                        เมล็ดกาแฟ เขาทะลุ
                                     </Text>
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textflexShrink]}>
-                                        คุณได้ทำการสั่งซื้อสินค้าผ้าครามเสร็จสิ้น แล้วกรุณาให้คะแนนสินค้า
+                                        กาแฟเขาทะชุมพร เริ่มต้นจากการเป็นครอบครัวเกษตรกร ชาวสวนกาแฟ
                                     </Text>
                                 </View>
 
                                 <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10]}>
-                                        24 พ.ย. 2564
-                                    </Text>
+                                    <FontAwesome5 name='trash' style={styles.TransactionMenucustomIcon} size={12} color="#333" />
                                 </View>
                             </View>
-
                         </View>
 
                     </View>
@@ -228,50 +165,6 @@ export default class Notify extends Component {
 }
 
 const styles = StyleSheet.create({
-    TransactionMenucontent: {
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: "center",
-        alignSelf: "center",
-    },
-    TransactionMenucontentMenu: {
-        flexDirection: 'column',
-        justifyContent: "center",
-        alignItems: 'center',
-    },
-    TransactionMenutextUnactive: {
-        paddingTop: 5
-    },
-    TransactionMenutextActive: {
-        borderBottomColor: "#e9b266",
-        borderBottomWidth: 1,
-        width: 40,
-        paddingTop: 5
-    },
-    TransactionMenucustomBadgeGray: {
-        width: 45,
-        height: 45,
-        borderRadius: 50,
-        backgroundColor: "#999999",
-        justifyContent: "center",
-        alignSelf: "center",
-        marginHorizontal: 13,
-        marginBottom: 5
-    },
-    TransactionMenucustomBadgeYellow: {
-        width: 45,
-        height: 45,
-        borderRadius: 50,
-        backgroundColor: "#e9b266",
-        justifyContent: "center",
-        alignSelf: "center",
-        marginHorizontal: 13,
-        marginBottom: 5
-    },
-    TransactionMenucustomIcon: {
-        justifyContent: "center",
-        alignSelf: "center",
-    },
     contentCartShopProductGray: {
         flexDirection: 'column',
         backgroundColor: "rgba(242, 242, 242, 1)",

@@ -17,6 +17,7 @@ import {
     Modal,
 } from 'react-native';
 
+import TopTabNavigator from '../../routes/TopTabNavigator';
 import Search from '../Search/Search';
 import PaymentOrder from './PaymentOrder';
 import MainStyles from '../../styles/MainStyles';
@@ -37,7 +38,7 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 export default class OrderList extends Component {
 
     state = {
-        tab: "review",
+        tab: "cart",
         count: 1,
         value: 500
     }
@@ -88,6 +89,9 @@ export default class OrderList extends Component {
     onBackToMain() {
         this.props.navigation.navigate('Product')
     }
+    onGoToChat() {
+        this.props.navigation.navigate('ChatList')
+    }
     onGoToFav() {
         this.props.navigation.navigate('Favorite')
     }
@@ -105,8 +109,11 @@ export default class OrderList extends Component {
             { time: '16:30', title: 'Event 5', description: 'Event 5 Description' }
         ]
         return (
-            <SafeAreaView style={{ flex: 1 }}>
-                <ScrollView showsVerticalScrollIndicator={false} >
+            <View style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ flex: 0.15 }}>
+                    <TopTabNavigator navigation={this.props.navigation} />
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
 
                     <View style={[MainStyles.contentBG]}>
                         <View style={[MainStyles.m15]}>
@@ -136,13 +143,17 @@ export default class OrderList extends Component {
 
                     {/* Transaction Menu */}
                     <View style={[styles.TransactionMenucontent]}>
-                        <View style={styles.TransactionMenucontentMenu}>
+                        <TouchableOpacity
+                            activeOpacity={1}
+                            style={styles.TransactionMenucontentMenu}
+                            onPress={() => this.onGoToChat()}
+                        >
                             <View style={styles.TransactionMenucustomBadgeGray}>
                                 <MaterialIcons name='chat-bubble' style={styles.TransactionMenucustomIcon} size={22} color="#fff" />
                             </View>
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12]}>แชท</Text>
                             <View style={styles.TransactionMenutextUnactive}></View>
-                        </View>
+                        </TouchableOpacity>
 
                         <TouchableOpacity
                             activeOpacity={1}
@@ -708,9 +719,8 @@ export default class OrderList extends Component {
 
                     </View>
 
-
                 </ScrollView>
-            </SafeAreaView >
+            </View >
         );
     }
 }
