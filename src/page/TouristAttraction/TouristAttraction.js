@@ -21,17 +21,57 @@ import MainStyles from '../../styles/MainStyles';
 import Search from '../Search/Search'
 import Swiper from 'react-native-swiper'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import TopTabNavigator from '../../routes/TopTabNavigator';
 
 export default class TouristAttraction extends Component {
     onDetail() {
         this.props.navigation.navigate('TouristAttractionDetail')
     }
+
+    onLocation() {
+        this.props.navigation.navigate('SourceOfProduct')
+    }
+
     render() {
         return (
-            <SafeAreaView style={[MainStyles.contentBG, MainStyles.mx15]}>
-                <ScrollView showsVerticalScrollIndicator={false} >
-
-                    <Search />
+            <View style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ flex: 0.15 }}>
+                    <TopTabNavigator navigation={this.props.navigation} />
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 , paddingHorizontal :15 , marginTop:10}}>
+                    {/* Search Content */}
+                    <View style={{ flexDirection: 'row', width: '100%' }}>
+                        <View style={{ justifyContent: 'center', width: '10%' }}>
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/icon/back.png')}
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                }}
+                            />
+                        </View>
+                        <View style={{ width: '70%' }}>
+                            <Search />
+                        </View>
+                        <View style={{ justifyContent: 'center', alignContent: 'center', width: '15%', marginLeft: 5 }}>
+                            <TouchableOpacity
+                                onPress={() => this.onLocation()}
+                            >
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={require('../../../assets/icon/pin.png')}
+                                    style={{
+                                        width: 22,
+                                        height: 22,
+                                        alignSelf: 'center'
+                                    }}
+                                    
+                                />
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10]} >ค้นหารอบตัว</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
 
                     {/* Content Slide */}
                     <View style={{ flex: 1, marginTop: 15 }}>
@@ -227,7 +267,7 @@ export default class TouristAttraction extends Component {
                         </View>
                     </View>
                 </ScrollView>
-            </SafeAreaView>
+            </View>
         );
     }
 }

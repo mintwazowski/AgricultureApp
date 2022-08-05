@@ -23,13 +23,13 @@ import Swiper from 'react-native-swiper'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import TopTabNavigator from '../../routes/TopTabNavigator';
 
-export default class Event extends Component {
+export default class SourceOfProductMain extends Component {
     onDetail() {
-        this.props.navigation.navigate('EventDetail')
+        this.props.navigation.navigate('SourceOfProductDetail')
     }
 
     onLocation() {
-        // this.props.navigation.navigate('SourceOfProduct')
+        this.props.navigation.navigate('SourceOfProduct')
     }
 
     render() {
@@ -92,7 +92,7 @@ export default class Event extends Component {
                                             borderRadius: 10,
                                         }}
                                     />
-                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ตลาดสวนผักคนเมือง</Text>
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>สวนครูองุ่น</Text>
                                 </View>
                             </View>
                             <View style={styles.slide2}>
@@ -106,7 +106,7 @@ export default class Event extends Component {
                                             borderRadius: 10,
                                         }}
                                     />
-                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ตลาดสวนผักคนเมือง</Text>
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>สวนครูองุ่น</Text>
                                 </View>
                             </View>
                             <View style={styles.slide3}>
@@ -120,7 +120,7 @@ export default class Event extends Component {
                                             borderRadius: 10,
                                         }}
                                     />
-                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ตลาดสวนผักคนเมือง</Text>
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>สวนครูองุ่น</Text>
                                 </View>
                             </View>
                         </Swiper>
@@ -146,13 +146,13 @@ export default class Event extends Component {
                                     }}
                                 />
                                 <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
-                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ตลาดปันอยู่ปันกิน</Text>
-                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>ตลาดเล็กๆ แต่อบอุ่นเป็นกันเอง บรรยากาศแบบสวนในเมือง</Text>
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>มีกินฟาร์ม</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>ฟาร์มสวนเกษตรเล็ก ๆ ที่เปิดให้เข้ามาเยี่ยมชมวิถีชีวิตเกษตรอินทรีย์</Text>
                                 <View style={[MainStyles.textBD]}>
                                     <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
                                         <View style={ {flexDirection: "row"}}>
                                             <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
-                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>กรุงเทพ</Text>
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>ขอนแก่น</Text>
                                         </View>
                                         
                                         <View style={[MainStyles.textAlignRight , {flex: 1 , flexDirection: "row" , justifyContent:'flex-end' , paddingEnd:15}] } >
@@ -175,13 +175,13 @@ export default class Event extends Component {
                                     }}
                                 />
                                 <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
-                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ตลาดร่มหุบ</Text>
-                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>ตลาดร่มหุบ เริ่มมีการตั้งขายของบริเวณทางรถไฟนี้ มาตั้งแต่ประมาณปี 2527</Text>
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ฟาร์มลุงรีย์</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>ฟาร์มเกษตรที่ตั้งอยู่กลางเมืองหลวง แหล่งรวบรวมความรู้ทางการเกษตร</Text>
                                 <View style={[MainStyles.textBD]}>
                                     <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
                                         <View style={ {flexDirection: "row"}}>
                                             <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
-                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>สมุทรสงคราม</Text>
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>กรุงเทพ</Text>
                                         </View>
                                         
                                         <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
@@ -204,13 +204,13 @@ export default class Event extends Component {
                                     }}
                                 />
                                 <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
-                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ตลาดถนนคนเดินปากแพรก</Text>
-                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>บริเวณชุมชนปากแพรกและถนนสายปากแพรก จะมีการจัดกิจกรรมถนนคนเดิน</Text>
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ไร่องุ่นกรานมอนเต้</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>ไร่องุ่นซึ่งเป็นสถานที่ท่องเที่ยวที่น่า สนใจอีกแห่งหนึ่งในอำเภอปากช่อง</Text>
                                 <View style={[MainStyles.textBD]}>
                                     <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
                                         <View style={ {flexDirection: "row"}}>
                                             <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
-                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>กาญจนบุรี</Text>
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>นครราชสีมา</Text>
                                         </View>
                                         
                                         <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
@@ -232,13 +232,13 @@ export default class Event extends Component {
                                     }}
                                 />
                                 <Icon name='heart-o' size={20} style={ [styles.heartIcon , {paddingHorizontal:8 }]} />
-                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ตลาดใต้เคี่ยม</Text>
-                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>ตลาดแนวพักผ่อนเชิงธรรมชาติ เพื่อให้นักท่องเที่ยวจะได้มาพักผ่อนกับเพื่อนฝูง</Text>
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ไร่องุ่นอรุณรุ่ง</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>ไร่องุ่น “อรุณรุ่ง” อยู่ที่ตำบลบ้านกร่าง อำเภอเมือง จังหวัดพิษณุโลก</Text>
                                 <View style={[MainStyles.textBD]}>
                                     <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
                                         <View style={ {flexDirection: "row"}}>
                                             <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
-                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>ชุมพร</Text>
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>พิษณุโลก</Text>
                                         </View>
                                         
                                         <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >

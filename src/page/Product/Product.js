@@ -20,6 +20,7 @@ import Search from '../Search/Search'
 import MainStyles from '../../styles/MainStyles';
 
 import Swiper from 'react-native-swiper'
+import TopTabNavigator from '../../routes/TopTabNavigator';
 
 export default class Product extends Component {
 
@@ -37,8 +38,11 @@ export default class Product extends Component {
             { id: 6, img_src: require('../../../assets/images/5.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
         ]
         return (
-            <SafeAreaView style={{ flex: 1 }}>
-                <ScrollView showsVerticalScrollIndicator={false} >
+            <View style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ flex: 0.15 }}>
+                    <TopTabNavigator navigation={this.props.navigation} />
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
 
                     <View style={[MainStyles.contentBG]}>
                         <View style={[MainStyles.m15]}>
@@ -155,7 +159,7 @@ export default class Product extends Component {
                     </View>
 
                 </ScrollView>
-            </SafeAreaView >
+            </View >
         );
     }
 }

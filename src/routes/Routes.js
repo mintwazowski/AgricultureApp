@@ -10,6 +10,8 @@ import Signin from '../page/Signin/Signin';
 
 import { Home } from '../page/Home';
 import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail';
+import SourceOfProductDetail from '../page/SourceOfProduct/SourceOfProductDetail';
+import EventDetail from '../page/Event/EventDetail';
 import DashboardSeller from '../page/Seller/DashboardSeller';
 import ProductDetail from '../page/Product/ProductDetail';
 import OrderList from '../page/Transaction/OrderList';
@@ -43,6 +45,8 @@ function StackNaviga() {
                 <Stack.Screen name="History" component={History} options={MainPageOptionNoBack} />
                 <Stack.Screen name="ChatList" component={ChatList} options={MainPageOptionNoBack} />
                 <Stack.Screen name="Chat" component={Chat} options={MainPageOptionNoBack} />
+                <Stack.Screen name="SourceOfProductDetail" component={SourceOfProductDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="EventDetail" component={EventDetail} options={MainPageOptionNoBack} />
 
                 <Stack.Screen name="TopTabNavigator" component={TopTabNavigator} options={MainPageOptionNoBack} />
 

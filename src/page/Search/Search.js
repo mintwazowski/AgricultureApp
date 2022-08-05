@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Prompt-Regular',
     },
     iconInputFormContent: {
-        width: '10%',
+        width: '20%',
     },
     iconInputFormSearch: {
         height: 20,

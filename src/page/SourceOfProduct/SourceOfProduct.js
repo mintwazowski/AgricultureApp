@@ -21,6 +21,7 @@ import MainStyles from '../../styles/MainStyles';
 
 import RNPickerSelect from 'react-native-picker-select';
 import MapView from 'react-native-maps';
+import TopTabNavigator from '../../routes/TopTabNavigator';
 
 export default class SourceOfProduct extends Component {
 
@@ -35,7 +36,11 @@ export default class SourceOfProduct extends Component {
         ]
 
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ flex: 0.15 }}>
+                    <TopTabNavigator navigation={this.props.navigation} />
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
                 <View style={{ flex: 1 }}>
                     <View style={[MainStyles.contentBG]}>
                         <View style={[MainStyles.m15]}>
@@ -113,105 +118,103 @@ export default class SourceOfProduct extends Component {
                                 </View>
                             </View>
                         </View>
-                        <View style={{ flex: 1, width: '92%', alignContent: 'center', alignSelf: 'center' }}>
-                            <MapView
-                                initialRegion={{
-                                    latitude: 37.78825,
-                                    longitude: -122.4324,
-                                    latitudeDelta: 0.0922,
-                                    longitudeDelta: 0.0421,
-                                }}
-                                style={[styles.map]}
-                            />
+                    </View>
+                </View>
+               
+                <View style={{ flex: 1 }}>
+                    <View style={[MainStyles.contentBG]}>
+                        <MapView
+                            initialRegion={{
+                                latitude: 37.78825,
+                                longitude: -122.4324,
+                                latitudeDelta: 0.0922,
+                                longitudeDelta: 0.0421,
+                            }}
+                            style={[styles.map]}
+                        />
+                        <View style={[MainStyles.m15]}>
+                            <View style={[MainStyles.my15, { flexDirection: "row" }]}>
+                                <View style={{ flexDirection: "row" }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>แนะนำสถานที่ท่องเที่ยวรอบๆตัวคุณ</Text>
+                                </View>
+                                <View
+                                    style={{
+                                        flex: 1,
+                                        alignContent: 'flex-end',
+                                    }}
+                                >
+                                    {/* <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}> </Text> */}
+                                </View>
+                            </View>
+                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                <View style={{ width: '35%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/36.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 200,
+                                            borderRadius: 10
+                                        }}
+                                    />
+                                </View>
+                                <View style={{ width: '65%', paddingLeft: 15 }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>ลำพูนผ้าไหมไทย</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
+                                        ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
+                                        ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
+                                        มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
+                                    </Text>
+                                </View>
+                            </View>
+                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                <View style={{ width: '35%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/37.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 200,
+                                            borderRadius: 10
+                                        }}
+                                    />
+                                </View>
+                                <View style={{ width: '65%', paddingLeft: 15 }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>เก็บสตรอเบอร์รี่ที่ลำพูน</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
+                                        ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
+                                        ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
+                                        มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
+                                    </Text>
+                                </View>
+                            </View>
+                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                <View style={{ width: '35%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/38.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 200,
+                                            borderRadius: 10
+                                        }}
+                                    />
+                                </View>
+                                <View style={{ width: '65%', paddingLeft: 15 }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>ลำพูนผ้าไหมไทย</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
+                                        ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
+                                        ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
+                                        มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
+                                    </Text>
+                                </View>
+                            </View>
+
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 1 }}>
-                    <ScrollView showsVerticalScrollIndicator={false} >
-                        <View style={[MainStyles.contentBG]}>
-                            <View style={[MainStyles.m15]}>
-                                <View style={[MainStyles.my15, { flexDirection: "row" }]}>
-                                    <View style={{ flexDirection: "row" }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>แนะนำสถานที่ท่องเที่ยวรอบๆตัวคุณ</Text>
-                                    </View>
-                                    <View
-                                        style={{
-                                            flex: 1,
-                                            alignContent: 'flex-end',
-                                        }}
-                                    >
-                                        {/* <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}> </Text> */}
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                    <View style={{ width: '35%' }}>
-                                        <Image
-                                            resizeMode={'cover'}
-                                            source={require('../../../assets/images/36.png')}
-                                            style={{
-                                                width: '100%',
-                                                height: 200,
-                                                borderRadius: 10
-                                            }}
-                                        />
-                                    </View>
-                                    <View style={{ width: '65%', paddingLeft: 15 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>ลำพูนผ้าไหมไทย</Text>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                            ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
-                                            ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
-                                            มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
-                                        </Text>
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                    <View style={{ width: '35%' }}>
-                                        <Image
-                                            resizeMode={'cover'}
-                                            source={require('../../../assets/images/37.png')}
-                                            style={{
-                                                width: '100%',
-                                                height: 200,
-                                                borderRadius: 10
-                                            }}
-                                        />
-                                    </View>
-                                    <View style={{ width: '65%', paddingLeft: 15 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>เก็บสตรอเบอร์รี่ที่ลำพูน</Text>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                            ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
-                                            ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
-                                            มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
-                                        </Text>
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                    <View style={{ width: '35%' }}>
-                                        <Image
-                                            resizeMode={'cover'}
-                                            source={require('../../../assets/images/38.png')}
-                                            style={{
-                                                width: '100%',
-                                                height: 200,
-                                                borderRadius: 10
-                                            }}
-                                        />
-                                    </View>
-                                    <View style={{ width: '65%', paddingLeft: 15 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>ลำพูนผ้าไหมไทย</Text>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                            ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
-                                            ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
-                                            มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
-                                        </Text>
-                                    </View>
-                                </View>
-
-                            </View>
-                        </View>
-                    </ScrollView>
-                </View>
-            </SafeAreaView >
+                </ScrollView>
+            </View >
         );
     }
 }

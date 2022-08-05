@@ -49,6 +49,10 @@ export default class TouristAttractionDetail extends Component {
             }
         ]
     }
+    
+    onBack() {
+        this.props.navigation.navigate('Home')
+    }
 
     onEventReservation() {
         alert = (<ModalLib isVisible={true}>
@@ -420,39 +424,93 @@ export default class TouristAttractionDetail extends Component {
                 <View style={[MainStyles.contentBG, MainStyles.mx15]}>
                     <ScrollView showsVerticalScrollIndicator={false} >
                         {/* Content */}
-                        <View style={{ flex: 1, marginTop: 15 }}>
-                            <View style={{ flexDirection: "row", marginTop: 15 }}>
-
-
-
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingRight: 7 }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u113.png?token=80f7ad62be395aa30055664998be1b4018ecd3c6388d92b8ebf5571c8c224d1e' }}
-                                        style={{
-                                            width: '100%',
-                                            height: 220,
-                                            borderRadius: 10,
-                                        }}
-                                    />
-                                    
-
-                                </View>
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingLeft: 7 }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u102.png?token=7ce9bf978c1c340e495df21120be9289715fddbccd0c431637d5d9f05e1e1b26' }}
-                                        style={{
-                                            width: '100%',
-                                            height: 220,
-                                            borderRadius: 10,
-                                        }}
-                                    />
-                                
-                                </View>
-                            </View>
+                        <View style={{ flex: 1, marginTop: 25 }}>
                             
-                            <View style={{ flexDirection: "column", flex: 1, marginTop: 5 }}>
+                            <View style={{ flexDirection: "column", flex: 1, marginTop: 15 }}>
+                                {/* Banner Content */}
+                                <View style={{ marginTop: 15, flex: 0.45 }}>
+                                    <Swiper
+                                        ref='swiper'
+                                        height='100%'
+                                        showsButtons={false}
+                                        dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                                        activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
+                                        >
+                                        <View style={styles.slide1}>
+                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                                <Image
+                                                    resizeMode={'cover'}
+                                                    source={require('../../../assets/placeholder.jpg')}
+                                                    style={{
+                                                        width: '100%',
+                                                        height: 250,
+                                                    }}
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.slide1}>
+                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                                <Image
+                                                    resizeMode={'cover'}
+                                                    source={require('../../../assets/placeholder.jpg')}
+                                                    style={{
+                                                        width: '100%',
+                                                        height: 250,
+                                                    }}
+                                                />
+                                            </View>
+                                        </View>
+                                        <View style={styles.slide1}>
+                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                                <Image
+                                                    resizeMode={'cover'}
+                                                    source={require('../../../assets/placeholder.jpg')}
+                                                    style={{
+                                                        width: '100%',
+                                                        height: 250,
+                                                    }}
+                                                />
+                                            </View>
+                                        </View>
+                                    </Swiper>
+                                    <FontAwesome5 name='long-arrow-alt-left' size={26} color="#fff" style={{ position: 'absolute', left: 10, top: 10, paddingHorizontal: 7 }} onPress={() => this.onBack()} />
+                                    <MaterialIcons name='favorite-border' size={26} color="#fff" style={{ position: 'absolute', right: 10, top: 10, paddingHorizontal: 7 }} />
+                                    <Icon name='like2' size={26} color="#fff" style={{ position: 'absolute', right: 50, top: 10, paddingHorizontal: 7 }} />
+                                    <FontAwesome5 name='share-alt' size={22} color="#fff" style={{ position: 'absolute', right: 90, top: 12, paddingHorizontal: 7 }} />
+                                </View>
+                                <View style={{ marginVertical: 10, flex: 0.45 }}>
+                                    <View style={styles.slide1}>
+                                        <View style={{ flexDirection: 'row', alignContent: 'center', width: '100%' }}>
+                                            <Image
+                                                resizeMode={'cover'}
+                                                source={require('../../../assets/placeholder.jpg')}
+                                                style={{
+                                                    width: '30%',
+                                                    height: 80,
+                                                    marginHorizontal:5
+                                                }}
+                                            />
+                                            <Image
+                                                resizeMode={'cover'}
+                                                source={require('../../../assets/placeholder.jpg')}
+                                                style={{
+                                                    width: '30%',
+                                                    height: 80,
+                                                    marginHorizontal:5
+                                                }}
+                                            />
+                                            <Image
+                                                resizeMode={'cover'}
+                                                source={require('../../../assets/placeholder.jpg')}
+                                                style={{
+                                                    width: '30%',
+                                                    height: 80,
+                                                    marginHorizontal:5
+                                                }}
+                                            />
+                                        </View>
+                                    </View>
+                                </View>
                                 <View style={{ flexDirection: "row" }}>
                                     <TouchableOpacity
                                         activeOpacity={1}

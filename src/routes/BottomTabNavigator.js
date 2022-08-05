@@ -7,7 +7,7 @@ import { createStackNavigator, useHeaderHeight } from '@react-navigation/stack';
 import Home from '../page/Home/Home';
 import Product from '../page/Product/Product';
 import Event from '../page/Event/Event';
-import SourceOfProduct from '../page/SourceOfProduct/SourceOfProduct';
+import SourceOfProductMain from '../page/SourceOfProduct/SourceOfProductMain';
 import TouristAttraction from '../page/TouristAttraction/TouristAttraction';
 import DashboardSeller from '../page/Seller/DashboardSeller';
 
@@ -85,8 +85,8 @@ const BottomTabNavigator = () => {
                 hideTabBar={true}
             />
             <Tab.Screen
-                name="SourceOfProduct"
-                component={SourceOfProduct}
+                name="SourceOfProductMain"
+                component={SourceOfProductMain}
                 options={{
                     tabBarLabel: ({ focused }) => (
                         <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> แหล่งผลิตสินค้า</Text>
@@ -98,8 +98,8 @@ const BottomTabNavigator = () => {
                 hideTabBar={true}
             />
             <Tab.Screen
-                name="DashboardSeller"
-                component={DashboardSeller}
+                name="TouristAttraction"
+                component={TouristAttraction}
                 options={{
                     tabBarLabel: ({ focused }) => (
                         <Text allowFontScaling={false} style={focused ? TabBarBottomStyles.tabBarLabelColorActive1 : TabBarBottomStyles.tabBarLabelColor1}> สถานที่ท่องเที่ยว </Text>
