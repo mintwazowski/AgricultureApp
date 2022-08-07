@@ -46,6 +46,12 @@ export default class SourceOfProduct extends Component {
             { label: "กรุงเทพฯ", value: "กรุงเทพฯ" },
             { label: "เชียงใหม่", value: "เชียงใหม่" },
         ]
+        const distance = [
+            { label: "100 กม.", value: "100 กม." },
+            { label: "200 กม.", value: "200 กม." },
+            { label: "300 กม.", value: "300 กม." },
+            { label: "400 กม.", value: "400 กม." },
+        ]
 
         return (
             <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -102,7 +108,6 @@ export default class SourceOfProduct extends Component {
                                                 type="font-awesome"
                                                 size={18}
                                                 underlayColor="transparent"
-                                                iconStyle={styles.editIcon}
                                             />
                                         }}
                                     />
@@ -113,14 +118,13 @@ export default class SourceOfProduct extends Component {
                                         style={selectForm}
                                         placeholder={{ label: 'ค้นหาตามจังหวัด' }}
                                         onValueChange={(value, key) => this.onChangeType(value)}
-                                        items={province}
+                                        items={distance}
                                         Icon={() => {
                                             return <Icon
                                                 name="angle-down"
                                                 type="font-awesome"
                                                 underlayColor="transparent"
                                                 size={18}
-                                                iconStyle={styles.editIcon}
                                             />
                                         }}  
                                     />
@@ -144,7 +148,7 @@ export default class SourceOfProduct extends Component {
                         <View style={[MainStyles.m15]}>
                             <View style={[MainStyles.my15, { flexDirection: "row" }]}>
                                 <View style={{ flexDirection: "row" }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>แนะนำสถานที่ท่องเที่ยวรอบๆตัวคุณ</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>แนะนำสถานที่ท่องเที่ยวรอบๆตัวคุณ</Text>
                                 </View>
                                 <View
                                     style={{
@@ -155,17 +159,17 @@ export default class SourceOfProduct extends Component {
                                 >
                                     <RNPickerSelect
                                         useNativeAndroidPickerStyle={false}
-                                        style={selectForm}
-                                        placeholder={{ label: 'ค้นหาตามระยะทาง' }}
+                                        style={selectKM}
+                                        placeholder={{ label: '100 กม.' }}
                                         onValueChange={(value, key) => this.onChangeType(value)}
-                                        items={province}
+                                        items={distance}
                                         Icon={() => {
                                             return <Icon
                                                 name="angle-down"
                                                 type="font-awesome"
                                                 underlayColor="transparent"
                                                 size={18}
-                                                iconStyle={styles.editIcon}
+                                                color="#fff"
                                             />
                                         }}  
                                     />
@@ -313,6 +317,39 @@ const styles = StyleSheet.create({
     },
 });
 
+
+const selectKM = StyleSheet.create({
+    inputIOS: {
+        fontSize: 12,
+        fontFamily: 'Prompt-Regular',
+        borderColor: "#2eb16d",
+        borderWidth: 1,
+        borderRadius: 7,
+        paddingVertical: 0,
+        paddingHorizontal: 15,
+        backgroundColor: '#2eb16d',
+        width: '100%',
+    },
+    inputAndroid: {
+        fontSize: 12,
+        fontFamily: 'Prompt-Regular',
+        borderColor: "#2eb16d",
+        borderWidth: 1,
+        borderRadius: 7,
+        paddingVertical: 0,
+        paddingHorizontal: 15,
+        backgroundColor: '#2eb16d',
+        width: '100%',
+        // textAlign:'center',
+    },
+    placeholder:{
+        color:"#fff"
+    },
+    iconContainer: {
+        top: 6,
+        right: 10,
+    },
+});
 
 const selectForm = StyleSheet.create({
     inputIOS: {
