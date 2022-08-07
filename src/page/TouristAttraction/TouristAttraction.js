@@ -37,13 +37,56 @@ export default class TouristAttraction extends Component {
         this.props.navigation.navigate('Home')
     }
 
+    
+
     render() {
+         // Banner
+        const Banner = [];
+        for (let i = 0; i < 3; i++) {
+            Banner.push(
+                <TouchableOpacity
+                    onPress={() => this.onDetail()}
+                    activeOpacity={1}
+                >
+                    <View style={styles.slide1}>
+                        <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' , paddingHorizontal: 3}}>
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/image/1.png')}
+                                style={{
+                                    width: '100%',
+                                    height: 220,
+                                    borderRadius: 10,
+                                }}
+                            />
+                            <View style={{ flexDirection: 'row', justifyContent: 'center', width: '100%', paddingHorizontal: 3}}>
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้าลำพูนผ้าไหมไทย</Text>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={require('../../../assets/image/u99.png')}
+                                    style={{
+                                        width: 55,
+                                        height: 25,
+                                        marginLeft:5,
+                                        padding:0,
+                                        marginTop:7
+                                    }}
+                                />
+                                <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
+                                    <Text allowFontScaling={false} style={[MainStyles.Hot]}>HOT</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+            )
+        }
         return (
             <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ flex: 0.15 }}>
                     <TopTabNavigator navigation={this.props.navigation} />
                 </View>
-                    <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 , paddingHorizontal :15 , marginTop:10}}>
+                    <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 , paddingHorizontal :5 , marginTop:10}}>
                         {/* Search Content */}
                         <View style={{ flexDirection: 'row', width: '100%' }}>
                             <View style={{ justifyContent: 'center', width: '10%' }}>
@@ -90,48 +133,7 @@ export default class TouristAttraction extends Component {
                                 dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -50 }} />}
                                 activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -50 }} />}
                             >
-                                <View style={styles.slide1}>
-                                    <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
-                                        <Image
-                                            resizeMode={'cover'}
-                                            source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u96.png?token=c560ed132506669b6d36dbcb11ee863ff76bec093a570311103b404013ef5e29' }}
-                                            style={{
-                                                width: '100%',
-                                                height: 220,
-                                                borderRadius: 10,
-                                            }}
-                                        />
-                                        <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้าลำพูนผ้าไหมไทย</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.slide2}>
-                                    <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
-                                        <Image
-                                            resizeMode={'cover'}
-                                            source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u96.png?token=c560ed132506669b6d36dbcb11ee863ff76bec093a570311103b404013ef5e29' }}
-                                            style={{
-                                                width: '100%',
-                                                height: 220,
-                                                borderRadius: 10,
-                                            }}
-                                        />
-                                        <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้าลำพูนผ้าไหมไทย</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.slide3}>
-                                    <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
-                                        <Image
-                                            resizeMode={'cover'}
-                                            source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u96.png?token=c560ed132506669b6d36dbcb11ee863ff76bec093a570311103b404013ef5e29' }}
-                                            style={{
-                                                width: '100%',
-                                                height: 220,
-                                                borderRadius: 10,
-                                            }}
-                                        />
-                                        <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้าลำพูนผ้าไหมไทย</Text>
-                                    </View>
-                                </View>
+                                {Banner}
                             </Swiper>
                         </View>
 
@@ -142,9 +144,8 @@ export default class TouristAttraction extends Component {
                                 <TouchableOpacity
                                     activeOpacity={1}
                                     onPress={() => this.onDetail()}
-                                    style={{ flexDirection: 'column', alignContent: 'center', width: '50%'}}
+                                    style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal:5}}
                                 >
-
                                     <Image
                                         resizeMode={'cover'}
                                         source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u113.png?token=80f7ad62be395aa30055664998be1b4018ecd3c6388d92b8ebf5571c8c224d1e' }}
@@ -173,7 +174,11 @@ export default class TouristAttraction extends Component {
 
 
                                 </TouchableOpacity>
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingLeft: 7 }}>
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    onPress={() => this.onDetail()}
+                                    style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal:5}}
+                                >
                                     <Image
                                         resizeMode={'cover'}
                                         source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u102.png?token=7ce9bf978c1c340e495df21120be9289715fddbccd0c431637d5d9f05e1e1b26' }}
@@ -199,10 +204,14 @@ export default class TouristAttraction extends Component {
                                             </View>
                                         </View>
                                     </View>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 15 }}>
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%' }}>
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    onPress={() => this.onDetail()}
+                                    style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal:5}}
+                                >
                                     <Image
                                         resizeMode={'cover'}
                                         source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u101.png?token=09248a6cf9ea1bf538848901f87aa2a44ed5baf95bd9a18e60567b72d29ba6fb' }}
@@ -229,8 +238,12 @@ export default class TouristAttraction extends Component {
                                         </View>
                                     </View>
 
-                                </View>
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingLeft: 7 }}>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    onPress={() => this.onDetail()}
+                                    style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal:5}}
+                                >
                                     <Image
                                         resizeMode={'cover'}
                                         source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u119.png?token=c0c935979be66dd728f43563a47f374cec504821551f4a39f0a715f506246a5f' }}
@@ -256,7 +269,7 @@ export default class TouristAttraction extends Component {
                                             </View>
                                         </View>
                                     </View>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginVertical: 30, alignSelf: 'center' }}>
                                 <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%' }}>
@@ -313,6 +326,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     heartIcon : {
-        position : 'absolute' , right:5, top: 5 , color:'white'
+        position : 'absolute' , right:3 , top: 5 , color:'white'
     },
 });

@@ -314,7 +314,7 @@ export default class TouristAttractionDetail extends Component {
     
         this.state = {
             col: 0,
-    
+            activeIndex: 0,
             cards: [
                 {
                 id:1,
@@ -345,6 +345,12 @@ export default class TouristAttractionDetail extends Component {
         };
     }
   
+    _onChange(index) {
+        this.setState({
+            activeIndex: index,
+        })
+    };
+
     tog(e) {
         let event = e.target.dataset.event;
         this.setState({
@@ -355,162 +361,188 @@ export default class TouristAttractionDetail extends Component {
     
     render() {
 
-        const { col, cards , isAlert } = this.state;
+        const { col, cards , isAlert , index } = this.state;
 
 
         const getFavProduct = [
-            { id: 1, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 5 },
-            { id: 2, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 5 },
-            { id: 3, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 4 },
-            { id: 4, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 5 },
-            { id: 5, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 3 },
-            { id: 6, img_src: require('../../../assets/placeholder.jpg'), name: 'Text Mock', rating: 5 },
+            { id: 1, img_src: require('../../../assets/image/22.png'), name: 'เสื้อคลุมผ้าคราม', price: '8,000' , rating: 5 },
+            { id: 2, img_src: require('../../../assets/image/23.png'), name: 'ผ้าพันคอคราม', price: '500', rating: 5 },
+            { id: 3, img_src: require('../../../assets/image/24.png'), name: 'เสื้อคราม', price: '1,000', rating: 4 },
         ]
 
         const getBannerFlashSale = [
-            { id: 1, img_src: require('../../../assets/placeholder.jpg'), title: 'Title', subTitle: 'Sub Title' , province: 'province' },
-            { id: 2, img_src: require('../../../assets/placeholder.jpg'), title: 'Title', subTitle: 'Sub Title' , province: 'province' },
-            { id: 3, img_src: require('../../../assets/placeholder.jpg'), title: 'Title', subTitle: 'Sub Title' , province: 'province' },
-            { id: 4, img_src: require('../../../assets/placeholder.jpg'), title: 'Title', subTitle: 'Sub Title' , province: 'province' },
-            { id: 5, img_src: require('../../../assets/placeholder.jpg'), title: 'Title', subTitle: 'Sub Title' , province: 'province' },
+            { id: 1, img_src: require('../../../assets/images/36.png'), title: 'เก็บสตรอเบอร์รี่ที่สะเมิง', subTitle: 'ฤดูหนาวแบบนี้หลายๆ คนมาเที่ยวเชียงใหม่ก็อยากจะไปเก็บ ไปซื้อ' , province: 'เชียงใหม่' },
+            { id: 2, img_src: require('../../../assets/images/37.png'), title: 'เมล็ดกาแฟ เขาทะลุ', subTitle: 'กาแฟเขาทะชุมพร เริ่มต้นจากการเป็นครอบครัวเกษตรกร ชาวสวนกาแฟ' , province: 'ชุมพร' },
+            { id: 3, img_src: require('../../../assets/images/38.png'), title: 'ข้าวหอมมะลิสุรินทร์', subTitle: 'ข้าวหอมมะลิสุรินทร์ยังอุดมด้วยสารอาหารที่มีประโยชน์นานาชนิด' , province: 'สุรินทร์' },
         ]
 
         var getFavProductCard = []
-        getFavProduct.map((key, index) => {
+        for (let i = 0; i < 1; i++) {
             getFavProductCard.push(
-                <TouchableOpacity
-                    activeOpacity={1}
-                    style={{
-                        width: '30%',
-                        paddingRight: 15,
-                    }}
-                >
-                    <View style={{
-                        width: '100%',
-                        height: 200,
-                        paddingBottom: 10,
-                        paddingTop: 5,
-                    }}>
-                        <ImageBackground
-                            source={getFavProduct[index].img_src}
-                            style={{
-                                flex: 1,
-                            }}
-                            imageStyle={{ borderRadius: 6 }}
-                        >
-                        </ImageBackground>
-                    </View>
-                    <Text allowFontScaling={false} style={[MainStyles.Text16, MainStyles.textGray]} numberOfLines={1} ellipsizeMode="tail">
-                        {getFavProduct[index].name}
-                    </Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <View style={{ flexDirection: 'row' }}>
-                            <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textEndContent]}>5</Text>
-                        </View>
-                        <View style={{ flex: 1, justifyContent: "flex-end" }}>
-                            <FontAwesome5 name='shopping-cart' size={15} style={[ MainStyles.textGrayLight , { marginRight: 5 , alignSelf: 'flex-end' }]}  />
-
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            );
-        });
-
+                <View style={styles.slide1}>
+                    {getFavProduct.map((data, index) => {
+                        return (
+                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '33%', paddingHorizontal: 3 }}>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={getFavProduct[index].img_src}
+                                    style={{
+                                        width: '100%',
+                                        height: 170,
+                                        paddingBottom: 10,
+                                        paddingTop: 5,
+                                        borderRadius: 10,
+                                    }}
+                                />
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5]}>{getFavProduct[index].name}</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft]}>{getFavProduct[index].price} บาท</Text>
+                                <View style={{ flexDirection: 'row'  , marginTop:10}}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
+                                    </View>
+                                    <View style={{ flex: 1, alignSelf: "flex-end" , paddingRight:10}}>
+                                        <FontAwesome5 name='shopping-cart' size={14} color="#949494" style={{
+                                            alignSelf: 'flex-end',
+                                            
+                                        }} />
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    })}
+                </View>
+            )
+        }
+      
         return (
 
             <SafeAreaView style={[MainStyles.contentBG]}>
                 {isAlert}
-                <View style={[MainStyles.contentBG, MainStyles.mx15]}>
+                <View style={[MainStyles.contentBG]}>
                     <ScrollView showsVerticalScrollIndicator={false} >
-                        {/* Content */}
-                        <View style={{ flex: 1, marginTop: 25 }}>
-                            
-                            <View style={{ flexDirection: "column", flex: 1, marginTop: 15 }}>
-                                {/* Banner Content */}
-                                <View style={{ marginTop: 15, flex: 0.45 }}>
-                                    <Swiper
-                                        ref='swiper'
-                                        height='100%'
-                                        showsButtons={false}
-                                        dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
-                                        activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
-                                        >
-                                        <View style={styles.slide1}>
-                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
-                                                <Image
-                                                    resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: 250,
-                                                    }}
-                                                />
-                                            </View>
-                                        </View>
-                                        <View style={styles.slide1}>
-                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
-                                                <Image
-                                                    resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: 250,
-                                                    }}
-                                                />
-                                            </View>
-                                        </View>
-                                        <View style={styles.slide1}>
-                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
-                                                <Image
-                                                    resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: 250,
-                                                    }}
-                                                />
-                                            </View>
-                                        </View>
-                                    </Swiper>
-                                    <FontAwesome5 name='long-arrow-alt-left' size={26} color="#fff" style={{ position: 'absolute', left: 10, top: 10, paddingHorizontal: 7 }} onPress={() => this.onBack()} />
-                                    <MaterialIcons name='favorite-border' size={26} color="#fff" style={{ position: 'absolute', right: 10, top: 10, paddingHorizontal: 7 }} />
-                                    <Icon name='like2' size={26} color="#fff" style={{ position: 'absolute', right: 50, top: 10, paddingHorizontal: 7 }} />
-                                    <FontAwesome5 name='share-alt' size={22} color="#fff" style={{ position: 'absolute', right: 90, top: 12, paddingHorizontal: 7 }} />
-                                </View>
-                                <View style={{ marginVertical: 10, flex: 0.45 }}>
-                                    <View style={styles.slide1}>
-                                        <View style={{ flexDirection: 'row', alignContent: 'center', width: '100%' }}>
-                                            <Image
-                                                resizeMode={'cover'}
-                                                source={require('../../../assets/placeholder.jpg')}
-                                                style={{
-                                                    width: '30%',
-                                                    height: 80,
-                                                    marginHorizontal:5
-                                                }}
-                                            />
-                                            <Image
-                                                resizeMode={'cover'}
-                                                source={require('../../../assets/placeholder.jpg')}
-                                                style={{
-                                                    width: '30%',
-                                                    height: 80,
-                                                    marginHorizontal:5
-                                                }}
-                                            />
-                                            <Image
-                                                resizeMode={'cover'}
-                                                source={require('../../../assets/placeholder.jpg')}
-                                                style={{
-                                                    width: '30%',
-                                                    height: 80,
-                                                    marginHorizontal:5
-                                                }}
-                                            />
-                                        </View>
+                        {/* Banner Content */}
+                        <View style={{ flex: 1, marginTop: -10 }}>
+                            <Swiper
+                                ref='swiper'
+                                height={'100%'}
+                                showsButtons={false}
+                                showsPagination={false}
+                                onIndexChanged={(index) => this.setState({ index: index })}
+                            >
+                                <View style={styles.slide1}>
+                                    <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                        <Image
+                                            resizeMode={'cover'}
+                                            source={require('../../../assets/image/1.png')}
+                                            style={{
+                                                width: '100%',
+                                                height: 300
+                                            }}
+                                        />
                                     </View>
                                 </View>
+                                <View style={styles.slide1}>
+                                    <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                        <Image
+                                            resizeMode={'cover'}
+                                            source={require('../../../assets/image/1.png')}
+                                            style={{
+                                                width: '100%',
+                                                height: 300
+                                            }}
+                                        />
+                                    </View>
+                                </View>
+                                <View style={styles.slide1}>
+                                    <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                        <Image
+                                            resizeMode={'cover'}
+                                            source={require('../../../assets/image/1.png')}
+                                            style={{
+                                                width: '100%',
+                                                height: 300
+                                            }}
+                                        />
+                                    </View>
+                                </View>
+                            </Swiper>
+                            <View style={{ flexDirection: 'row', position: 'absolute', left: 10, top: 45, right: 10, paddingHorizontal: 7 }}>
+                                <FontAwesome5 name='long-arrow-alt-left' size={26} color="#fff" style={{}} onPress={() => this.onBack()} />
+                                <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}>
+                                    <FontAwesome5 name='share-alt' size={22} color="#fff" style={{ paddingHorizontal: 7 }} />
+                                    <Icon name='like2' size={25} color="#fff" style={{ paddingHorizontal: 7 }} />
+                                    <MaterialIcons name='favorite-border' size={26} color="#fff" style={{ paddingHorizontal: 7 }} />
+                                </View>
+                            </View>
+                            <View style={{ flexDirection: 'row', position: 'absolute', left: 5, bottom: 10, right: 5, paddingHorizontal: 7 }}>
+                                <View style={{ backgroundColor: '#666666', paddingVertical: 3, paddingHorizontal: 15, borderRadius: 13 }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}>{index + 1} / 3</Text>
+                                </View>
+                                <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}>
+                                    <View style={{ backgroundColor: '#666666', paddingVertical: 3, paddingHorizontal: 15, borderRadius: 13 }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}>แจ้งแก้ไขข้อมูล</Text>
+                                    </View>
+                                </View>
+                            </View>
+                        </View>
+
+                        <View style={{ flex: 1 }}>
+                            <View style={{ flexDirection: 'row', alignContent: 'center', marginTop: 10,  width: '100%' }}>
+                                <View style={{ width: '30.5%', marginLeft: '2%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/30.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                        }}
+                                    />
+                                </View>
+                                <View style={{ width: '30.5%', marginHorizontal: '2%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                        }}
+                                    />
+                                </View>
+                                <View style={{ width: '30.5%', marginRight: '2%' }}>
+                                    <View style={{
+                                        backgroundColor: '#333',
+                                        opacity: 0.8,
+                                        width: '100%',
+                                        position: 'absolute',
+                                        zIndex: 999,
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        bottom: 0,
+                                        flexDirection: 'column',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    }}>
+
+                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text24]}>+20</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}>ดูรูปทั้งหมด</Text>
+                                    </View>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 80,
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                        </View>
+
+                        {/* Content */}
+                        <View style={{ flex: 1, paddingHorizontal:10 }}>
+                            <View style={{ flexDirection: "column", flex: 1, marginTop: 15 }}>
                                 <View style={{ flexDirection: "row" }}>
                                     <TouchableOpacity
                                         activeOpacity={1}
@@ -608,6 +640,13 @@ export default class TouristAttractionDetail extends Component {
                                                     ]}
                                                     onValueChange={(value) => console.log(value)}
                                                     placeholder={{ label: "วันที่จอง" }}
+                                                    Icon={() => {
+                                                        return <FontAwesome
+                                                            name="caret-down"
+                                                            size={18}
+                                                            color="#000"
+                                                        />
+                                                    }}
                                                 />
                                             </View>
 
@@ -626,6 +665,13 @@ export default class TouristAttractionDetail extends Component {
                                                     ]}
                                                     onValueChange={(value) => console.log(value)}
                                                     placeholder={{ label: "จำนวน" }}
+                                                    Icon={() => {
+                                                        return <FontAwesome
+                                                            name="caret-down"
+                                                            size={18}
+                                                            color="#000"
+                                                        />
+                                                    }}
                                                 />
                                             </View>
 
@@ -789,6 +835,7 @@ export default class TouristAttractionDetail extends Component {
                                                             <CollapseHeader>
                                                             <View>
                                                                 <Text allowFontScaling={false} style={[MainStyles.Text16, MainStyles.textAlignLeft, MainStyles.textGray]}>{element.title}</Text>
+                                                                <FontAwesome name={this.state.activeIndex === index ? "caret-down" : "caret-up"} size={24} color="#999" style={{paddingHorizontal:8}} />
                                                             </View>
                                                             </CollapseHeader>
                                                             <CollapseBody>
@@ -803,10 +850,15 @@ export default class TouristAttractionDetail extends Component {
                                     <View style={{ flex: 1, marginTop: 20 }}>
                                         <Text allowFontScaling={false} style={[MainStyles.Text20, MainStyles.textAlignLeft, MainStyles.textGreen]}>สินค้าแนะนำ</Text>
                                         
-                                        <View style={{ flexDirection: 'row' }}>
-                                            <ScrollView style={[{ flex: 1, marginTop: 10 }]} horizontal showsHorizontalScrollIndicator={false}>
+                                        <View style={{ flex: 1, marginVertical: 15 , flexDirection: 'row' }}>
+                                            <Swiper
+                                                height={'100%'}
+                                                showsButtons={false}
+                                                dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
+                                                activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
+                                            >
                                                 {getFavProductCard}
-                                            </ScrollView>
+                                            </Swiper>
                                         </View>
                                         <View style={MainStyles.BorderBottomGrayWhite}></View>
                                         <Text allowFontScaling={false} style={[MainStyles.Text20, MainStyles.textAlignLeft, MainStyles.textGreen]}>คะแนนรีวิวแหล่งท่องเที่ยว</Text>
@@ -891,7 +943,7 @@ export default class TouristAttractionDetail extends Component {
                                             <View style={{ flexDirection: 'row' , marginTop:20 }}>
                                                 <Image
                                                     resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
+                                                    source={require('../../../assets/image/u1731.png')}
                                                     style={{
                                                         width: 50,
                                                         height: 50,
@@ -901,30 +953,30 @@ export default class TouristAttractionDetail extends Component {
                                                 <View style={{ flexDirection: 'column', marginLeft: 10, alignItems: 'flex-start' }}>
                                                     <Text style={[MainStyles.Text16, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>ย้อมผ้าสนุกมากเลยครับ</Text>
                                                     <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
-                                                        <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGray]}>name</Text> 
-                                                        <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>dd/mm/yyyy</Text>
+                                                        <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGray]}>เมตตา กรุณา</Text> 
+                                                        <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>24 พ.ย. 2564</Text>
                                                     </View>
                                                 </View>
                                             </View>
                                             <View style={{ flexDirection: 'row',  marginTop:8}}>
                                                 <Image
                                                     resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
+                                                    source={require('../../../assets/images/30.png')}
                                                     style={{
-                                                        width: 120,
-                                                        height: 60,
-                                                        borderRadius: 9,
+                                                        width: 100,
+                                                        height: 65,
+                                                        // borderRadius: 9,
                                                         marginHorizontal :5,
                                                     }}
                                                 />
                                                 <Image
                                                     resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
+                                                    source={require('../../../assets/images/31.png')}
                                                     style={{
-                                                        width: 120,
-                                                        height: 60,
+                                                        width: 100,
+                                                        height: 65,
                                                         marginHorizontal :5,
-                                                        borderRadius: 9,
+                                                        // borderRadius: 9,
                                                     }}
                                                 />
                                             </View>
@@ -933,18 +985,18 @@ export default class TouristAttractionDetail extends Component {
                                         <View style={{ flexDirection: 'row' , marginTop:20 }}>
                                             <Image
                                                 resizeMode={'cover'}
-                                                source={require('../../../assets/placeholder.jpg')}
+                                                source={require('../../../assets/image/u1729.png')}
                                                 style={{
                                                     width: 50,
                                                     height: 50,
                                                     borderRadius: 99,
                                                 }}
                                             />
-                                            <View style={{ flexDirection: 'column', marginLeft: 10, alignItems: 'flex-start' }}>
-                                                <Text style={[MainStyles.Text16, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>ย้อมผ้าสนุกมากเลยครับ</Text>
-                                                <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
-                                                    <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGray]}>name</Text> 
-                                                    <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>dd/mm/yyyy</Text>
+                                            <View style={{ flexDirection: 'column', marginLeft: 10 }}>
+                                                <Text style={[MainStyles.Text16, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>เรียนรู้การทอผ้าได้ดีมากๆเลยค่ะ</Text>
+                                                <View style={{ flexDirection: 'row' }}>
+                                                    <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGray]}>มานี มีพร้อม</Text> 
+                                                    <Text style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>24 พ.ย. 2564</Text>
                                                 </View>
                                             </View>
                                         </View>
@@ -972,7 +1024,7 @@ export default class TouristAttractionDetail extends Component {
 
                                         <Text allowFontScaling={false} style={[MainStyles.Text18, MainStyles.textAlignLeft, MainStyles.textGreen]}>แนะนำแหล่งท่องเที่ยวเชิงเกษตรที่คล้ายกัน</Text>
 
-                                        <View style={{ marginTop: 30, flex: 0.45 }}>
+                                        <View style={{ marginTop:10, flex: 0.45 }}>
                                             <Swiper
                                                 ref='swiper'
                                                 height='100%'
@@ -989,15 +1041,16 @@ export default class TouristAttractionDetail extends Component {
                                                                     source={getBannerFlashSale[index].img_src}
                                                                     style={{
                                                                         width: '100%',
-                                                                        height: 80,
-                                                                        borderRadius: 10,
+                                                                        height: 180,
+                                                                        borderRadius: 9,
                                                                     }}
-                                                                />                                                            
+                                                                />                     
+                                                                <FontAwesome name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />                                       
                                                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt14, MainStyles.mb5]}>{getBannerFlashSale[index].title}</Text>
                                                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>{getBannerFlashSale[index].subTitle}</Text>
                                                                 <View style={ {flexDirection: "row" , marginTop:15}}>
                                                                     <FontAwesome name='map-marker' size={15} color="#448165" style={{ paddingHorizontal:8 }} />
-                                                                    <Text style={[MainStyles.textGreen, MainStyles.Text14]}>{getBannerFlashSale[index].province}</Text>
+                                                                    <Text style={[MainStyles.textGreen, MainStyles.Text12]}>{getBannerFlashSale[index].province}</Text>
                                                                 </View>
                                                             </View>
                                                         )
@@ -1097,6 +1150,9 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         borderColor: "#e0e0e0",
     },
+    heartIcon : {
+        position : 'absolute' , right:3 , top: 5 , color:'white'
+    },
 });
 
 const SelectHaveBorderStyles = StyleSheet.create({
@@ -1162,6 +1218,13 @@ const SelectHaveBorderStyles = StyleSheet.create({
         width: 20,
         marginRight: 10
     },
+    placeholder: {
+        color: "#000"
+    },
+    iconContainer: {
+        top: 12,
+        right: 15,
+    },
 });
 const SelectBorderStyles = StyleSheet.create({
     inputIOS: {
@@ -1189,6 +1252,10 @@ const SelectBorderStyles = StyleSheet.create({
         paddingRight: 20,
         marginBottom: 10,
         borderColor: '#e6e6e6',
+    },
+    iconContainer: {
+        top: 15,
+        right: 15,
     },
     selectForBank: {
         position: 'absolute',

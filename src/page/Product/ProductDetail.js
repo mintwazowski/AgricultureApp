@@ -118,60 +118,96 @@ export default class ProductDetail extends Component {
         ]
 
         const getFavProduct = [
-            { id: 1, img_src: require('../../../assets/images/4.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '250', rating: 5 },
-            { id: 2, img_src: require('../../../assets/images/5.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49', rating: 5 },
-            { id: 3, img_src: require('../../../assets/images/6.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '25', rating: 4 },
-            { id: 4, img_src: require('../../../assets/images/7.png'), name: 'น้ำมันเมล็ดชา Camellia Oleifera', price: '250', rating: 5 },
-            { id: 5, img_src: require('../../../assets/images/8.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49', rating: 3 },
-            { id: 6, img_src: require('../../../assets/images/5.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49', rating: 5 },
+            { id: 1, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruit ผลไม้สด', price: '1,299', rating: 5 },
+            { id: 2, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ', price: '250', rating: 5 },
+            { id: 3, img_src: require('../../../assets/image/29.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ ออร์แกนิค', price: '1,299', rating: 4 },
+
+        ]
+
+        const getMayLike = [
+            { id: 1, img_src: require('../../../assets/image/35.png'), name: 'กระเป๋าคราม', price: '1,500', rating: 5 },
+            { id: 2, img_src: require('../../../assets/image/36.png'), name: 'หมวดไหมคราม', price: '500', rating: 5 },
+            { id: 3, img_src: require('../../../assets/image/37.png'), name: 'เสื้อคราม', price: '1,000', rating: 4 },
         ]
 
         var getFavProductCard = []
-        getFavProduct.map((key, index) => {
+        for (let i = 0; i < 3; i++) {
             getFavProductCard.push(
-                <TouchableOpacity
-                    activeOpacity={1}
-                    style={{
-                        width: '10%',
-                        paddingRight: 15,
-                    }}
-                >
-                    <View style={{
-                        width: '100%',
-                        height: 200,
-                        paddingBottom: 10,
-                        paddingTop: 5,
-                    }}>
-                        <ImageBackground
-                            source={getFavProduct[index].img_src}
-                            style={{
-                                flex: 1,
-                            }}
-                            imageStyle={{ borderRadius: 6 }}
-                        >
-                        </ImageBackground>
-                    </View>
-                    <Text allowFontScaling={false} style={[MainStyles.Text16, MainStyles.textGray]} numberOfLines={1} ellipsizeMode="tail">
-                        {getFavProduct[index].name}
-                    </Text>
-                    <Text allowFontScaling={false} style={[MainStyles.Text16, MainStyles.textGreen, MainStyles.mt5]}>
-                        {getFavProduct[index].price} บาท
-                    </Text>
-                    <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                        <View style={{ flexDirection: 'row' }}>
-                            <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textEndContent]}>5</Text>
-                        </View>
-                        <View style={{ flex: 1, justifyContent: "flex-end" }}>
+                <View style={styles.slide1}>
+                    {getFavProduct.map((data, index) => {
+                        return (
+                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '33%', paddingHorizontal: 3 }}>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={getFavProduct[index].img_src}
+                                    style={{
+                                        width: '100%',
+                                        height: 170,
+                                        paddingBottom: 10,
+                                        paddingTop: 5,
+                                        borderRadius: 10,
+                                    }}
+                                />
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5]}>{getFavProduct[index].name}</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft]}>{getFavProduct[index].price} บาท</Text>
+                                <View style={{ flexDirection: 'row'  , marginTop:10}}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
+                                    </View>
+                                    <View style={{ flex: 1, alignSelf: "flex-end" , paddingRight:10}}>
+                                        <FontAwesome5 name='shopping-cart' size={14} color="#949494" style={{
+                                            alignSelf: 'flex-end',
+                                            
+                                        }} />
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    })}
+                </View>
+            )
+        }
 
-                            <FontAwesome5 name='shopping-cart' size={14} color="#949494" style={{
-                                alignSelf: 'flex-end',
-                            }} />
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            );
-        });
+        var getMayLikeCard = []
+        for (let i = 0; i < 3; i++) {
+            getMayLikeCard.push(
+                <View style={styles.slide1}>
+                    {getMayLike.map((data, index) => {
+                        return (
+                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '33%', paddingHorizontal: 3 }}>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={getMayLike[index].img_src}
+                                    style={{
+                                        width: '100%',
+                                        height: 170,
+                                        paddingBottom: 10,
+                                        paddingTop: 5,
+                                        borderRadius: 10,
+                                    }}
+                                />
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5]}>{getMayLike[index].name}</Text>
+                                <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft]}>{getMayLike[index].price} บาท</Text>
+                                <View style={{ flexDirection: 'row'  , marginTop:10}}>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
+                                    </View>
+                                    <View style={{ flex: 1, alignSelf: "flex-end" , paddingRight:10}}>
+                                        <FontAwesome5 name='shopping-cart' size={14} color="#949494" style={{
+                                            alignSelf: 'flex-end',
+                                            
+                                        }} />
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    })}
+                </View>
+            )
+        }
+       
 
         return (
             <View style={[MainStyles.contentBG]}>
@@ -191,7 +227,7 @@ export default class ProductDetail extends Component {
                                 <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/images/25.png')}
+                                        source={require('../../../assets/image/31.png')}
                                         style={{
                                             width: '100%',
                                             height: 300
@@ -203,7 +239,7 @@ export default class ProductDetail extends Component {
                                 <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/images/30.png')}
+                                        source={require('../../../assets/image/31.png')}
                                         style={{
                                             width: '100%',
                                             height: 300
@@ -215,7 +251,7 @@ export default class ProductDetail extends Component {
                                 <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/images/31.png')}
+                                        source={require('../../../assets/image/31.png')}
                                         style={{
                                             width: '100%',
                                             height: 300
@@ -248,7 +284,7 @@ export default class ProductDetail extends Component {
                             <View style={{ width: '30.5%', marginLeft: '2%' }}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/images/30.png')}
+                                    source={require('../../../assets/image/32.png')}
                                     style={{
                                         width: '100%',
                                         height: 80,
@@ -258,7 +294,7 @@ export default class ProductDetail extends Component {
                             <View style={{ width: '30.5%', marginHorizontal: '2%' }}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/images/31.png')}
+                                    source={require('../../../assets/image/33.png')}
                                     style={{
                                         width: '100%',
                                         height: 80,
@@ -286,11 +322,10 @@ export default class ProductDetail extends Component {
                                 </View>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/images/31.png')}
+                                    source={require('../../../assets/image/81.png')}
                                     style={{
                                         width: '100%',
                                         height: 80,
-
                                     }}
                                 />
                             </View>
@@ -317,7 +352,7 @@ export default class ProductDetail extends Component {
                                 <View style={{ flexDirection: 'row', marginTop: 20 }}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
+                                        source={require('../../../assets/image/u43.png')}
                                         style={{
                                             width: 35,
                                             height: 35,
@@ -495,12 +530,20 @@ export default class ProductDetail extends Component {
                                             </Text>
                                         </View>
                                     </View>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <ScrollView style={[{ flex: 1, marginTop: 10 }]} horizontal showsHorizontalScrollIndicator={false}>
-                                            {getFavProductCard}
-                                        </ScrollView>
-                                    </View>
+                          
                                 </View>
+
+                                <View style={{ flex: 1, marginTop: 15 , flexDirection: 'row' }}>
+                                    <Swiper
+                                        height={'100%'}
+                                        showsButtons={false}
+                                        dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
+                                        activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
+                                    >
+                                        {getMayLikeCard}
+                                    </Swiper>
+                                </View>
+
                                 <View style={{ flexDirection: 'column', marginTop: 30 }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <View style={{ flexDirection: 'row' }}>
@@ -517,10 +560,15 @@ export default class ProductDetail extends Component {
                                             </Text>
                                         </View>
                                     </View>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <ScrollView style={[{ flex: 1, marginTop: 10 }]} horizontal showsHorizontalScrollIndicator={false}>
+                                    <View style={{ flex: 1, marginVertical: 15 , flexDirection: 'row' }}>
+                                        <Swiper
+                                            height={'100%'}
+                                            showsButtons={false}
+                                            dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
+                                            activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
+                                        >
                                             {getFavProductCard}
-                                        </ScrollView>
+                                        </Swiper>
                                     </View>
                                 </View>
                             </View>
@@ -581,5 +629,8 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         borderWidth: 0.5,
         borderColor: "#e0e0e0",
+    },
+    slide1: {
+        flexDirection: 'row'
     },
 });

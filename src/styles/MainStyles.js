@@ -489,6 +489,9 @@ export default StyleSheet.create({
         textDecorationLine: 'underline',
         marginLeft: 5
     },
-
+    
+    Hot : {
+        position : 'absolute' , right:13, top: 8 , fontWeight: 'bold' , color:'#000'
+    }
 });
 

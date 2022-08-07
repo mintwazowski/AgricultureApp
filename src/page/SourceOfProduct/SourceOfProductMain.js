@@ -33,12 +33,55 @@ export default class SourceOfProductMain extends Component {
     }
 
     render() {
+        
+        // Banner
+        const Banner = [];
+        for (let i = 0; i < 3; i++) {
+            Banner.push(
+                <TouchableOpacity
+                    onPress={() => this.onDetail()}
+                    activeOpacity={1}
+                >
+                    <View style={styles.slide1} >
+                        <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/image/48.png')}
+                                style={{
+                                    width: '100%',
+                                    height: 220,
+                                    borderRadius: 10,
+                                }}
+                            />
+                            <View style={{ flexDirection: 'row', justifyContent: 'center', width: '100%', paddingHorizontal: 3 }}>
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>สวนครูองุ่น</Text>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={require('../../../assets/image/u99.png')}
+                                    style={{
+                                        width: 55,
+                                        height: 25,
+                                        marginLeft:15,
+                                        padding:0,
+                                        marginTop:7
+                                    }}
+                                />
+                                <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
+                                    <Text allowFontScaling={false} style={[MainStyles.Hot]}>HOT</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+            )
+        }
+
         return (
             <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ flex: 0.15 }}>
                     <TopTabNavigator navigation={this.props.navigation} />
                 </View>
-                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 , paddingHorizontal :15 , marginTop:10}}>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 , paddingHorizontal :5 , marginTop:10}}>
                     {/* Search Content */}
                     <View style={{ flexDirection: 'row', width: '100%' }}>
                         <View style={{ justifyContent: 'center', width: '10%' }}>
@@ -81,48 +124,7 @@ export default class SourceOfProductMain extends Component {
                             dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -50 }} />}
                             activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -50 }} />}
                         >
-                            <View style={styles.slide1}>
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
-                                        style={{
-                                            width: '100%',
-                                            height: 220,
-                                            borderRadius: 10,
-                                        }}
-                                    />
-                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>สวนครูองุ่น</Text>
-                                </View>
-                            </View>
-                            <View style={styles.slide2}>
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
-                                        style={{
-                                            width: '100%',
-                                            height: 220,
-                                            borderRadius: 10,
-                                        }}
-                                    />
-                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>สวนครูองุ่น</Text>
-                                </View>
-                            </View>
-                            <View style={styles.slide3}>
-                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
-                                        style={{
-                                            width: '100%',
-                                            height: 220,
-                                            borderRadius: 10,
-                                        }}
-                                    />
-                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignCenter, MainStyles.mt5, MainStyles.mb5, MainStyles.Text16]}>สวนครูองุ่น</Text>
-                                </View>
-                            </View>
+                            {Banner}
                         </Swiper>
                     </View>
 
@@ -133,12 +135,12 @@ export default class SourceOfProductMain extends Component {
                             <TouchableOpacity
                                 activeOpacity={1}
                                 onPress={() => this.onDetail()}
-                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%'}}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%' , paddingHorizontal:5}}
                             >
 
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/image/49.png')}
                                     style={{
                                         width: '100%',
                                         height: 220,
@@ -164,10 +166,14 @@ export default class SourceOfProductMain extends Component {
 
 
                             </TouchableOpacity>
-                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingLeft: 7 }}>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                onPress={() => this.onDetail()}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%' , paddingHorizontal:5}}
+                            >
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/image/50.png')}
                                     style={{
                                         width: '100%',
                                         height: 220,
@@ -190,13 +196,17 @@ export default class SourceOfProductMain extends Component {
                                         </View>
                                     </View>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                         <View style={{ flexDirection: "row", marginTop: 15 }}>
-                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%' }}>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                onPress={() => this.onDetail()}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%' , paddingHorizontal:5}}
+                            >
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/image/51.png')}
                                     style={{
                                         width: '100%',
                                         height: 220,
@@ -220,11 +230,15 @@ export default class SourceOfProductMain extends Component {
                                     </View>
                                 </View>
 
-                            </View>
-                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingLeft: 7 }}>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                onPress={() => this.onDetail()}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%' , paddingHorizontal:5}}
+                            >
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/image/52.png')}
                                     style={{
                                         width: '100%',
                                         height: 220,
@@ -247,7 +261,7 @@ export default class SourceOfProductMain extends Component {
                                         </View>
                                     </View>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                         <View style={{ flexDirection: "row", marginVertical: 30, alignSelf: 'center' }}>
                             <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%' }}>
