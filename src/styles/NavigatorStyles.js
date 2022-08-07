@@ -77,8 +77,8 @@ export default StyleSheet.create({
     },
     hamLogo: {
         width: 150,
-        height:50,
-        marginBottom:15
+        height: 50,
+        marginBottom: 15
     },
     hamMenuContent: {
         flexDirection: 'column'

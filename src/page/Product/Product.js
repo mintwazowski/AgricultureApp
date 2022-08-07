@@ -64,6 +64,9 @@ export default class Product extends Component {
                                 </View>
                             </View>
 
+                            <View style={{ flexDirection: 'row' }}>
+
+                            </View>
                             <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.mt15, MainStyles.Text16]}>สินค้าขายดีประจำสัปดาห์</Text>
                         </View>
                     </View>

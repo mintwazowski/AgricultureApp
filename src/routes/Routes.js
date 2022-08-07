@@ -44,7 +44,7 @@ function StackNaviga() {
         <NavigationContainer>
             <Stack.Navigator>
 
-                <Stack.Screen name="Signin" component={Signin} options={MainPageOptionNoBack} />
+                {/* <Stack.Screen name="Signin" component={Signin} options={MainPageOptionNoBack} /> */}
                 <Stack.Screen name="Home" component={BottomTabNavigator} options={MainPageOptionNoBack} />
                 <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
                 <Stack.Screen name="ProductDetail" component={ProductDetail} options={MainPageOptionNoBack} />

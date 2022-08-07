@@ -34,6 +34,7 @@ export default class Home extends Component {
 
     state = {
         slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+        tabProductSeason: 1
     };
 
     _renderItem = ({ item, index }) => {
@@ -54,35 +55,42 @@ export default class Home extends Component {
         );
     }
 
+    onChangeTabProductSeason(tab) {
+        this.setState({
+            tabProductSeason: tab
+        })
+    }
+
     render() {
-        const { slider1ActiveSlide } = this.state
+        const { slider1ActiveSlide, tabProductSeason } = this.state
 
         const getBannerFlashSale = [
             { id: 1, img_src: require('../../../assets/images/4.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '250' },
             { id: 2, img_src: require('../../../assets/images/5.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
             { id: 3, img_src: require('../../../assets/images/6.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '25' },
             { id: 4, img_src: require('../../../assets/images/7.png'), name: 'น้ำมันเมล็ดชา Camellia Oleifera', price: '250' },
-            { id: 5, img_src: require('../../../assets/images/8.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
-
         ]
 
         const geBestSale = [
-            { id: 1, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1831.png?token=9814525f36af07037dbf74d929b153e331d2e08ff7b0c4946724ff73aef71e58' , name: 'กระเช้าของขวัญ ไอริสขนมสำหรับเทศกาลปีใหม่', price: '890' },
-            { id: 2, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1846.png?token=9909ae3ce84cf79cf69fd951122a90338f2ac1a0eb089b0da636501507344140' , name: 'กระเช้าของขวัญ ลีลาวดีรวมเครื่องดื่มสมุนไพร', price: '1,890' },
-            { id: 3, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1845.png?token=a940ca51a39fb82ee7619d377a8cff7fec6159db9f3bcea4519ddbfcfbcde930' , name: 'ชุดของขวัญ Premium fruit ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+            { id: 1, img_src: require('../../../assets/images/8.png'), name: 'กระเช้าของขวัญ ไอริสขนมสำหรับเทศกาลปีใหม่', price: '890' },
+            { id: 2, img_src: require('../../../assets/images/9.png'), name: 'กระเช้าของขวัญ ลีลาวดีรวมเครื่องดื่มสมุนไพร', price: '1,890' },
+            { id: 3, img_src: require('../../../assets/images/10.png'), name: 'ชุดของขวัญ Premium fruit ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
         ]
 
         const getProductSeason = [
-            { id: 1, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1875.png?token=a5deb50a44b5e3dd56a32b02e633d81db66838e420a42a829e8b0574ecf59b13' , name: 'ส้มโอทับทิมสยาม ลุ่มน้ำปากพนัง' , getproduct : '(รับสินค้าเดือน ตุลาคม)', price: '180' },
-            { id: 2, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1880.png?token=89e8d4b168ceee25ace8856af8e820884e4ded41e27a08a9910f136f3825c833' , name: 'ทุเรียนนนท์ ของดีจังหวัดนนทบุรี' , getproduct : '(รับสินค้าเดือน พฤษภาคม)', price: '5,000' },
-
+            { id: 1, img_src: require('../../../assets/images/19.png'), name: 'ส้มโอทับทิมสยาม ลุ่มน้ำปากพนัง', getproduct: '(รับสินค้าเดือน ตุลาคม)', price: '180' },
+            { id: 2, img_src: require('../../../assets/images/20.png'), name: 'ทุเรียนนนท์ ของดีจังหวัดนนทบุรี', getproduct: '(รับสินค้าเดือน พฤษภาคม)', price: '5,000' },
+        ]
+        const getProductSeasonBefore = [
+            { id: 1, img_src: require('../../../assets/images/9.png'), name: 'กระเช้าของขวัญ ไอริสขนมสำหรับเทศกาลปีใหม่', getproduct: '(รับสินค้าเดือน ตุลาคม)', price: '890' },
+            { id: 2, img_src: require('../../../assets/images/10.png'), name: 'กระเช้าของขวัญ ลีลาวดีรวมเครื่องดื่มสมุนไพร', getproduct: '(รับสินค้าเดือน พฤษภาคม)', price: '1,890' },
         ]
 
         const getProductRecommend = [
-            { id: 1, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1904.png?token=5bdcf9425b399030dd7bf6aba7fe8318ff5d0a479e13883fa7d1b2dc8cd8cd7d' , name: 'ผ้่าห่มงานฝีมือ สกลนคร' ,  price: '599' },
-            { id: 2, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1919.png?token=ede0d1c8c00123a30b06ba488d98dde7776f1f3152f53281c60a67d5b1b1cad3' , name: 'น้ำมันมะพร้าวบริสุทธิ์สกัดเย็น' , price: '590' },
-            { id: 3, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1908.png?token=5195b9f900ac52efd4f241ed352078bead54a5c9201bdd78427c58a9639c2e6f' , name: 'น้ำส้มมะปิ๊ดเปรี้ยว หวานอมส้ม' , price: '59' },
-            { id: 4, img_src: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1918.png?token=07298c75a8c14755b715c2b89b8dfc1a9402933241fcaf07d13043fa0a7c4be1' , name: 'ผ้าพันคอมัดย้อมคราม' , price: '340' },
+            { id: 1, img_src: require('../../../assets/images/21.png'), name: 'ผ้่าห่มงานฝีมือ สกลนคร', price: '599' },
+            { id: 2, img_src: require('../../../assets/images/22.png'), name: 'น้ำมันมะพร้าวบริสุทธิ์สกัดเย็น', price: '590' },
+            { id: 3, img_src: require('../../../assets/images/23.png'), name: 'น้ำส้มมะปิ๊ดเปรี้ยว หวานอมส้ม', price: '59' },
+            { id: 4, img_src: require('../../../assets/images/24.png'), name: 'ผ้าพันคอมัดย้อมคราม', price: '340' },
 
         ]
 
@@ -99,7 +107,7 @@ export default class Home extends Component {
 
         // Banner
         const Banner = [];
-        for(let i = 0; i < 3; i++){
+        for (let i = 0; i < 3; i++) {
             Banner.push(
                 <View style={styles.slide1}>
                     <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%', paddingHorizontal: 3 }}>
@@ -140,10 +148,10 @@ export default class Home extends Component {
                 </View>
             )
         }
-        
+
         // FlashSale
         const FlashSale = [];
-        for(let i = 0; i < 3; i++){
+        for (let i = 0; i < 3; i++) {
             FlashSale.push(
                 <View style={styles.slide1}>
                     {getBannerFlashSale.map((data, index) => {
@@ -159,7 +167,6 @@ export default class Home extends Component {
                                     }}
                                 />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5, styles.getFree]}>ซื้อ 1 แถม 1</Text>
-
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
                             </View>
@@ -171,15 +178,15 @@ export default class Home extends Component {
 
         // BestSale
         const BestSale = [];
-        for(let i = 0; i < 3; i++){
+        for (let i = 0; i < 3; i++) {
             BestSale.push(
                 <View style={styles.slide1}>
                     {geBestSale.map((data, index) => {
                         return (
-                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '33%', marginRight: 3, marginLeft: 3 }}>
+                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '32%', marginRight: '1%', marginLeft: '1%' }}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={{  uri: geBestSale[index].img_src }}
+                                    source={geBestSale[index].img_src}
                                     style={{
                                         width: '100%',
                                         height: 100,
@@ -206,7 +213,8 @@ export default class Home extends Component {
 
         // ProductSeason
         const ProductSeason = [];
-        for(let i = 0; i < 3; i++){
+        const ProductSeasonBefore = [];
+        for (let i = 0; i < 3; i++) {
             ProductSeason.push(
                 <View style={styles.slide1}>
                     {getProductSeason.map((data, index) => {
@@ -214,7 +222,7 @@ export default class Home extends Component {
                             <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '49%', marginRight: 3, marginLeft: 3 }}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={{  uri: getProductSeason[index].img_src }}
+                                    source={getProductSeason[index].img_src}
                                     style={{
                                         width: '100%',
                                         height: 100,
@@ -223,8 +231,42 @@ export default class Home extends Component {
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5, styles.advance]}>จองล่วงหน้า</Text>
 
                                 <View style={{ paddingHorizontal: 5, paddingBottom: 5 }}>
-                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10, MainStyles.mb5]}>{getProductSeason[index].name}</Text>
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10]}>{getProductSeason[index].name}</Text>
                                     <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.mb5]}>{getProductSeason[index].getproduct}</Text>
+                                    <View style={{ flexDirection: 'row' }}>
+
+                                        <View style={{ flexDirection: 'row' }}>
+                                            <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
+                                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
+                                        </View>
+                                        <View style={{ flex: 1, alignSelf: "flex-end" }}>
+                                            <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.textAlignRight]}>250 บาท</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    })}
+                </View>
+            )
+            ProductSeasonBefore.push(
+                <View style={styles.slide1}>
+                    {getProductSeasonBefore.map((data, index) => {
+                        return (
+                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '49%', marginRight: 3, marginLeft: 3 }}>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={getProductSeasonBefore[index].img_src}
+                                    style={{
+                                        width: '100%',
+                                        height: 100,
+                                    }}
+                                />
+                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5, styles.advance]}>จองล่วงหน้า</Text>
+
+                                <View style={{ paddingHorizontal: 5, paddingBottom: 5 }}>
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.mt10]}>{getProductSeasonBefore[index].name}</Text>
+                                    <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.mb5]}>{getProductSeasonBefore[index].getproduct}</Text>
                                     <View style={{ flexDirection: 'row' }}>
 
                                         <View style={{ flexDirection: 'row' }}>
@@ -280,7 +322,7 @@ export default class Home extends Component {
                                 >
                                     <Image
                                         resizeMode={'cover'}
-                                        source={{ uri : getProductRecommend[index].img_src }}
+                                        source={getProductRecommend[index].img_src}
                                         style={{
                                             width: '100%',
                                             height: 100,
@@ -305,7 +347,7 @@ export default class Home extends Component {
                 </View>
             </View>
         )
-        
+
 
         return (
             <View style={{ flex: 1 }}>
@@ -335,7 +377,7 @@ export default class Home extends Component {
                             </View>
 
                             {/* Flash Sale Content */}
-                            <View style={{ marginTop: 30 , marginBottom: 10, flex: 0.45 }}>
+                            <View style={{ marginTop: 30, marginBottom: 10, flex: 0.45 }}>
                                 <View style={{ flexDirection: "row" }}>
                                     <View style={{ flexDirection: "row" }}>
                                         <Image
@@ -369,7 +411,7 @@ export default class Home extends Component {
                     </View>
 
                     {/* Best Sale Content */}
-                    <View style={[MainStyles.m15 , { marginBottom: 30}]}>
+                    <View style={[MainStyles.m15, { marginBottom: 30 }]}>
                         <View style={{ flex: 0.45 }}>
                             <View style={{ flexDirection: "row", marginBottom: 15, }}>
                                 <View style={{ flexDirection: "row" }}>
@@ -426,7 +468,7 @@ export default class Home extends Component {
                                                         alignSelf: 'center'
                                                     }}
                                                 />
-                                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>{getProduct[index].name}</Text>
+                                                <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>{getProduct[index].name}</Text>
                                             </View>
                                         )
                                     })}
@@ -436,7 +478,7 @@ export default class Home extends Component {
                     </View>
 
                     {/* Product season Content */}
-                    <View style={[MainStyles.m15 , { marginBottom: 30}]}>
+                    <View style={[MainStyles.m15, { marginBottom: 30 }]}>
                         <View style={{ flex: 0.45 }}>
                             <View style={{ flexDirection: "row", marginBottom: 10 }}>
                                 <View style={{ flexDirection: "row" }}>
@@ -452,31 +494,35 @@ export default class Home extends Component {
                                 </View>
                             </View>
                             <View style={{ flexDirection: "row", marginBottom: 15 }}>
-                                <View
+                                <TouchableOpacity
                                     style={{
                                         width: '40%',
-                                        backgroundColor: '#448165',
+                                        backgroundColor: tabProductSeason === 1 ? '#448165' : 'rgba(215, 215, 215, 1)',
                                         borderRadius: 5,
                                         paddingVertical: 9,
                                         paddingHorizontal: 9,
                                         alignSelf: 'center',
                                         marginRight: 5
                                     }}
+                                    activeOpacity={1}
+                                    onPress={() => this.onChangeTabProductSeason(1)}
                                 >
-                                    <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteText}>สินค้าสั่งจองล่วงหน้า </Text>
-                                </View>
-                                <View
+                                    <Text allowFontScaling={false} style={tabProductSeason === 1 ? MainStyles.btnBlueWhiteText : MainStyles.btnBlueWhiteTextDark}>สินค้าสั่งจองล่วงหน้า </Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
                                     style={{
                                         width: '40%',
-                                        backgroundColor: 'rgba(215, 215, 215, 1)',
+                                        backgroundColor: tabProductSeason === 2 ? '#448165' : 'rgba(215, 215, 215, 1)',
                                         borderRadius: 5,
                                         paddingVertical: 9,
                                         paddingHorizontal: 9,
                                         alignSelf: 'center',
                                     }}
+                                    activeOpacity={1}
+                                    onPress={() => this.onChangeTabProductSeason(2)}
                                 >
-                                    <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteTextDark}>สินค้าสั่งจองล่วงหน้า </Text>
-                                </View>
+                                    <Text allowFontScaling={false} style={tabProductSeason === 2 ? MainStyles.btnBlueWhiteText : MainStyles.btnBlueWhiteTextDark}>สินค้าตามฤดูกาล </Text>
+                                </TouchableOpacity>
                             </View>
                             <Swiper
                                 height='100%'
@@ -484,7 +530,7 @@ export default class Home extends Component {
                                 dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
                                 activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: -70 }} />}
                             >
-                               {ProductSeason}
+                                {tabProductSeason === 1 ? ProductSeason : ProductSeasonBefore}
                             </Swiper>
                         </View>
 
