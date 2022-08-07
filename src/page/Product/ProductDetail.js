@@ -35,7 +35,8 @@ import ModalLib from 'react-native-modal';
 export default class ProductDetail extends Component {
 
     state = {
-        isAlert: null
+        isAlert: null,
+        index: 0
     }
 
     onGetCart(type, info) {
@@ -104,8 +105,9 @@ export default class ProductDetail extends Component {
         this.props.navigation.navigate('Home')
     }
 
+
     render() {
-        const { isAlert } = this.state
+        const { isAlert, index } = this.state
         const images = [
             {
                 url: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460',
@@ -114,7 +116,6 @@ export default class ProductDetail extends Component {
                 url: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460',
             }
         ]
-        
 
         const getFavProduct = [
             { id: 1, img_src: require('../../../assets/images/4.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '250', rating: 5 },
@@ -164,8 +165,8 @@ export default class ProductDetail extends Component {
                         <View style={{ flex: 1, justifyContent: "flex-end" }}>
 
                             <FontAwesome5 name='shopping-cart' size={14} color="#949494" style={{
-                                    alignSelf: 'flex-end',
-                                }} />
+                                alignSelf: 'flex-end',
+                            }} />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -173,98 +174,131 @@ export default class ProductDetail extends Component {
         });
 
         return (
-            <SafeAreaView style={[MainStyles.contentBG]}>
+            <View style={[MainStyles.contentBG]}>
                 {isAlert}
-                <View style={[MainStyles.content]}>
-                    <ScrollView showsVerticalScrollIndicator={false} >
-                        <View style={{ flex: 1, marginTop: 15 }}>
-                            <View style={{ flexDirection: "column", marginTop: 15 }}>
-                                
-                                {/* Banner Content */}
-                                <View style={{ marginTop: 15, flex: 0.45 }}>
-                                    <Swiper
-                                        ref='swiper'
-                                        height='100%'
-                                        showsButtons={false}
-                                        dot={<View style={{ width: 7, height: 7, backgroundColor: "#d7d7d7", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
-                                        activeDot={<View style={{ width: 7, height: 7, backgroundColor: "#448165", borderRadius: 10, marginRight: 5, marginTop: 10, marginBottom: 0 }} />}
-                                        >
-                                        <View style={styles.slide1}>
-                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
-                                                <Image
-                                                    resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: 250,
-                                                    }}
-                                                />
-                                            </View>
-                                        </View>
-                                        <View style={styles.slide1}>
-                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
-                                                <Image
-                                                    resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: 250,
-                                                    }}
-                                                />
-                                            </View>
-                                        </View>
-                                        <View style={styles.slide1}>
-                                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
-                                                <Image
-                                                    resizeMode={'cover'}
-                                                    source={require('../../../assets/placeholder.jpg')}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: 250,
-                                                    }}
-                                                />
-                                            </View>
-                                        </View>
-                                    </Swiper>
-                                    <FontAwesome5 name='long-arrow-alt-left' size={26} color="#fff" style={{ position: 'absolute', left: 10, top: 10, paddingHorizontal: 7 }} onPress={() => this.onBack()} />
-                                    <MaterialIcons name='favorite-border' size={26} color="#fff" style={{ position: 'absolute', right: 10, top: 10, paddingHorizontal: 7 }} />
-                                    <Icon name='like2' size={26} color="#fff" style={{ position: 'absolute', right: 50, top: 10, paddingHorizontal: 7 }} />
-                                    <FontAwesome5 name='share-alt' size={22} color="#fff" style={{ position: 'absolute', right: 90, top: 12, paddingHorizontal: 7 }} />
-                                </View>
-                                <View style={{ marginVertical: 10, flex: 0.45 }}>
-                                    <View style={styles.slide1}>
-                                        <View style={{ flexDirection: 'row', alignContent: 'center', width: '100%' }}>
-                                            <Image
-                                                resizeMode={'cover'}
-                                                source={require('../../../assets/placeholder.jpg')}
-                                                style={{
-                                                    width: '30%',
-                                                    height: 80,
-                                                    marginHorizontal:5
-                                                }}
-                                            />
-                                            <Image
-                                                resizeMode={'cover'}
-                                                source={require('../../../assets/placeholder.jpg')}
-                                                style={{
-                                                    width: '30%',
-                                                    height: 80,
-                                                    marginHorizontal:5
-                                                }}
-                                            />
-                                            <Image
-                                                resizeMode={'cover'}
-                                                source={require('../../../assets/placeholder.jpg')}
-                                                style={{
-                                                    width: '30%',
-                                                    height: 80,
-                                                    marginHorizontal:5
-                                                }}
-                                            />
-                                        </View>
-                                    </View>
-                                </View>
 
+                <ScrollView showsVerticalScrollIndicator={false} >
+                    {/* Banner Content */}
+                    <View style={{ flex: 1, marginTop: -10 }}>
+                        <Swiper
+                            ref='swiper'
+                            height={'100%'}
+                            showsButtons={false}
+                            showsPagination={false}
+                            onIndexChanged={(index) => this.setState({ index: index })}
+                        >
+                            <View style={styles.slide1}>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/25.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 300
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.slide1}>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/30.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 300
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.slide1}>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/images/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: 300
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                        </Swiper>
+                        <View style={{ flexDirection: 'row', position: 'absolute', left: 10, top: 45, right: 10, paddingHorizontal: 7 }}>
+                            <FontAwesome5 name='long-arrow-alt-left' size={26} color="#fff" style={{}} onPress={() => this.onBack()} />
+                            <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}>
+                                <FontAwesome5 name='share-alt' size={22} color="#fff" style={{ paddingHorizontal: 7 }} />
+                                <Icon name='like2' size={25} color="#fff" style={{ paddingHorizontal: 7 }} />
+                                <MaterialIcons name='favorite-border' size={26} color="#fff" style={{ paddingHorizontal: 7 }} />
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: 'row', position: 'absolute', left: 5, bottom: 10, right: 5, paddingHorizontal: 7 }}>
+                            <View style={{ backgroundColor: '#666666', paddingVertical: 3, paddingHorizontal: 15, borderRadius: 13 }}>
+                                <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}>{index + 1} / 3</Text>
+                            </View>
+                            {/* <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}>
+                                <View style={{ backgroundColor: '#666666', paddingVertical: 3, paddingHorizontal: 15, borderRadius: 13 }}>
+                                    <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}>แจ้งแก้ไขข้อมูล</Text>
+                                </View>
+                            </View> */}
+                        </View>
+                    </View>
+                    <View style={{ flex: 1 }}>
+                        <View style={{ flexDirection: 'row', alignContent: 'center', marginTop: 10, marginVertical: 10, width: '100%' }}>
+                            <View style={{ width: '30.5%', marginLeft: '2%' }}>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={require('../../../assets/images/30.png')}
+                                    style={{
+                                        width: '100%',
+                                        height: 80,
+                                    }}
+                                />
+                            </View>
+                            <View style={{ width: '30.5%', marginHorizontal: '2%' }}>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={require('../../../assets/images/31.png')}
+                                    style={{
+                                        width: '100%',
+                                        height: 80,
+                                    }}
+                                />
+                            </View>
+                            <View style={{ width: '30.5%', marginRight: '2%' }}>
+                                <View style={{
+                                    backgroundColor: '#333',
+                                    opacity: 0.8,
+                                    width: '100%',
+                                    position: 'absolute',
+                                    zIndex: 999,
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                }}>
+
+                                    <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text24]}>+20</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}>ดูรูปทั้งหมด</Text>
+                                </View>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={require('../../../assets/images/31.png')}
+                                    style={{
+                                        width: '100%',
+                                        height: 80,
+
+                                    }}
+                                />
+                            </View>
+                        </View>
+                    </View>
+                    <View style={[MainStyles.content]}>
+                        <View style={{ flex: 1 }}>
+                            <View style={{ flexDirection: "column" }}>
                                 <View style={{ flexDirection: 'column' }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Text allowFontScaling={false} style={[MainStyles.textGreenBd, MainStyles.Text20]}>1,000 บาท</Text>
@@ -287,15 +321,15 @@ export default class ProductDetail extends Component {
                                         style={{
                                             width: 35,
                                             height: 35,
-                                            borderRadius:50,
+                                            borderRadius: 50,
                                             alignSelf: 'center',
-                                            marginRight:10
+                                            marginRight: 10
                                         }}
                                     />
                                     <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.textCenterContent]}>
                                         สินค้าจากชุมชน OTOP
                                     </Text>
-                                    <View style={{ flexDirection: 'row', marginLeft: 10  , marginTop: 10 }}>
+                                    <View style={{ flexDirection: 'row', marginLeft: 10, marginTop: 10 }}>
                                         <Rating
                                             type='star'
                                             ratingCount={5}
@@ -331,7 +365,7 @@ export default class ProductDetail extends Component {
                                 </View>
                                 <View style={{ flexDirection: 'row', backgroundColor: '#f1f1f1', padding: 10 }}>
                                     <View style={[MainStyles.customBadgeYellow, { marginRight: 5 }]}>
-                                        <FontAwesome5 name='map-marker-alt' size={20} color="#fff" style={{  alignSelf:'center' }} />
+                                        <FontAwesome5 name='map-marker-alt' size={20} color="#fff" style={{ alignSelf: 'center' }} />
                                     </View>
                                     <View style={{ flexDirection: 'column', backgroundColor: '#f1f1f1', padding: 10 }}>
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
@@ -344,7 +378,7 @@ export default class ProductDetail extends Component {
                                 </View>
                                 <View style={{ flexDirection: 'row', padding: 10 }}>
                                     <View style={[MainStyles.customBadgeGreen, { marginRight: 5 }]}>
-                                        <Fontisto name='email' size={20} color="#fff" style={{ alignSelf:'center' }} />
+                                        <Fontisto name='email' size={20} color="#fff" style={{ alignSelf: 'center' }} />
                                     </View>
                                     <View style={{ flexDirection: 'column', padding: 10 }}>
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
@@ -449,7 +483,7 @@ export default class ProductDetail extends Component {
                                     <View style={{ flexDirection: 'row' }}>
                                         <View style={{ flexDirection: 'row' }}>
                                             <View style={[MainStyles.customBadgeGreen, { marginRight: 5 }]}>
-                                                <FontAwesome5 name='shopping-bag' size={18} color="#fff" style={{ alignSelf:'center' }} />
+                                                <FontAwesome5 name='shopping-bag' size={18} color="#fff" style={{ alignSelf: 'center' }} />
                                             </View>
                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textCenterContent]}>
                                                 ผลิตภัณฑ์ที่คุณอาจจะชอบ
@@ -471,7 +505,7 @@ export default class ProductDetail extends Component {
                                     <View style={{ flexDirection: 'row' }}>
                                         <View style={{ flexDirection: 'row' }}>
                                             <View style={[MainStyles.customBadgeYellow, { marginRight: 5 }]}>
-                                                <Fontisto name='clock' size={18} color="#fff" style={{ alignSelf:'center' }} />
+                                                <Fontisto name='clock' size={18} color="#fff" style={{ alignSelf: 'center' }} />
                                             </View>
                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textCenterContent]}>
                                                 สินค้าที่คุณดูล่าสุด
@@ -491,11 +525,13 @@ export default class ProductDetail extends Component {
                                 </View>
                             </View>
                         </View>
-                    </ScrollView>
-                </View>
+                    </View>
+
+                </ScrollView>
+
                 <View style={[styles.cardBottom]}>
                     <View style={{ flexDirection: 'row' }}>
-                        <View style={{ flexDirection: 'column', paddingHorizontal: 20 ,marginVertical:5}}>
+                        <View style={{ flexDirection: 'column', paddingHorizontal: 20, marginVertical: 5 }}>
                             <FontAwesome5 name='store-alt' size={20} color="#448165" />
                             <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text12, MainStyles.textCenterContent]}>
                                 ร้านค้า
@@ -505,7 +541,7 @@ export default class ProductDetail extends Component {
                             borderLeftWidth: 1,
                             borderLeftColor: '#e4e4e4',
                         }} />
-                        <View style={{ flexDirection: 'column', paddingHorizontal: 20 ,marginVertical:5}}>
+                        <View style={{ flexDirection: 'column', paddingHorizontal: 20, marginVertical: 5 }}>
                             <FontAwesome5 name='comment-dots' size={20} />
                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textCenterContent]}>
                                 แชท
@@ -515,10 +551,10 @@ export default class ProductDetail extends Component {
                             activeOpacity={1}
                             style={[MainStyles.btnProductDetailGreen]}
                         >
-                            <FontAwesome5 name='id-card-alt' size={20} color="#fff" style={{ paddingRight: 8 , marginTop:13 }}/>
+                            <FontAwesome5 name='id-card-alt' size={20} color="#fff" style={{ paddingRight: 8, marginTop: 13 }} />
                             <Text allowFontScaling={false} style={MainStyles.btnProductDetailGreenText}>ติดต่อผู้ขาย</Text>
-                            <Icon name='arrowright' size={15} style={{ paddingLeft: 8 , marginTop:16 }} color="#fff" />
-                                              
+                            <Icon name='arrowright' size={15} style={{ paddingLeft: 8, marginTop: 16 }} color="#fff" />
+
                         </TouchableOpacity>
 
                         <TouchableOpacity
@@ -526,13 +562,13 @@ export default class ProductDetail extends Component {
                             style={[MainStyles.btnProductDetailYellow]}
                             onPress={() => this.onGetCart()}
                         >
-                            <FontAwesome5 name='shopping-cart' size={20} color="#fff" style={{ paddingRight: 8 , marginTop:13 }}/>
+                            <FontAwesome5 name='shopping-cart' size={20} color="#fff" style={{ paddingRight: 8, marginTop: 13 }} />
                             <Text allowFontScaling={false} style={MainStyles.btnProductDetailGreenText}>นำลงตะกร้า</Text>
-                            <Icon name='arrowright' size={15} style={{ paddingLeft: 8 , marginTop:16 }} color="#fff" />
+                            <Icon name='arrowright' size={15} style={{ paddingLeft: 8, marginTop: 16 }} color="#fff" />
                         </TouchableOpacity>
                     </View>
                 </View>
-            </SafeAreaView >
+            </View >
         );
     }
 }
