@@ -25,8 +25,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 export default class Signin extends Component {
 
     state = {
-        Username: "Test",
-        Password: "1234"
+        Username: "",
+        Password: ""
     };
 
     async componentDidMount() {
