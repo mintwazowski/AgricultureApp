@@ -69,7 +69,7 @@ export default StyleSheet.create({
     },
     hamClose: {
         alignItems: 'flex-end',
-        marginTop: Platform.OS === 'ios' ? 40 : 20,
+        marginTop: Platform.OS === 'ios' ? 40 : 0,
         marginRight: 15
     },
     hamLogoContent: {
@@ -77,6 +77,8 @@ export default StyleSheet.create({
     },
     hamLogo: {
         width: 150,
+        height:50,
+        marginBottom:15
     },
     hamMenuContent: {
         flexDirection: 'column'

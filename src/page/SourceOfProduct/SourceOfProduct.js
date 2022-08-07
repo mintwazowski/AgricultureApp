@@ -42,6 +42,11 @@ export default class SourceOfProduct extends Component {
             { label: "ใต้", value: "ใต้" },
         ]
 
+        const province = [
+            { label: "กรุงเทพฯ", value: "กรุงเทพฯ" },
+            { label: "เชียงใหม่", value: "เชียงใหม่" },
+        ]
+
         return (
             <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ flex: 0.15 }}>
@@ -83,49 +88,42 @@ export default class SourceOfProduct extends Component {
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10]}>ค้นหารอบตัว</Text>
                                 </View>
                             </View>
-                            {/* <View style={{ flexDirection: 'row', width: '100%' }}>
-                                <RNPickerSelect
-                                    useNativeAndroidPickerStyle={false}
-                                    style={selectForm}
-                                    placeholder={{ label: 'เลือกข้อมูลบัญชีธนาคาร' }}
-                                    onValueChange={(value, key) => this.onChangeType(value)}
-                                    items={type}
-                                    placeholderTextColor={"#000"}
-                                />
-                                <RNPickerSelect
-                                    useNativeAndroidPickerStyle={false}
-                                    style={selectForm}
-                                    placeholder={{ label: 'เลือกข้อมูลบัญชีธนาคาร' }}
-                                    onValueChange={(value, key) => this.onChangeType(value)}
-                                    items={type}
-                                    placeholderTextColor={"#000"}
-                                />
-                            </View> */}
-                            <View style={{ flexDirection: "row", marginTop: 15 }}>
-                                <View
-                                    style={{
-                                        width: '50%',
-                                        backgroundColor: 'rgba(215, 215, 215, 1)',
-                                        borderRadius: 5,
-                                        paddingVertical: 9,
-                                        paddingHorizontal: 9,
-                                        alignSelf: 'center',
-                                        marginRight: 5
-                                    }}
-                                >
-                                    <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteTextDark}>ค้นหาตามภูมิภาค </Text>
+                            <View style={{ flexDirection: 'row', width: '100%' , marginTop:15 }}>
+                                <View style={{ width: '50%' ,paddingHorizontal:2 }}>
+                                    <RNPickerSelect
+                                        useNativeAndroidPickerStyle={false}
+                                        style={selectForm}
+                                        placeholder={{ label: 'ค้นหาตามภูมิภาค' }}
+                                        onValueChange={(value, key) => this.onChangeType(value)}
+                                        items={type}
+                                        Icon={() => {
+                                            return <Icon
+                                                name="angle-down"
+                                                type="font-awesome"
+                                                size={18}
+                                                underlayColor="transparent"
+                                                iconStyle={styles.editIcon}
+                                            />
+                                        }}
+                                    />
                                 </View>
-                                <View
-                                    style={{
-                                        width: '50%',
-                                        backgroundColor: 'rgba(215, 215, 215, 1)',
-                                        borderRadius: 5,
-                                        paddingVertical: 9,
-                                        paddingHorizontal: 9,
-                                        alignSelf: 'center',
-                                    }}
-                                >
-                                    <Text allowFontScaling={false} style={MainStyles.btnBlueWhiteTextDark}>ค้นหาตามจังหวัด </Text>
+                                <View style={{ width: '50%' ,paddingHorizontal:2}}>
+                                    <RNPickerSelect
+                                        useNativeAndroidPickerStyle={false}
+                                        style={selectForm}
+                                        placeholder={{ label: 'ค้นหาตามจังหวัด' }}
+                                        onValueChange={(value, key) => this.onChangeType(value)}
+                                        items={province}
+                                        Icon={() => {
+                                            return <Icon
+                                                name="angle-down"
+                                                type="font-awesome"
+                                                underlayColor="transparent"
+                                                size={18}
+                                                iconStyle={styles.editIcon}
+                                            />
+                                        }}  
+                                    />
                                 </View>
                             </View>
                         </View>
@@ -146,22 +144,39 @@ export default class SourceOfProduct extends Component {
                         <View style={[MainStyles.m15]}>
                             <View style={[MainStyles.my15, { flexDirection: "row" }]}>
                                 <View style={{ flexDirection: "row" }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>แนะนำสถานที่ท่องเที่ยวรอบๆตัวคุณ</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>แนะนำสถานที่ท่องเที่ยวรอบๆตัวคุณ</Text>
                                 </View>
                                 <View
                                     style={{
                                         flex: 1,
                                         alignContent: 'flex-end',
+                                        marginLeft:10
                                     }}
                                 >
-                                    {/* <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}> </Text> */}
+                                    <RNPickerSelect
+                                        useNativeAndroidPickerStyle={false}
+                                        style={selectForm}
+                                        placeholder={{ label: 'ค้นหาตามระยะทาง' }}
+                                        onValueChange={(value, key) => this.onChangeType(value)}
+                                        items={province}
+                                        Icon={() => {
+                                            return <Icon
+                                                name="angle-down"
+                                                type="font-awesome"
+                                                underlayColor="transparent"
+                                                size={18}
+                                                iconStyle={styles.editIcon}
+                                            />
+                                        }}  
+                                    />
                                 </View>
+                                   
                             </View>
                             <View style={{ flexDirection: 'row', marginBottom: 15 }}>
                                 <View style={{ width: '35%' }}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u96.png?token=c560ed132506669b6d36dbcb11ee863ff76bec093a570311103b404013ef5e29' }}
+                                        source={require('../../../assets/image/1.png')}
                                         style={{
                                             width: '100%',
                                             height: 200,
@@ -303,24 +318,31 @@ const selectForm = StyleSheet.create({
     inputIOS: {
         fontSize: 12,
         fontFamily: 'Prompt-Regular',
-        borderColor: "#f1f1f1",
-        borderWidth: 1.5,
+        borderColor: "#d7d7d7",
+        borderWidth: 1,
         borderRadius: 7,
-        paddingVertical: 10,
-        paddingHorizontal: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 15,
         backgroundColor: '#d7d7d7',
-        color: "#fff",
-        width: '100%'
+        width: '100%',
     },
     inputAndroid: {
         fontSize: 12,
         fontFamily: 'Prompt-Regular',
-        borderColor: "#f1f1f1",
-        borderWidth: 1.5,
+        borderColor: "#d7d7d7",
+        borderWidth: 1,
         borderRadius: 7,
-        paddingVertical: 10,
-        paddingHorizontal: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 15,
         backgroundColor: '#d7d7d7',
-        width: '100%'
+        width: '100%',
+        // textAlign:'center',
+    },
+    placeholder:{
+        color:"#000"
+    },
+    iconContainer: {
+        top: 12,
+        right: 15,
     },
 });
