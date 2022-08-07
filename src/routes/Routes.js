@@ -12,6 +12,7 @@ import { Home } from '../page/Home';
 import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail';
 
 import SourceOfProductDetail from '../page/SourceOfProduct/SourceOfProductDetail';
+import SourceOfProduct from '../page/SourceOfProduct/SourceOfProduct';
 import EventDetail from '../page/Event/EventDetail';
 import DashboardSeller from '../page/Seller/DashboardSeller';
 
@@ -22,7 +23,6 @@ import Notify from '../page/Transaction/Notify';
 import History from '../page/Transaction/History';
 import ChatList from '../page/Transaction/ChatList';
 import Chat from '../page/Transaction/Chat';
-import DashboardSeller from '../page/Seller/DashboardSeller';
 import SellerRegister from '../page/Seller/SellerRegister';
 import SellerRegisterInfo from '../page/Seller/SellerRegisterInfo';
 import SellerProductList from '../page/Seller/SellerProductList';
@@ -55,6 +55,7 @@ function StackNaviga() {
                 <Stack.Screen name="ChatList" component={ChatList} options={MainPageOptionNoBack} />
                 <Stack.Screen name="Chat" component={Chat} options={MainPageOptionNoBack} />
                 <Stack.Screen name="SourceOfProductDetail" component={SourceOfProductDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="SourceOfProduct" component={SourceOfProduct} options={MainPageOptionNoBack} />
                 <Stack.Screen name="EventDetail" component={EventDetail} options={MainPageOptionNoBack} />
 
                 <Stack.Screen name="DashboardSeller" component={DashboardSeller} options={MainPageOptionNoBack} />

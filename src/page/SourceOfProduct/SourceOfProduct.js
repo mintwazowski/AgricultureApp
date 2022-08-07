@@ -14,10 +14,12 @@ import {
     AsyncStorage,
     ViewPropTypes,
     ActivityIndicator,
+    KeyboardAvoidingView,
 } from 'react-native';
 
 import Search from '../Search/Search'
 import MainStyles from '../../styles/MainStyles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import RNPickerSelect from 'react-native-picker-select';
 import MapView from 'react-native-maps';
@@ -27,6 +29,11 @@ export default class SourceOfProduct extends Component {
 
     onChangeType(e, data) {
 
+    }
+
+     
+    onBack() {
+        this.props.navigation.navigate('Home')
     }
 
     render() {
@@ -47,14 +54,18 @@ export default class SourceOfProduct extends Component {
                             {/* Search Content */}
                             <View style={{ flexDirection: 'row', width: '100%' }}>
                                 <View style={{ justifyContent: 'center', width: '10%' }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/icon/back.png')}
-                                        style={{
-                                            width: 25,
-                                            height: 25,
-                                        }}
-                                    />
+                                    <TouchableOpacity
+                                        onPress={() => this.onBack()}
+                                    >
+                                        <Image
+                                            resizeMode={'cover'}
+                                            source={require('../../../assets/icon/back.png')}
+                                            style={{
+                                                width: 25,
+                                                height: 25,
+                                            }}
+                                        />
+                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ width: '75%' }}>
                                     <Search />
@@ -150,6 +161,46 @@ export default class SourceOfProduct extends Component {
                                 <View style={{ width: '35%' }}>
                                     <Image
                                         resizeMode={'cover'}
+                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u96.png?token=c560ed132506669b6d36dbcb11ee863ff76bec093a570311103b404013ef5e29' }}
+                                        style={{
+                                            width: '100%',
+                                            height: 200,
+                                            borderRadius: 10
+                                        }}
+                                    />
+                                </View>
+                                <View style={{ width: '65%', paddingLeft: 15 }}>
+                                    <View style={[MainStyles.mt15 , MainStyles.mb10 ,{ flexDirection: "row" }]}>
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>ลำพูนผ้าไหมไทย</Text>
+                                        </View>
+                                        
+                                        <View style={[MainStyles.textAlignRight , {flex: 1 , flexDirection: "row" , justifyContent:'flex-end' , alignItems:'center' , paddingLeft:15}] } >
+                                            <Icon name='heart-o' size={15} color="#000" style={{ marginEnd:6 }}/>
+                                        </View>
+                                    </View>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10]}>
+                                        ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
+                                        ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
+                                        มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
+                                    </Text>
+                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>ลำพูน</Text>
+                                        </View>
+                                        
+                                        <View style={[MainStyles.textAlignRight , {flex: 1 , flexDirection: "row" , justifyContent:'flex-start' , alignItems:'center' , paddingLeft:15}] } >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                <View style={{ width: '35%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
                                         source={require('../../../assets/images/36.png')}
                                         style={{
                                             width: '100%',
@@ -159,57 +210,46 @@ export default class SourceOfProduct extends Component {
                                     />
                                 </View>
                                 <View style={{ width: '65%', paddingLeft: 15 }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>ลำพูนผ้าไหมไทย</Text>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                        ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
-                                        ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
-                                        มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
+                                    <View style={[MainStyles.mt15 , MainStyles.mb10 ,{ flexDirection: "row" }]}>
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>เก็บสตรอเบอร์รี่ที่ลำพูน</Text>
+                                        </View>
+                                        
+                                        <View style={[MainStyles.textAlignRight , {flex: 1 , flexDirection: "row" , justifyContent:'flex-end' , alignItems:'center' , paddingLeft:15}] } >
+                                            <Icon name='heart-o' size={15} color="#000" style={{ marginEnd:6 }}/>
+                                        </View>
+                                    </View>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10]}>ถือได้ว่าเป็นไร่สตรอว์เบอร์รีไร่แรก ๆ ของที่นี่เปิดไร่ทำการท่องเที่ยวเชิงเกษตร เป็นไร่สตรอว์เบอร์รีที่โอบล้อมไปด้วยขุนเขาอันอุดมสมบูรณ์และเงียบสงบ
                                     </Text>
+                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
+                                        <View style={ {flexDirection: "row"}}>
+                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                            <Text style={[MainStyles.textGreen, MainStyles.Text14]}>ลำพูน</Text>
+                                        </View>
+                                        
+                                        <View style={[MainStyles.textAlignRight , {flex: 1 , flexDirection: "row" , justifyContent:'flex-start' , alignItems:'center' , paddingLeft:15}] } >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+                                            <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
+                                        </View>
+                                    </View>
                                 </View>
                             </View>
-                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                <View style={{ width: '35%' }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/images/37.png')}
+                            <View style={{ flexDirection: "row", marginVertical: 5, alignSelf: 'center' }}>
+                                <View style={{ flexDirection: 'column', alignContent: 'center', width: '50%' }}>
+                                    <TouchableOpacity
+                                        activeOpacity={1}
                                         style={{
-                                            width: '100%',
-                                            height: 200,
-                                            borderRadius: 10
+                                            width: '70%',
+                                            backgroundColor: '#2eb16d',
+                                            borderRadius: 9,
+                                            paddingVertical: 6,
+                                            alignSelf: 'center',
                                         }}
-                                    />
-                                </View>
-                                <View style={{ width: '65%', paddingLeft: 15 }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>เก็บสตรอเบอร์รี่ที่ลำพูน</Text>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                        ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
-                                        ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
-                                        มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
-                                    </Text>
+                                    >
+                                        <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>โหลดเพิ่มเติม</Text>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
-                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                <View style={{ width: '35%' }}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/images/38.png')}
-                                        style={{
-                                            width: '100%',
-                                            height: 200,
-                                            borderRadius: 10
-                                        }}
-                                    />
-                                </View>
-                                <View style={{ width: '65%', paddingLeft: 15 }}>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text18, MainStyles.textBD]}>ลำพูนผ้าไหมไทย</Text>
-                                    <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                        ทางกลุ่มลำพูนผ้าไหมไทย ได้เริ่มรวมกลุ่มกันเริ่มทอผ้าไหม
-                                        ยกดอกเมื่อต้นปี พ.ศ.2535 ทางเราที่มีช่างทอที่ชำนาญและ
-                                        มีประสบการณ์ในการทอผ้าไหมซึ่งทุกผืนที่ถูกผลิตขึ้น
-                                    </Text>
-                                </View>
-                            </View>
-
                         </View>
                     </View>
                 </View>
