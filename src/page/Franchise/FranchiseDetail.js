@@ -35,9 +35,10 @@ import { Rating } from 'react-native-ratings';
 import { Collapse, CollapseHeader, CollapseBody, AccordionList } from 'accordion-collapse-react-native';
 import ModalLib from 'react-native-modal';
 
-export default class SourceOfProductDetail extends Component {
+export default class FranchiseDetail extends Component {
+
     onBack() {
-        this.props.navigation.navigate('SourceOfProductMain')
+        this.props.navigation.navigate('Franchise')
     }
 
     onEventReservation() {
@@ -342,8 +343,8 @@ export default class SourceOfProductDetail extends Component {
                 }
             ],
             collapseCard: null,
-            Location:"67/1 ถนน สุขุมวิท55 (ทองหล่อ3) เขตวัฒนา แขวงคลองตันเหนือ กรุงเทพมหานคร",
-            Category:"สวนครูองุ่น",
+            Location:"3/13 หมู่ที่ 6 ซอยบางอ้อ 2 ถนนบางรักน้อย 18 ตำบลไทรม้า อำเภอเมือง จังหวัดนนทบุรี",
+            Category:"ตลาดสวนผักคนเมือง",
             setLocation:"หากสถานที่แห่งนี้ตั้งอยู่ในสถานที่อีกแห่งหนึ่ง ให้ป้อนชื่อสถานที่อย่างหลังแทน",
             Time:"อา.-ส.: 08:00-17:00",
             Phone:"089 635 1607",
@@ -477,7 +478,7 @@ export default class SourceOfProductDetail extends Component {
                                     left:20
                                 }}
                             />
-                            <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textWhiteBd , {position:'absolute' , top:20 , left:80}]}>สวนครูองุ่น</Text>
+                            <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textWhiteBd , {position:'absolute' , top:20 , left:80}]}>Franchise กาแฟเขาทะลุชุมพร</Text>
                         </View>
                         <TouchableOpacity style={[MainStyles.btnYellowSmall150 , {flexDirection:'row'}]}>
                             <Ionicons name='chatbox' size={22} color="#fff" style={{ paddingHorizontal:7 , alignSelf:'center' }} />
@@ -559,7 +560,7 @@ export default class SourceOfProductDetail extends Component {
                                     <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/image/53.png')}
+                                            source={require('../../../assets/image/62.png')}
                                             style={{
                                                 width: '100%',
                                                 height: 300
@@ -571,7 +572,7 @@ export default class SourceOfProductDetail extends Component {
                                     <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/image/53.png')}
+                                            source={require('../../../assets/image/62.png')}
                                             style={{
                                                 width: '100%',
                                                 height: 300
@@ -583,7 +584,7 @@ export default class SourceOfProductDetail extends Component {
                                     <View style={{ flexDirection: 'column', alignContent: 'center', width: '100%' }}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/image/53.png')}
+                                            source={require('../../../assets/image/62.png')}
                                             style={{
                                                 width: '100%',
                                                 height: 300
@@ -617,7 +618,7 @@ export default class SourceOfProductDetail extends Component {
                                 <View style={{ width: '30.5%', marginLeft: '2%' }}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/image/54.png')}
+                                        source={require('../../../assets/image/63.png')}
                                         style={{
                                             width: '100%',
                                             height: 80,
@@ -627,7 +628,7 @@ export default class SourceOfProductDetail extends Component {
                                 <View style={{ width: '30.5%', marginHorizontal: '2%' }}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/image/55.png')}
+                                        source={require('../../../assets/image/64.png')}
                                         style={{
                                             width: '100%',
                                             height: 80,
@@ -655,7 +656,7 @@ export default class SourceOfProductDetail extends Component {
                                     </View>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/image/56.png')}
+                                        source={require('../../../assets/image/65.png')}
                                         style={{
                                             width: '100%',
                                             height: 80,
@@ -693,8 +694,8 @@ export default class SourceOfProductDetail extends Component {
 
                                 <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
                                     <View style={{ flex: 1 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.Text22, MainStyles.textAlignCenter, MainStyles.textGrayBd]}>สวนครูองุ่น</Text>
-                                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignCenter, MainStyles.textGrayLight]}>อำเภอเมือง จังหวัดนนทบุรี</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.Text22, MainStyles.textAlignCenter, MainStyles.textGrayBd]}>Franchise กาแฟเขาทะลุชุมพร</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignCenter, MainStyles.textGrayLight]}>บางบอน กรุงเทพมหานคร</Text>
                                     </View>
                                 </View>
 
@@ -711,7 +712,7 @@ export default class SourceOfProductDetail extends Component {
                                 <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
                                     <View style={{ flex: 1, flexDirection: "row" }}>
                                         <Fontisto name='map-marker-alt' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
-                                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>67/1 ถนน สุขุมวิท55 (ทองหล่อ3) เขตวัฒนา แขวงคลองตันเหนือ กรุงเทพมหานคร</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>205 ถ.พรมราษฏร์ (ซ.เอกชัย109) แขวง/เขต บางบอน กทม. 10150</Text>
                                     </View>
                                     <View style={MainStyles.BorderBottomGrayWhite}></View>
                                     <View style={{ flex: 1, flexDirection: "row" }}>
@@ -721,7 +722,7 @@ export default class SourceOfProductDetail extends Component {
                                     <View style={MainStyles.BorderBottomGrayWhite}></View>
                                     <View style={{ flex: 1, flexDirection: "row" }}>
                                         <Fontisto name='email' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
-                                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>sale@demo.com</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>http://homhomgroup.com/</Text>
                                     </View>
                                     <View style={MainStyles.BorderBottomGrayWhite}></View>
                                     <View style={{ flex: 1, flexDirection: "row" }}>
@@ -730,11 +731,8 @@ export default class SourceOfProductDetail extends Component {
                                     </View>
                                     <View style={{ flex: 1, marginTop: 50 }}>
                                         <Text allowFontScaling={false} style={[MainStyles.Text20, MainStyles.textAlignLeft, MainStyles.textGreen]}>รายละเอียด</Text>
-                                        <Text allowFontScaling={false} style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGrayLight]}> "สวนครูองุ่น-มูลนิธิกระจกเงา" ร่วมกับมูลนิธิไชยวนา เป็นโครงการสร้างพื้นที่แห่งการเรียนรู้ พื้นที่สีเขียวที่อุดมสมบูรณ์ สถานที่เสริมสร้างความสัมพันธ์ ฝึกทักษะ และพบปะผ่อนคลาย สำหรับเด็ก พ่อแม่ ครอบครัว จนกระทั่งบุคคลทั่วไป เพื่อให้สอดคล้องกับเจตนารมณ์ของครูองุ่น มาลิก ที่ระบุไว้ในพินัยกรรมของท่าน และสวนครูองุ่น-มูลนิธิกระจกเงาแห่งนี้ จะเป็นสื่อกลางของความสัมพันธ์ทั้งหมด โดยจะออกมาในรูปแบบของ พื้นที่สาธารณะสำหรับเด็ก ที่พักผ่อนหย่อนใจ ห้องสมุดมนุษย์ ร้านแบ่งปัน พื้นที่กิจกรรมสำหรับบุคคลทั่วไป หน่วยงานต่างๆ NGOs หรืออาจจะเรียกว่า เป็นลานปล่อยของก็ว่าได้ … อ่านต่อ</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.textGrayLight]}>เริ่มต้นจากการเป็นครอบครัวเกษตรกรชาวสวนกาแฟเขาทะลุ ชุมพรคุณลุงได้ริเริ่มคั่วกาแฟเองมากว่า 10ปี ซึ่งทางคุณอรทัย เสนะจุติ ระหว่างการเรียนปริญาโทอยู่นั้นได้สนใจธุรกิจ การทำแฟรนไชส์กาแฟสดจึงปรึกษากับคุณลุง และเริ่มต้นการเรียนรู้การทำกาแฟสดตั้งแต่การคัดเลือกเมล็ดกาแฟดิบ 2 สายพันธุ์ คือโรบัสต้าและอราบิก้า ขบวนการคั่วกาแฟ สูตรชงกาแฟและการบริหารจัดการทั้งร้านค้าและออฟิตด้วยตนเองจนกระทั่งได้รับคัดเลือกจากกระทรวงพาณิชย์เข้าไปอบรมโครงการแฟรนไชส์สากลรุ่นที่ 10จากมหาวิทยาลัยศรีปทุมจนทำให้แฟรนไชส์ของกาแฟเขาทะลุ ชุมพร</Text>
                                     </View>
-
-
-
                                 </View>
                             </View>
                         </View>

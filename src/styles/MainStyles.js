@@ -423,6 +423,13 @@ export default StyleSheet.create({
         width: '100%',
         borderRadius: 9
     },
+    btnYellowSmall150: {
+        backgroundColor: '#e9b266',
+        padding: 9,
+        alignSelf: 'flex-start',
+        width: 150,
+        borderRadius: 9
+    },
     btnSmall: {
         fontSize: 10,
         color: '#fff',

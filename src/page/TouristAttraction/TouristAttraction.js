@@ -37,8 +37,6 @@ export default class TouristAttraction extends Component {
         this.props.navigation.navigate('Home')
     }
 
-    
-
     render() {
          // Banner
         const Banner = [];
@@ -148,7 +146,7 @@ export default class TouristAttraction extends Component {
                                 >
                                     <Image
                                         resizeMode={'cover'}
-                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u113.png?token=80f7ad62be395aa30055664998be1b4018ecd3c6388d92b8ebf5571c8c224d1e' }}
+                                        source={require('../../../assets/image/8.png')}
                                         style={{
                                             width: '100%',
                                             height: 220,
@@ -181,7 +179,7 @@ export default class TouristAttraction extends Component {
                                 >
                                     <Image
                                         resizeMode={'cover'}
-                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u102.png?token=7ce9bf978c1c340e495df21120be9289715fddbccd0c431637d5d9f05e1e1b26' }}
+                                        source={require('../../../assets/image/9.png')}
                                         style={{
                                             width: '100%',
                                             height: 220,
@@ -214,7 +212,7 @@ export default class TouristAttraction extends Component {
                                 >
                                     <Image
                                         resizeMode={'cover'}
-                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u101.png?token=09248a6cf9ea1bf538848901f87aa2a44ed5baf95bd9a18e60567b72d29ba6fb' }}
+                                        source={require('../../../assets/image/10.png')}
                                         style={{
                                             width: '100%',
                                             height: 220,
@@ -246,7 +244,7 @@ export default class TouristAttraction extends Component {
                                 >
                                     <Image
                                         resizeMode={'cover'}
-                                        source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u119.png?token=c0c935979be66dd728f43563a47f374cec504821551f4a39f0a715f506246a5f' }}
+                                        source={require('../../../assets/image/21.png')}
                                         style={{
                                             width: '100%',
                                             height: 220,

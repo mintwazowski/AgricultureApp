@@ -25,9 +25,11 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/AntDesign';
 import * as Progress from 'react-native-progress';
 import RNPickerSelect from 'react-native-picker-select';
+import MapView from 'react-native-maps';
 
 import { Rating } from 'react-native-ratings';
 import { Collapse, CollapseHeader, CollapseBody, AccordionList } from 'accordion-collapse-react-native';
@@ -35,14 +37,44 @@ import ModalLib from 'react-native-modal';
 
 export default class TouristAttractionDetail extends Component {
 
+
     constructor(props) {
         super(props);
         this.tog = this.tog.bind(this);
+    
         this.state = {
             col: 0,
+            CheckWeb:false,
             activeIndex: 0,
+            cards: [
+                {
+                id:1,
+                title: "ได้รับรางวัลอะไรบ้าง ?",
+                sub_title: "ปี 2560 พระเจ้าหลานเธอ พระองค์เจ้าสิริภาจุฑาภรณ์ พระราชทานพระราชวโรกาสให้ พนักงานร้านลำพูนไทยซิลค์ และ เหล่าช่างทอผ้าไหมลำพูน เฝ้าทูลละอองธุลีพระบาทเป็นการส่วนพระองค์ ณ ที่ประทับกองบิน 41 จ. เชียงใหม่ ถวายรายงานเกี่ยวกับการทอผ้าไหมยกดอกลำพูน เหล่าข้าพระพุทธเจ้า สำนึกในพระมหากรุณาธิคุณ",
+                },
+                {
+                id:2,
+                title: "ราคาอยู่ที่ผืนละเท่าไหร่ ?",
+                sub_title: "xxxxxxxxxxxxxx",
+                },
+                {
+                id:3,
+                title: "ใช้เวลาท่องเที่ยวได้นานแค่ไหน ?",
+                sub_title: "aaaaaaaaaaaa",
+                },
+                {
+                id:4,
+                title: "สามารถลองทอผ้าไหมได้หรอไหม ?",
+                sub_title: "bbbbbbbbbbb",
+                },
+                {
+                id:5,
+                title: "มีการท่องเที่ยวแบบไหนบ้าง ?",
+                sub_title: "ccccccccccc",
+                },
+            ],
             isAlert: null,
-            images: [
+            images : [
                 {
                     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRpGmKrfBFE90_MyomlXre9OJhLyjMvfGm5w&usqp=CAU",
                     id: "12345"
@@ -54,7 +86,14 @@ export default class TouristAttractionDetail extends Component {
                     id: "12347"
                 }
             ],
-            collapseCard: null
+            collapseCard: null,
+            Location:"259 หมู่ 4 ถนนไฮเวเชียงใหม่-ลำปาง ตำบลศรีบัวบาน อำเภอเมืองลำพูน 51000",
+            Category:"ร้านขายผ้าไหม",
+            setLocation:"หากสถานที่แห่งนี้ตั้งอยู่ในสถานที่อีกแห่งหนึ่ง ให้ป้อนชื่อสถานที่อย่างหลังแทน",
+            Time:"อา.-ส.: 08:00-17:00",
+            Phone:"089 635 1607",
+            Web:"http://www.lamphunthaisilk.com",
+            alertEditdata: null,
         };
     }
 
@@ -315,7 +354,33 @@ export default class TouristAttractionDetail extends Component {
             isAlert: alert,
         });
     }
-
+        
+    handleChange(e, type) {
+        var value = e.nativeEvent.text;
+        if (type === "Location") {
+            this.setState({
+                Location: value
+            })
+        }
+    }
+    
+    onEditData(type, info) {
+        this.setState({
+            alertEditdata: true,
+        });
+    }
+    
+    setalertEditdata(type){
+        this.setState({
+            alertEditdata: type,
+        });
+    }
+    onOpencheckWeb(){
+        this.setState({
+            CheckWeb: true,
+        })
+    }
+  
     _onChange(index) {
         this.setState({
             activeIndex: index,
@@ -329,14 +394,8 @@ export default class TouristAttractionDetail extends Component {
         });
     }
 
-    onChangeCollapseCard(id) {
-        this.setState({
-            collapseCard: id
-        })
-    }
-
     render() {
-        const { col, isAlert, collapseCard, index } = this.state;
+        const { col, isAlert, collapseCard, index , alertEditdata} = this.state;
 
         const getFavProduct = [
             { id: 1, img_src: require('../../../assets/image/22.png'), name: 'เสื้อคลุมผ้าคราม', price: '8,000', rating: 5 },
@@ -421,6 +480,98 @@ export default class TouristAttractionDetail extends Component {
 
             <SafeAreaView style={[MainStyles.contentBG]}>
                 {isAlert}
+
+                <ModalLib isVisible={alertEditdata} onBackdropPress={() => this.setalertEditdata(false)}>
+                    <View style={ModalStyles.ModalEvent}>
+                        <View style={{ flexDirection: 'row', alignSelf: 'center', marginBottom: 10 }}>
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/image/u1361.png')}
+                                style={{
+                                    width: '100%',
+                                    height: 65,
+                                    alignSelf: 'center',
+                                    borderTopRightRadius:20,
+                                    borderTopLeftRadius:20,
+                                }}
+                            />
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/image/u1364.png')}
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                    alignSelf: 'center',
+                                    position:'absolute',
+                                    left:20
+                                }}
+                            />
+                            <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textWhiteBd , {position:'absolute' , top:20 , left:80}]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
+                        </View>
+                        <TouchableOpacity style={[MainStyles.btnYellowSmall150 , {flexDirection:'row'}]}>
+                            <Ionicons name='chatbox' size={22} color="#fff" style={{ paddingHorizontal:7 , alignSelf:'center' }} />
+                            <Text allowFontScaling={false} style={[ModalStyles.Text18 , MainStyles.textWhite]}>แจ้งแก้ไขข้อมูล</Text>
+                        </TouchableOpacity>
+                        <View style={{ flexDirection:'row' , marginVertical:10}}>
+                            <View style={{ flexDirection:'column' , width:'100%'}}>
+                                <View style={{ flexDirection:'row'}}>
+                                    <MaterialIcons name='category' size={22} color="#838383" style={{ alignSelf:'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>หมวดหมู่</Text>
+                                </View>
+                                <TextInput style={styles.input} value={this.state.Category} onChange={e => this.handleChange(e, 'Category')}/>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection:'row' , marginVertical:10}}>
+                            <View style={{ flexDirection:'column' , width:'100%'}}>
+                                <View style={{ flexDirection:'row'}}>
+                                    <Fontisto name='map-marker-alt' size={22} color="#838383" style={{ alignSelf:'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>ตำแหน่ง</Text>
+                                </View>
+                                <TextInput style={styles.input} value={this.state.Location} onChange={e => this.handleChange(e, 'Location')} />
+                                <MapView
+                                    initialRegion={{
+                                        latitude: 37.78825,
+                                        longitude: -122.4324,
+                                        latitudeDelta: 0.0922,
+                                        longitudeDelta: 0.0421,
+                                    }}
+                                    style={[styles.map]}
+                                />
+                                <Text allowFontScaling={false} style={[MainStyles.Text10 , MainStyles.mt10 , MainStyles.textGrayLight ,{ marginLeft:20}]}>ตั้งอยู่ภายใน</Text>
+                                <TextInput style={[ModalStyles.Text10 ,styles.inputSmall]} value={this.state.setLocation} onChange={e => this.handleChange(e, 'setLocation')} />
+
+                                <View style={{ flexDirection:'row' , marginTop:15}}>
+                                    <Fontisto name='clock' size={22} color="#838383" style={{ alignSelf:'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>เวลาทำการ</Text>
+                                </View>
+                                <TextInput style={styles.input} value={this.state.Time} onChange={e => this.handleChange(e, 'Time')} />
+
+                                <View style={{ flexDirection:'row' , marginTop:15}}>
+                                    <FontAwesome name='phone' size={22} color="#838383" style={{ alignSelf:'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>ติดต่อ</Text>
+                                </View>
+                                <TextInput style={styles.input} value={this.state.Phone} onChange={e => this.handleChange(e, 'Phone')} />
+
+                                <View style={{ flexDirection:'row' , marginTop:15}}>
+                                    <FontAwesome name='globe' size={22} color="#838383" style={{ alignSelf:'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>เว็บไซต์</Text>
+                                </View>
+                                { this.state.CheckWeb ? <TextInput style={styles.input} value={this.state.Web} onChange={e => this.handleChange(e, 'Web')} /> : <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textBlue ,{ marginLeft:28}]}  onPress={() => this.onOpencheckWeb()}>เพิ่มเว็บไซต์</Text>}
+                            </View>
+                        </View>
+                        <View style={[ModalStyles.content2Button , {justifyContent:'center' , alignItems:'center' , width:"100%"}]}>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={ModalStyles.btnSubmit}
+                                onPress={() => this.onNextToCart()}
+                            >
+                                <View style={{ flexDirection: "row", justifyContent:'center'}}>
+                                    <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ส่งข้อมูล</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </ModalLib>
                 <View style={[MainStyles.contentBG]}>
                     <ScrollView showsVerticalScrollIndicator={false} >
                         {/* Banner Content */}
@@ -483,7 +634,7 @@ export default class TouristAttractionDetail extends Component {
                                 </View>
                                 <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}>
                                     <View style={{ backgroundColor: '#666666', paddingVertical: 3, paddingHorizontal: 15, borderRadius: 13 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}>แจ้งแก้ไขข้อมูล</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}  onPress={() => this.onEditData()}>แจ้งแก้ไขข้อมูล</Text>
                                     </View>
                                 </View>
                             </View>
@@ -1158,6 +1309,31 @@ const styles = StyleSheet.create({
     heartIcon: {
         position: 'absolute', right: 3, top: 5, color: 'white'
     },
+    input: {
+        height: 40,
+        width:'97%',
+        marginHorizontal:20,
+        borderBottomWidth:1,
+        borderBottomColor:'#e0e0e0',
+        padding: 10,
+        fontSize:12,
+    },
+    inputSmall: {
+        height: 30,
+        width:'97%',
+        marginHorizontal:20,
+        borderBottomWidth:1,
+        borderBottomColor:'#e0e0e0',
+        padding: 8,
+        fontSize:10,
+    },
+    map: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },
 });
 
 const SelectHaveBorderStyles = StyleSheet.create({
@@ -1231,6 +1407,7 @@ const SelectHaveBorderStyles = StyleSheet.create({
         right: 15,
     },
 });
+
 const SelectBorderStyles = StyleSheet.create({
     inputIOS: {
         fontSize: 14,

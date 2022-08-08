@@ -62,6 +62,12 @@ export default class TopTabNavigator extends Component {
             this.props.navigation.navigate('SourceOfProduct')
         } else if (type === "DashboardSeller") {
             this.props.navigation.navigate('DashboardSeller')
+        } else if (type === "Market") {
+            this.props.navigation.navigate('Market')
+        } else if (type === "SourceOfProductMain") {
+            this.props.navigation.navigate('SourceOfProductMain')
+        } else if (type === "Franchise") {
+            this.props.navigation.navigate('Franchise')
         } else if (type === "") {
 
         }
@@ -161,7 +167,7 @@ export default class TopTabNavigator extends Component {
                                     <TouchableOpacity
                                         activeOpacity={1}
                                         style={NavigatorStyles.hamMenuContentList}
-                                        onPress={() => this.onGoToMenu('SourceOfProduct')}
+                                        onPress={() => this.onGoToMenu('Market')}
                                     >
                                         <Entypo name='shop' size={25} color="#448165" />
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ตลาดต้องชม ตลาดชุมชน</Text>
@@ -170,7 +176,7 @@ export default class TopTabNavigator extends Component {
                                     <TouchableOpacity
                                         activeOpacity={1}
                                         style={NavigatorStyles.hamMenuContentList}
-                                        onPress={() => this.onGoToMenu('Home')}
+                                        onPress={() => this.onGoToMenu('SourceOfProductMain')}
                                     >
                                         <FontAwesome5 name='mountain' size={20} color="#448165" />
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>แหล่งผลิตสินค้าเกษตร</Text>
@@ -179,7 +185,7 @@ export default class TopTabNavigator extends Component {
                                     <TouchableOpacity
                                         activeOpacity={1}
                                         style={NavigatorStyles.hamMenuContentList}
-                                        onPress={() => this.onGoToMenu('DashboardSeller')}
+                                        onPress={() => this.onGoToMenu('Franchise')}
                                     >
                                         <FontAwesome5 name='building' size={23} color="#448165" />
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ผู้ประกอบการ Franchise</Text>

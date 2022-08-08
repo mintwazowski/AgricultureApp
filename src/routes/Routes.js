@@ -12,9 +12,14 @@ import { Home } from '../page/Home';
 import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail';
 
 import SourceOfProductDetail from '../page/SourceOfProduct/SourceOfProductDetail';
+import SourceOfProductMain from '../page/SourceOfProduct/SourceOfProductMain';
 import SourceOfProduct from '../page/SourceOfProduct/SourceOfProduct';
 import EventDetail from '../page/Event/EventDetail';
 import DashboardSeller from '../page/Seller/DashboardSeller';
+import Market from '../page/Market/Market';
+import MarketDetail from '../page/Market/MarketDetail';
+import Franchise from '../page/Franchise/Franchise';
+import FranchiseDetail from '../page/Franchise/FranchiseDetail';
 
 import ProductDetail from '../page/Product/ProductDetail';
 import OrderList from '../page/Transaction/OrderList';
@@ -57,6 +62,10 @@ function StackNaviga() {
                 <Stack.Screen name="SourceOfProductDetail" component={SourceOfProductDetail} options={MainPageOptionNoBack} />
                 <Stack.Screen name="SourceOfProduct" component={SourceOfProduct} options={MainPageOptionNoBack} />
                 <Stack.Screen name="EventDetail" component={EventDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="Market" component={Market} options={MainPageOptionNoBack} />
+                <Stack.Screen name="Franchise" component={Franchise} options={MainPageOptionNoBack} />
+                <Stack.Screen name="MarketDetail" component={MarketDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="FranchiseDetail" component={FranchiseDetail} options={MainPageOptionNoBack} />
 
                 <Stack.Screen name="DashboardSeller" component={DashboardSeller} options={MainPageOptionNoBack} />
                 <Stack.Screen name="SellerRegister" component={SellerRegister} options={MainPageOptionNoBack} />

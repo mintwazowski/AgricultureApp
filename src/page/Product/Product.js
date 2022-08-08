@@ -105,12 +105,12 @@ export default class Product extends Component {
     render() {
         const { filterData, filterOpen, filterType, filterSelect } = this.state
         const getBannerFlashSale = [
-            { id: 1, img_src: require('../../../assets/images/4.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '250' },
-            { id: 2, img_src: require('../../../assets/images/5.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
-            { id: 3, img_src: require('../../../assets/images/6.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์ออร์แกนิค', price: '25' },
-            { id: 4, img_src: require('../../../assets/images/7.png'), name: 'น้ำมันเมล็ดชา Camellia Oleifera', price: '250' },
-            { id: 5, img_src: require('../../../assets/images/8.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
-            { id: 6, img_src: require('../../../assets/images/5.png'), name: 'ส้มมะปี๊ด เปรี้ยว หวานอมส้ม จันทบุรั', price: '49' },
+            { id: 1, img_src: require('../../../assets/image/25.png'), name: 'กระเช้าของขวัญ ไอริสขนมสำหรับเทศกาลปีใหม่', price: '890' },
+            { id: 2, img_src: require('../../../assets/image/26.png'), name: 'กระเช้าของขวัญ ลีลาวดีรวมเครื่องดื่มสมุนไพรสุขภาพ', price: '1,890' },
+            { id: 3, img_src: require('../../../assets/image/27.png'), name: "ผ้าคราม สิงห์ล้านนา'Singha Lanna'", price: '1,000' },
+            { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+            { id: 5, img_src: require('../../../assets/image/29.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์(ออร์แกนิค 100%)  200 กรัม', price: '25' },
+            { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
         ]
 
         // Filter
@@ -352,7 +352,7 @@ export default class Product extends Component {
                                                                 source={getBannerFlashSale[index].img_src}
                                                                 style={{
                                                                     width: '100%',
-                                                                    height: 100,
+                                                                    height: 180,
                                                                 }}
                                                             />
                                                             <View style={{ paddingHorizontal: 10, paddingBottom: 10 }}>

@@ -41,6 +41,13 @@ export default StyleSheet.create({
         padding: 7,
         marginTop: 10
     },
+    btnSubmit: {
+        width: '60%',
+        backgroundColor: '#448165',
+        borderRadius: 9,
+        padding: 7,
+        marginTop: 10
+    },
     btnOneText: {
         fontSize: 16,
         color: '#ffffff',
