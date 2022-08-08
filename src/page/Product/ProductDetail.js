@@ -31,12 +31,15 @@ import { Rating } from 'react-native-ratings';
 import * as Progress from 'react-native-progress';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import ModalLib from 'react-native-modal';
+import Gallery from 'react-native-image-gallery';
 
 export default class ProductDetail extends Component {
 
     state = {
         isAlert: null,
-        index: 0
+        index: 0,
+
+        openSlide: false
     }
 
     onGetCart(type, info) {
@@ -105,9 +108,19 @@ export default class ProductDetail extends Component {
         this.props.navigation.navigate('Home')
     }
 
+    onOpenSlide() {
+        this.setState({
+            openSlide: true
+        })
+    }
+    onCloseSlide() {
+        this.setState({
+            openSlide: false
+        })
+    }
 
     render() {
-        const { isAlert, index } = this.state
+        const { isAlert, index, openSlide } = this.state
         const images = [
             {
                 url: 'https://avatars2.githubusercontent.com/u/7970947?v=3&s=460',
@@ -150,15 +163,15 @@ export default class ProductDetail extends Component {
                                 />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5]}>{getFavProduct[index].name}</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft]}>{getFavProduct[index].price} บาท</Text>
-                                <View style={{ flexDirection: 'row'  , marginTop:10}}>
+                                <View style={{ flexDirection: 'row', marginTop: 10 }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                     </View>
-                                    <View style={{ flex: 1, alignSelf: "flex-end" , paddingRight:10}}>
+                                    <View style={{ flex: 1, alignSelf: "flex-end", paddingRight: 10 }}>
                                         <FontAwesome5 name='shopping-cart' size={14} color="#949494" style={{
                                             alignSelf: 'flex-end',
-                                            
+
                                         }} />
                                     </View>
                                 </View>
@@ -189,15 +202,15 @@ export default class ProductDetail extends Component {
                                 />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5]}>{getMayLike[index].name}</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text14, MainStyles.textAlignLeft]}>{getMayLike[index].price} บาท</Text>
-                                <View style={{ flexDirection: 'row'  , marginTop:10}}>
+                                <View style={{ flexDirection: 'row', marginTop: 10 }}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Icon name='star' size={15} style={{ marginRight: 5 }} color="#e9b266" />
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text10, MainStyles.textCenterContent]}>5</Text>
                                     </View>
-                                    <View style={{ flex: 1, alignSelf: "flex-end" , paddingRight:10}}>
+                                    <View style={{ flex: 1, alignSelf: "flex-end", paddingRight: 10 }}>
                                         <FontAwesome5 name='shopping-cart' size={14} color="#949494" style={{
                                             alignSelf: 'flex-end',
-                                            
+
                                         }} />
                                     </View>
                                 </View>
@@ -207,11 +220,74 @@ export default class ProductDetail extends Component {
                 </View>
             )
         }
-       
+
 
         return (
             <View style={[MainStyles.contentBG]}>
                 {isAlert}
+
+                <Modal visible={openSlide}>
+                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: '#000', height: '100%', paddingTop: '40%' }}>
+                        <TouchableOpacity
+                            style={{ position: 'absolute', top: 50, right: 20 }}
+                            activeOpacity={1}
+                            onPress={() => this.onCloseSlide()}
+                        >
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/icon/close.png')}
+                                style={{
+                                    width: 25,
+                                    height: 25
+                                }}
+                            />
+                        </TouchableOpacity>
+                        <Swiper
+                            ref='swiper'
+                            height={'100%'}
+                            showsButtons={false}
+                            showsPagination={false}
+                            onIndexChanged={(index) => this.setState({ index: index })}
+                        >
+                            <View style={styles.slide1}>
+                                <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: '100%', height: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/image/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: '50%',
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.slide1}>
+                                <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: '100%', height: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/image/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: '50%',
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.slide1}>
+                                <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: '100%', height: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/image/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: '50%',
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                        </Swiper>
+                    </View>
+                </Modal>
 
                 <ScrollView showsVerticalScrollIndicator={false} >
                     {/* Banner Content */}
@@ -301,7 +377,11 @@ export default class ProductDetail extends Component {
                                     }}
                                 />
                             </View>
-                            <View style={{ width: '30.5%', marginRight: '2%' }}>
+                            <TouchableOpacity
+                                style={{ width: '30.5%', marginRight: '2%' }}
+                                onPress={() => this.onOpenSlide()}
+                                activeOpacity={1}
+                            >
                                 <View style={{
                                     backgroundColor: '#333',
                                     opacity: 0.8,
@@ -328,7 +408,7 @@ export default class ProductDetail extends Component {
                                         height: 80,
                                     }}
                                 />
-                            </View>
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <View style={[MainStyles.content]}>
@@ -530,10 +610,10 @@ export default class ProductDetail extends Component {
                                             </Text>
                                         </View>
                                     </View>
-                          
+
                                 </View>
 
-                                <View style={{ flex: 1, marginTop: 15 , flexDirection: 'row' }}>
+                                <View style={{ flex: 1, marginTop: 15, flexDirection: 'row' }}>
                                     <Swiper
                                         height={'100%'}
                                         showsButtons={false}
@@ -560,7 +640,7 @@ export default class ProductDetail extends Component {
                                             </Text>
                                         </View>
                                     </View>
-                                    <View style={{ flex: 1, marginVertical: 15 , flexDirection: 'row' }}>
+                                    <View style={{ flex: 1, marginVertical: 15, flexDirection: 'row' }}>
                                         <Swiper
                                             height={'100%'}
                                             showsButtons={false}
