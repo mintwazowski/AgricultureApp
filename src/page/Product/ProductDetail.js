@@ -226,7 +226,7 @@ export default class ProductDetail extends Component {
             <View style={[MainStyles.contentBG]}>
                 {isAlert}
 
-                <Modal visible={openSlide}>
+                <Modal visible={openSlide}  statusBarTranslucent={true}>
                     <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: '#000', height: '100%', paddingTop: '40%' }}>
                         <TouchableOpacity
                             style={{ position: 'absolute', top: 50, right: 20 }}

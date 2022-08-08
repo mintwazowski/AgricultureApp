@@ -15,6 +15,7 @@ import {
     ViewPropTypes,
     ActivityIndicator,
     Button,
+    Modal,
 } from 'react-native';
 
 import MainStyles from '../../styles/MainStyles';
@@ -41,7 +42,6 @@ export default class TouristAttractionDetail extends Component {
     constructor(props) {
         super(props);
         this.tog = this.tog.bind(this);
-    
         this.state = {
             col: 0,
             CheckWeb:false,
@@ -94,6 +94,9 @@ export default class TouristAttractionDetail extends Component {
             Phone:"089 635 1607",
             Web:"http://www.lamphunthaisilk.com",
             alertEditdata: null,
+            EventReservation: null,
+            EventAndLocation: null,
+            openSlide: false
         };
     }
 
@@ -101,259 +104,42 @@ export default class TouristAttractionDetail extends Component {
         this.props.navigation.navigate('Home')
     }
 
-    onEventReservation() {
-        alert = (<ModalLib isVisible={true}>
-            <View style={ModalStyles.ModalEvent}>
-                <ScrollView showsVerticalScrollIndicator={false} >
-                    <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-                        <Text allowFontScaling={false} style={[ModalStyles.Text20, MainStyles.textGreen, MainStyles.textAlignLeft]}>ยืนยันการจองเข้าร่วมกิจกรรม</Text>
-                        <TouchableOpacity
-                            activeOpacity={1}
-                            style={{
-                                width: '35%',
-                                backgroundColor: '#448165',
-                                borderRadius: 9,
-                                paddingVertical: 5,
-                                alignSelf: 'center',
-                            }}
-                        >
-                            <View style={{ justifyContent: 'center', flexDirection: "row" }} >
-                                <MaterialIcons name='contacts' size={16} color="#fff" style={{ paddingRight: 8 }} />
-                                <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>ติดต่อสถานที่</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{ flexDirection: 'row', marginBottom: 10 }}>
-                        <Image
-                            resizeMode={'cover'}
-                            source={require('../../../assets/placeholder.jpg')}
-                            style={{
-                                width: '30%',
-                                height: 85,
-                                alignSelf: 'center',
-                                borderRadius: 9,
-                            }}
-                        />
-                        <View style={{ justifyContent: 'center', flexDirection: "column", paddingLeft: 5, flexShrink: 1 }} >
-                            <Text allowFontScaling={false} style={[MainStyles.textGray, ModalStyles.mb5]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
-                            <Text allowFontScaling={false} style={[MainStyles.textGrayLight, { fontSize: 10 }]}>ผ้าไทย ถือเป็นหัตถกรรมและหัตถศิลป์มรดกอันล้ำค่าของเมืองไทย มีความงดงามของเส้นไหมที่เป็นเอกลักษณ์</Text>
-                            <View style={{ flexDirection: "row", paddingLeft: 5 }}>
-                                <View style={{ flexDirection: "row", paddingLeft: 5 }}>
-                                    <Fontisto name='map-marker-alt' size={16} style={{ paddingRight: 8 }} />
-                                    <Text allowFontScaling={false} style={[MainStyles.textGrayLight, ModalStyles.Text10]}>province</Text>
-                                </View>
-                                <View style={{ alignItems: 'flex-end', flex: 1, paddingTop: 5 }}>
-                                    <Rating
-                                        type='star'
-                                        ratingCount={5}
-                                        imageSize={13}
-                                        isDisabled={true}
-                                    />
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View>
-                        <Text allowFontScaling={false} style={[ModalStyles.Text18, MainStyles.textGray]}>รายละเอียด</Text>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>วันเสาร์ที่ 27 พฤศจิกายน 2564</Text>
-                            <View style={{ alignItems: 'flex-end', flex: 1 }}>
-                                <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>เวลา 08.00 น. - 10.00 น.</Text>
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>เข้าร่วมกิจกรรม  50.00 บาท  x 8 คน (ผู้ใหญ่)</Text>
-                            <View style={{ alignItems: 'flex-end', flex: 1 }}>
-                                <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>500.00 บาท</Text>
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>เข้าร่วมกิจกรรม  50.00 บาท  x 2 คน (เด็ก)</Text>
-                            <View style={{ alignItems: 'flex-end', flex: 1 }}>
-                                <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>500.00 บาท</Text>
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>อาหารเช้า  30.00 บาท  x 10 คน</Text>
-                            <View style={{ alignItems: 'flex-end', flex: 1 }}>
-                                <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>300.00 บาท</Text>
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>รวม</Text>
-                            <View style={{ alignItems: 'flex-end', flex: 1 }}>
-                                <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>800.00 บาท</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View>
-                        <View style={{ flexDirection: 'row' }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>หมายเหตุ : เจ้าของสถานที่ต้องตอบรับคำขอจองเข้าร่วมกิจกรรมก่อน การยืนยันจองเข้าร่วมกิจกรรมจึงจะสมบูรณ์ (ภายใน 24 ชั่วโมง)</Text>
-                        </View>
-                        <View style={{ flexDirection: 'row', marginTop: 15 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>นโยบายการยกเลิกจองเข้าร่วมกิจกรรม ดูข้อมูลเพิ่มเติม</Text>
-                        </View>
-                    </View>
-                    <View>
-                        <View style={{ flexDirection: 'column', marginTop: 10 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 16 }, MainStyles.textGray]}>กิจกรรมของคุณ</Text>
-                            <View style={{ flexDirection: 'row', marginVertical: 10 }}>
-                                <MaterialIcons name='event' size={22} color="#000" style={{ paddingHorizontal: 10, alignSelf: 'center' }} />
-                                <Text allowFontScaling={false} style={[{ fontSize: 14 }, MainStyles.textGray]}>วันที่และระยะเวลาร่วมกิจกรรม</Text>
-                            </View>
-                            <RNPickerSelect
-                                allowFontScaling={false}
-                                useNativeAndroidPickerStyle={false}
-                                style={SelectHaveBorderStyles}
-                                items={[
-                                    { label: '1 คน', value: '1 คน' },
-                                    { label: '5 คน', value: '5 คน' },
-                                    { label: '10 คน', value: '10 คน' },
-                                ]}
-                                onValueChange={(value) => console.log(value)}
-                                placeholder={{ label: "วันเสาร์ที่ 27 พฤศจิกายน 2564 เวลา 08.00 - 10.00 น." }}
-                            />
-                        </View>
-                        <View style={{ flexDirection: 'column' }}>
-                            <View style={{ flexDirection: 'row', marginVertical: 10 }}>
-                                <FontAwesome5 name='users' size={20} color="#000" style={{ paddingHorizontal: 10, alignSelf: 'center' }} />
-                                <Text allowFontScaling={false} style={[{ fontSize: 14 }, MainStyles.textGray]}>ผู้เข้าร่วมกิจกรรม</Text>
-                            </View>
-                            <RNPickerSelect
-                                allowFontScaling={false}
-                                useNativeAndroidPickerStyle={false}
-                                style={SelectHaveBorderStyles}
-                                items={[
-                                    { label: '1 คน', value: '1 คน' },
-                                    { label: '5 คน', value: '5 คน' },
-                                    { label: '10 คน', value: '10 คน' },
-                                ]}
-                                onValueChange={(value) => console.log(value)}
-                                placeholder={{ label: "ผู้เข้าร่วม 10 คน" }}
-                            />
-                        </View>
-                        <View style={{ flexDirection: 'column' }}>
-                            <View style={{ flexDirection: 'row', marginVertical: 10 }}>
-                                <MaterialIcons name='fastfood' size={22} color="#000" style={{ paddingHorizontal: 10, alignSelf: 'center' }} />
-                                <Text allowFontScaling={false} style={[{ fontSize: 14 }, MainStyles.textGray]}>อาหารและเครื่องดื่ม</Text>
-                            </View>
-                            <RNPickerSelect
-                                allowFontScaling={false}
-                                useNativeAndroidPickerStyle={false}
-                                style={SelectHaveBorderStyles}
-                                items={[
-                                    { label: '1 คน', value: '1 คน' },
-                                    { label: '5 คน', value: '5 คน' },
-                                    { label: '10 คน', value: '10 คน' },
-                                ]}
-                                onValueChange={(value) => console.log(value)}
-                                placeholder={{ label: "อาหารเช้า 10 คน" }}
-                            />
-                        </View>
-                        <View style={{ flexDirection: 'column', marginTop: 10 }}>
-                            <Text allowFontScaling={false} style={[{ fontSize: 16 }, MainStyles.textGray]}>ข้อควรทราบ</Text>
-
-                            <View style={{ flexDirection: 'column', marginTop: 10, alignItems: 'center' }}>
-                                <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>การเลือกปุ่มด้านข้างถือเป็นการยอมรับการจองเข้าร่วมกิจกรรม การสละสิทธิ์และยกเว้นความรับผิดของผู้เข้าร่วม นโยบายยกเลิกการจองและคำแนะนำว่าด้วยการรักษาระยะห่าง ระหว่างบุคคลและ COVID-19</Text>
-                            </View>
-
-                            <TouchableOpacity
-                                activeOpacity={1}
-                                style={{
-                                    width: '60%',
-                                    backgroundColor: '#2eb16d',
-                                    borderRadius: 9,
-                                    paddingVertical: 9,
-                                    alignSelf: 'center',
-                                    marginTop: 15
-                                }}
-                            >
-                                <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>ยืนยันการจองเข้าร่วมกิจกรรม</Text>
-                            </TouchableOpacity>
-
-                        </View>
-                    </View>
-                </ScrollView>
-            </View>
-        </ModalLib>)
+    onOpenSlide() {
         this.setState({
-            isAlert: alert,
+            openSlide: true
+        })
+    }
+
+    onCloseSlide() {
+        this.setState({
+            openSlide: false
+        })
+    }
+    
+    onEventReservation() {
+        this.setState({
+            EventReservation: true,
+        });
+    }
+
+    setEventReservation(type){
+        this.setState({
+            EventReservation: type,
         });
     }
 
     onEventAndLocation(type, info) {
-        alert = (<ModalLib isVisible={true}>
-            <View style={ModalStyles.ModalEvent}>
-                <View style={{ flexDirection: 'row', alignSelf: 'center', marginBottom: 10 }}>
-                    <Image
-                        resizeMode={'cover'}
-                        source={require('../../../assets/placeholder.jpg')}
-                        style={{
-                            width: '100%',
-                            height: 35,
-                            alignSelf: 'center',
-                        }}
-                    />
-                </View>
-                <Text allowFontScaling={false} style={[ModalStyles.Text18, MainStyles.textGreen]}>Title</Text>
-                <Text allowFontScaling={false} style={[ModalStyles.Text10, MainStyles.textGrayLight]}>Sub title</Text>
-                <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
-                    <View style={{ flexDirection: "row" }}>
-                        <Fontisto name='map-marker-alt' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
-                        {/* <View style={{ flexDirection: "column" }}> */}
-                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGray]}>259 หมู่ 4 บ้านขัวแคร่ ถนนไฮเวย์เชียงใหม่-ลำปาง ตำบลศรีบัวบาน อำเภอเมือง จังหวัดลำพูน
-                            <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textGreenBd]}> &emsp; ดูแผนที่
-                            </Text>
-                        </Text>
-
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View style={{ flexDirection: "row" }}>
-                        <FontAwesome5 name='phone-alt' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
-                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>087-3043220 , 089-6351607</Text>
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View style={{ flexDirection: "row" }}>
-                        <Fontisto name='email' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
-                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>sale@lamphunthaisilk.com</Text>
-                    </View>
-                    <View style={MainStyles.BorderBottomGrayWhite}></View>
-                    <View style={{ flexDirection: "row" }}>
-                        <FontAwesome5 name='globe-asia' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
-                        <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>http://www.lamphunthaisilk.com</Text>
-                    </View>
-
-                </View>
-                <View style={ModalStyles.content2Button}>
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        style={ModalStyles.btnOneYellow}
-                        onPress={() => this.onNextToCart()}
-                    >
-                        <View style={{ flexDirection: "row", justifyContent: 'center' }}>
-                            <FontAwesome5 name='stamp' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
-                            <Text allowFontScaling={false} style={ModalStyles.btnOneText}>จองเข้าร่วมกิจกรรม</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        activeOpacity={1}
-                        style={ModalStyles.btnOneBlue}
-                        onPress={() => this.onNextToProductAgain()}
-                    >
-                        <View style={{ flexDirection: "row", justifyContent: 'center' }}>
-                            <FontAwesome5 name='comment-dots' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
-                            <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ส่งข้อความ</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </ModalLib>)
         this.setState({
-            isAlert: alert,
+            EventAndLocation: true,
         });
     }
+
+    setEventAndLocation(type){
+        this.setState({
+            EventAndLocation: type,
+        });
+    }
+
         
     handleChange(e, type) {
         var value = e.nativeEvent.text;
@@ -395,7 +181,7 @@ export default class TouristAttractionDetail extends Component {
     }
 
     render() {
-        const { col, isAlert, collapseCard, index , alertEditdata} = this.state;
+        const { col, isAlert, collapseCard, index , alertEditdata , openSlide , EventReservation , EventAndLocation} = this.state;
 
         const getFavProduct = [
             { id: 1, img_src: require('../../../assets/image/22.png'), name: 'เสื้อคลุมผ้าคราม', price: '8,000', rating: 5 },
@@ -480,6 +266,69 @@ export default class TouristAttractionDetail extends Component {
 
             <SafeAreaView style={[MainStyles.contentBG]}>
                 {isAlert}
+
+                <Modal visible={openSlide} statusBarTranslucent={true}>
+                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: '#000', height: '100%', paddingTop: '40%' }}>
+                        <TouchableOpacity
+                            style={{ position: 'absolute', top: 50, right: 20 }}
+                            activeOpacity={1}
+                            onPress={() => this.onCloseSlide()}
+                        >
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/icon/close.png')}
+                                style={{
+                                    width: 25,
+                                    height: 25
+                                }}
+                            />
+                        </TouchableOpacity>
+                        <Swiper
+                            ref='swiper'
+                            height={'100%'}
+                            showsButtons={false}
+                            showsPagination={false}
+                            onIndexChanged={(index) => this.setState({ index: index })}
+                        >
+                            <View style={styles.slide1}>
+                                <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: '100%', height: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/image/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: '50%',
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.slide1}>
+                                <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: '100%', height: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/image/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: '50%',
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.slide1}>
+                                <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: '100%', height: '100%' }}>
+                                    <Image
+                                        resizeMode={'cover'}
+                                        source={require('../../../assets/image/31.png')}
+                                        style={{
+                                            width: '100%',
+                                            height: '50%',
+                                        }}
+                                    />
+                                </View>
+                            </View>
+                        </Swiper>
+                    </View>
+                </Modal>
 
                 <ModalLib isVisible={alertEditdata} onBackdropPress={() => this.setalertEditdata(false)}>
                     <View style={ModalStyles.ModalEvent}>
@@ -572,6 +421,265 @@ export default class TouristAttractionDetail extends Component {
                         </View>
                     </View>
                 </ModalLib>
+
+                <ModalLib isVisible={EventReservation} onBackdropPress={() => this.setEventReservation(false)}>
+                    <View style={ModalStyles.ModalEvent}>
+                        <ScrollView showsVerticalScrollIndicator={false} >
+                            <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+                                <Text allowFontScaling={false} style={[ModalStyles.Text20, MainStyles.textGreen, MainStyles.textAlignLeft]}>ยืนยันการจองเข้าร่วมกิจกรรม</Text>
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={{
+                                        width: '35%',
+                                        backgroundColor: '#448165',
+                                        borderRadius: 9,
+                                        paddingVertical: 5,
+                                        alignSelf: 'center',
+                                    }}
+                                >
+                                    <View style={{ justifyContent: 'center', flexDirection: "row" }} >
+                                        <MaterialIcons name='contacts' size={16} color="#fff" style={{ paddingRight: 8 }} />
+                                        <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>ติดต่อสถานที่</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+                                <Image
+                                    resizeMode={'cover'}
+                                    source={require('../../../assets/image/u1617.png')}
+                                    style={{
+                                        width: '30%',
+                                        height: 85,
+                                        alignSelf: 'center',
+                                        borderRadius: 9,
+                                    }}
+                                />
+                                <View style={{ justifyContent: 'center', flexDirection: "column", paddingLeft: 5, flexShrink: 1 }} >
+                                    <Text allowFontScaling={false} style={[MainStyles.textGray, ModalStyles.mb5]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
+                                    <Text allowFontScaling={false} style={[MainStyles.textGrayLight, { fontSize: 10 }]}>ผ้าไทย ถือเป็นหัตถกรรมและหัตถศิลป์มรดกอันล้ำค่าของเมืองไทย มีความงดงามของเส้นไหมที่เป็นเอกลักษณ์</Text>
+                                    <View style={{ flexDirection: "row", paddingLeft: 5 }}>
+                                        <View style={{ flexDirection: "row", paddingLeft: 5 }}>
+                                            <Fontisto name='map-marker-alt' size={16} style={{ paddingRight: 8 }} />
+                                            <Text allowFontScaling={false} style={[MainStyles.textGrayLight, ModalStyles.Text10]}>province</Text>
+                                        </View>
+                                        <View style={{ alignItems: 'flex-end', flex: 1, paddingTop: 5 }}>
+                                            <Rating
+                                                type='star'
+                                                ratingCount={5}
+                                                imageSize={13}
+                                                isDisabled={true}
+                                            />
+                                        </View>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={MainStyles.BorderBottomGrayWhite}></View>
+                            <View>
+                                <Text allowFontScaling={false} style={[ModalStyles.Text18, MainStyles.textGray]}>รายละเอียด</Text>
+                                <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>วันเสาร์ที่ 27 พฤศจิกายน 2564</Text>
+                                    <View style={{ alignItems: 'flex-end', flex: 1 }}>
+                                        <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>เวลา 08.00 น. - 10.00 น.</Text>
+                                    </View>
+                                </View>
+                                <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>เข้าร่วมกิจกรรม  50.00 บาท  x 8 คน (ผู้ใหญ่)</Text>
+                                    <View style={{ alignItems: 'flex-end', flex: 1 }}>
+                                        <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>500.00 บาท</Text>
+                                    </View>
+                                </View>
+                                <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>เข้าร่วมกิจกรรม  50.00 บาท  x 2 คน (เด็ก)</Text>
+                                    <View style={{ alignItems: 'flex-end', flex: 1 }}>
+                                        <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>500.00 บาท</Text>
+                                    </View>
+                                </View>
+                                <View style={{ flexDirection: 'row', paddingLeft: 10, marginTop: 5 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>อาหารเช้า  30.00 บาท  x 10 คน</Text>
+                                    <View style={{ alignItems: 'flex-end', flex: 1 }}>
+                                        <Text allowFontScaling={false} style={[{ fontSize: 10 }, MainStyles.textGrayLight]}>300.00 บาท</Text>
+                                    </View>
+                                </View>
+                                <View style={{ flexDirection: 'row', marginTop: 5 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>รวม</Text>
+                                    <View style={{ alignItems: 'flex-end', flex: 1 }}>
+                                        <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>800.00 บาท</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={MainStyles.BorderBottomGrayWhite}></View>
+                            <View>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>หมายเหตุ : เจ้าของสถานที่ต้องตอบรับคำขอจองเข้าร่วมกิจกรรมก่อน การยืนยันจองเข้าร่วมกิจกรรมจึงจะสมบูรณ์ (ภายใน 24 ชั่วโมง)</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>นโยบายการยกเลิกจองเข้าร่วมกิจกรรม ดูข้อมูลเพิ่มเติม</Text>
+                                </View>
+                            </View>
+                            <View>
+                                <View style={{ flexDirection: 'column', marginTop: 10 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 16 }, MainStyles.textGray]}>กิจกรรมของคุณ</Text>
+                                    <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                                        <MaterialIcons name='event' size={22} color="#000" style={{ paddingHorizontal: 10, alignSelf: 'center' }} />
+                                        <Text allowFontScaling={false} style={[{ fontSize: 14 }, MainStyles.textGray]}>วันที่และระยะเวลาร่วมกิจกรรม</Text>
+                                    </View>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectHaveBorderStyles}
+                                        items={[
+                                            { label: '1 คน', value: '1 คน' },
+                                            { label: '5 คน', value: '5 คน' },
+                                            { label: '10 คน', value: '10 คน' },
+                                        ]}
+                                        onValueChange={(value) => console.log(value)}
+                                        placeholder={{ label: "วันเสาร์ที่ 27 พฤศจิกายน 2564 เวลา 08.00 - 10.00 น." }}
+                                    />
+                                </View>
+                                <View style={{ flexDirection: 'column' }}>
+                                    <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                                        <FontAwesome5 name='users' size={20} color="#000" style={{ paddingHorizontal: 10, alignSelf: 'center' }} />
+                                        <Text allowFontScaling={false} style={[{ fontSize: 14 }, MainStyles.textGray]}>ผู้เข้าร่วมกิจกรรม</Text>
+                                    </View>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectHaveBorderStyles}
+                                        items={[
+                                            { label: '1 คน', value: '1 คน' },
+                                            { label: '5 คน', value: '5 คน' },
+                                            { label: '10 คน', value: '10 คน' },
+                                        ]}
+                                        onValueChange={(value) => console.log(value)}
+                                        placeholder={{ label: "ผู้เข้าร่วม 10 คน" }}
+                                    />
+                                </View>
+                                <View style={{ flexDirection: 'column' }}>
+                                    <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                                        <MaterialIcons name='fastfood' size={22} color="#000" style={{ paddingHorizontal: 10, alignSelf: 'center' }} />
+                                        <Text allowFontScaling={false} style={[{ fontSize: 14 }, MainStyles.textGray]}>อาหารและเครื่องดื่ม</Text>
+                                    </View>
+                                    <RNPickerSelect
+                                        allowFontScaling={false}
+                                        useNativeAndroidPickerStyle={false}
+                                        style={SelectHaveBorderStyles}
+                                        items={[
+                                            { label: '1 คน', value: '1 คน' },
+                                            { label: '5 คน', value: '5 คน' },
+                                            { label: '10 คน', value: '10 คน' },
+                                        ]}
+                                        onValueChange={(value) => console.log(value)}
+                                        placeholder={{ label: "อาหารเช้า 10 คน" }}
+                                    />
+                                </View>
+                                <View style={{ flexDirection: 'column', marginTop: 10 }}>
+                                    <Text allowFontScaling={false} style={[{ fontSize: 16 }, MainStyles.textGray]}>ข้อควรทราบ</Text>
+
+                                    <View style={{ flexDirection: 'column', marginTop: 10, alignItems: 'center' }}>
+                                        <Text allowFontScaling={false} style={[{ fontSize: 12 }, MainStyles.textGray]}>การเลือกปุ่มด้านข้างถือเป็นการยอมรับการจองเข้าร่วมกิจกรรม การสละสิทธิ์และยกเว้นความรับผิดของผู้เข้าร่วม นโยบายยกเลิกการจองและคำแนะนำว่าด้วยการรักษาระยะห่าง ระหว่างบุคคลและ COVID-19</Text>
+                                    </View>
+
+                                    <TouchableOpacity
+                                        activeOpacity={1}
+                                        style={{
+                                            width: '60%',
+                                            backgroundColor: '#2eb16d',
+                                            borderRadius: 9,
+                                            paddingVertical: 9,
+                                            alignSelf: 'center',
+                                            marginTop: 15
+                                        }}
+                                    >
+                                        <Text allowFontScaling={false} style={MainStyles.btnGreenWhiteText}>ยืนยันการจองเข้าร่วมกิจกรรม</Text>
+                                    </TouchableOpacity>
+
+                                </View>
+                            </View>
+                        </ScrollView>
+                    </View>
+                </ModalLib>
+
+                <ModalLib isVisible={EventAndLocation} onBackdropPress={() => this.setEventAndLocation(false)}>
+                    <View style={ModalStyles.ModalEvent}>
+                        <View style={{ flexDirection: 'row', alignSelf: 'center', marginBottom: 10 }}>
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/image/u1361.png')}
+                                style={{
+                                    width: '100%',
+                                    height: 65,
+                                    alignSelf: 'center',
+                                    borderTopRightRadius:20,
+                                    borderTopLeftRadius:20,
+                                }}
+                            />
+                            <Image
+                                resizeMode={'cover'}
+                                source={require('../../../assets/image/u1364.png')}
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                    alignSelf: 'center',
+                                    position:'absolute',
+                                    left:20
+                                }}
+                            />
+                            <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textWhiteBd , {position:'absolute' , top:20 , left:80}]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
+                        </View>
+                        <Text allowFontScaling={false} style={[ModalStyles.Text18, MainStyles.textGreen]}>วิสาหกิจชุมชนสภาลำพูนผ้าไหม</Text>
+                        <Text allowFontScaling={false} style={[ModalStyles.Text10, MainStyles.textGrayLight]}>ทางกลุ่มผ้า ได้เริ่มรวมกลุ่มกันทอผ้ายกดอกเมื่อต้นปี พ.ศ.2535 และได้อนุรักษ์ลวดลายผ้าแบบโบราณ ซึ่งเป็นเอกลักษณ์ของลำพูน เช่น ลายดอกแก้ว หรือลายพิกุลไว้ ทั้งยังได้คิดค้นลวดลายใหม่ๆ เพิ่มขึ้นเพื่อใช้ในโอกาสงานพระราชพิธีต่างๆ และงานแฟชั่นเครื่องแต่งกายร่วมสมัยในปัจจุบัน โดยมีลวดลายให้เลือกหลายแบบ</Text>
+                        <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
+                            <View style={{ flexDirection: "row" }}>
+                                <Fontisto name='map-marker-alt' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
+                                {/* <View style={{ flexDirection: "column" }}> */}
+                                <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGray]}>259 หมู่ 4 บ้านขัวแคร่ ถนนไฮเวย์เชียงใหม่-ลำปาง ตำบลศรีบัวบาน อำเภอเมือง จังหวัดลำพูน
+                                    <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textGreenBd]}> &emsp; ดูแผนที่
+                                    </Text>
+                                </Text>
+
+                            </View>
+                            <View style={MainStyles.BorderBottomGrayWhite}></View>
+                            <View style={{ flexDirection: "row" }}>
+                                <FontAwesome5 name='phone-alt' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
+                                <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>087-3043220 , 089-6351607</Text>
+                            </View>
+                            <View style={MainStyles.BorderBottomGrayWhite}></View>
+                            <View style={{ flexDirection: "row" }}>
+                                <Fontisto name='email' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
+                                <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>sale@lamphunthaisilk.com</Text>
+                            </View>
+                            <View style={MainStyles.BorderBottomGrayWhite}></View>
+                            <View style={{ flexDirection: "row" }}>
+                                <FontAwesome5 name='globe-asia' size={22} style={{ paddingHorizontal: 20, alignSelf: 'center' }} />
+                                <Text allowFontScaling={false} style={[MainStyles.Text14, MainStyles.textAlignLeft, MainStyles.textGreen]}>http://www.lamphunthaisilk.com</Text>
+                            </View>
+
+                        </View>
+                        <View style={ModalStyles.content2Button}>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={ModalStyles.btnOneYellow}
+                                onPress={() => this.onNextToCart()}
+                            >
+                                <View style={{ flexDirection: "row", justifyContent: 'center' }}>
+                                    <FontAwesome5 name='stamp' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
+                                    <Text allowFontScaling={false} style={ModalStyles.btnOneText}>จองเข้าร่วมกิจกรรม</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={ModalStyles.btnOneBlue}
+                                onPress={() => this.onNextToProductAgain()}
+                            >
+                                <View style={{ flexDirection: "row", justifyContent: 'center' }}>
+                                    <FontAwesome5 name='comment-dots' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
+                                    <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ส่งข้อความ</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </ModalLib>
+                
                 <View style={[MainStyles.contentBG]}>
                     <ScrollView showsVerticalScrollIndicator={false} >
                         {/* Banner Content */}
@@ -662,7 +770,11 @@ export default class TouristAttractionDetail extends Component {
                                         }}
                                     />
                                 </View>
-                                <View style={{ width: '30.5%', marginRight: '2%' }}>
+                                <TouchableOpacity
+                                    style={{ width: '30.5%', marginRight: '2%' }}
+                                    onPress={() => this.onOpenSlide()}
+                                    activeOpacity={1}
+                                >
                                     <View style={{
                                         backgroundColor: '#333',
                                         opacity: 0.8,
@@ -689,7 +801,7 @@ export default class TouristAttractionDetail extends Component {
                                             height: 80,
                                         }}
                                     />
-                                </View>
+                                </TouchableOpacity>
                             </View>
                         </View>
 
