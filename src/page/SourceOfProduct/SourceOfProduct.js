@@ -58,8 +58,12 @@ export default class SourceOfProduct extends Component {
                 <View style={{ flex: 0.15 }}>
                     <TopTabNavigator navigation={this.props.navigation} />
                 </View>
-                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
-                    <View style={{ flex: 1 }}>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={{ flex: 1 }}
+                    scrollEventThrottle={600}
+                >
+                    <View style={{ flex: 0.2 }}>
                         <View style={[MainStyles.contentBG]}>
                             <View style={[MainStyles.m15]}>
                                 {/* Search Content */}
@@ -135,17 +139,20 @@ export default class SourceOfProduct extends Component {
                         </View>
                     </View>
 
-                    <View style={{ flex: 1 }}>
+                    <View style={{ flex: 0.5 }}>
+                        <MapView
+                            initialRegion={{
+                                latitude: 37.78825,
+                                longitude: -122.4324,
+                                latitudeDelta: 0.0922,
+                                longitudeDelta: 0.0421,
+                            }}
+                            style={[styles.map]}
+                        />
+                    </View>
+                    <View style={{ flex: 0.5 }}>
                         <View style={[MainStyles.contentBG]}>
-                            <MapView
-                                initialRegion={{
-                                    latitude: 37.78825,
-                                    longitude: -122.4324,
-                                    latitudeDelta: 0.0922,
-                                    longitudeDelta: 0.0421,
-                                }}
-                                style={[styles.map]}
-                            />
+
                             <View style={[MainStyles.m15]}>
                                 <View style={[MainStyles.my15, { flexDirection: "row" }]}>
                                     <View style={{ flexDirection: "row" }}>
