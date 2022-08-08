@@ -36,6 +36,15 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 export default class Favorite extends Component {
 
+    state = {
+        product: [
+            { id: 1, img_src: require('../../../assets/image/25.png'), name: 'กระเช้าของขวัญ', price: '890' },
+            { id: 2, img_src: require('../../../assets/image/26.png'), name: 'กระเช้าของขวัญ', price: '1,890' },
+            { id: 3, img_src: require('../../../assets/image/27.png'), name: "ผ้าคราม'", price: '1,000' },
+            { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium', price: '1,299' },
+        ]
+    }
+
     onBackToMain() {
         this.props.navigation.navigate('Home')
     }
@@ -43,9 +52,26 @@ export default class Favorite extends Component {
         this.props.navigation.navigate('OrderList')
     }
     onGoToNoti() {
-        this.props.navigation.navigate('Notify')
+        this.props.navigation.navigate('ChatList')
     }
+    onDelete(id) {
+        let isListData = []
+        const { product } = this.state
+        product.map((keyInside, indexInside) => {
+            if (product[indexInside].id !== id) {
+                isListData.push(
+                    product[indexInside]
+                )
+            }
+        });
+        this.setState({
+            product: isListData
+        })
+    }
+
     render() {
+        const { product } = this.state
+
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <ScrollView showsVerticalScrollIndicator={false} >
@@ -139,113 +165,46 @@ export default class Favorite extends Component {
                             }}
                         >
                             <View style={styles.contentCartShopProduct}>
-                                <View style={styles.contentCartShopProductList}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
-                                        style={{
-                                            width: 70,
-                                            height: 70,
-                                        }}
-                                    />
+                                {product.map((item, index) => (
+                                    <View style={styles.contentCartShopProductList}>
+                                        <Image
+                                            resizeMode={'cover'}
+                                            source={product[index].img_src}
+                                            style={{
+                                                width: 70,
+                                                height: 70,
+                                            }}
+                                        />
 
-                                    <View style={{ flexDirection: 'column', marginLeft: 10 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                            ผ้าคราม สิงห์ล้านนา
-                                        </Text>
-                                        <View style={[MainStyles.mt30, { alignItems: 'flex-start' }]}>
-                                            <Rating
-                                                type='star'
-                                                ratingCount={5}
-                                                imageSize={10}
-                                                isDisabled={true}
-                                            />
-                                        </View>
-                                    </View>
-
-                                    <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
-                                        <View style={{ flexDirection: 'row' }}>
-                                            <FontAwesome5 name='trash' style={styles.TransactionMenucustomIcon} size={17} color="#333" />
-                                        </View>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.mt30]}>
-                                            2,000 บาท
-                                        </Text>
-                                    </View>
-                                    {/* <View style={{ backgroundColor: 'red', flex: 1, alignItems: 'flex-end', flexDirection: 'column', marginLeft: 10 }}>
-                                        <MaterialIcons name='chat-bubble' style={styles.TransactionMenucustomIcon} size={22} color="#333" />
-                                        <View style={[MainStyles.mt30, { alignItems: 'flex-start' }]}>
+                                        <View style={{ flexDirection: 'column', marginLeft: 10 }}>
                                             <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
+                                                {product[index].name}
+                                            </Text>
+                                            <View style={[MainStyles.mt30, { alignItems: 'flex-start' }]}>
+                                                <Rating
+                                                    type='star'
+                                                    ratingCount={5}
+                                                    imageSize={10}
+                                                    isDisabled={true}
+                                                />
+                                            </View>
+                                        </View>
+
+                                        <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
+                                            <TouchableOpacity
+                                                style={{ flexDirection: 'row' }}
+                                                activeOpacity={1}
+                                                onPress={() => this.onDelete(product[index].id)}
+                                            >
+                                                <FontAwesome5 name='trash' style={styles.TransactionMenucustomIcon} size={17} color="#333" />
+                                            </TouchableOpacity>
+                                            <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.mt30]}>
                                                 2,000 บาท
                                             </Text>
                                         </View>
-                                    </View> */}
-                                </View>
-                                <View style={styles.contentCartShopProductList}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
-                                        style={{
-                                            width: 70,
-                                            height: 70,
-                                        }}
-                                    />
-
-                                    <View style={{ flexDirection: 'column', marginLeft: 10 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                            ผ้าคราม สิงห์ล้านนา
-                                        </Text>
-                                        <View style={[MainStyles.mt30, { alignItems: 'flex-start' }]}>
-                                            <Rating
-                                                type='star'
-                                                ratingCount={5}
-                                                imageSize={10}
-                                                isDisabled={true}
-                                            />
-                                        </View>
                                     </View>
-
-                                    <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
-                                        <View style={{ flexDirection: 'row' }}>
-                                            <FontAwesome5 name='trash' style={styles.TransactionMenucustomIcon} size={17} color="#333" />
-                                        </View>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.mt30]}>
-                                            2,000 บาท
-                                        </Text>
-                                    </View>
-                                </View>
-                                <View style={styles.contentCartShopProductList}>
-                                    <Image
-                                        resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
-                                        style={{
-                                            width: 70,
-                                            height: 70,
-                                        }}
-                                    />
-
-                                    <View style={{ flexDirection: 'column', marginLeft: 10 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14]}>
-                                            ผ้าคราม สิงห์ล้านนา
-                                        </Text>
-                                        <View style={[MainStyles.mt30, { alignItems: 'flex-start' }]}>
-                                            <Rating
-                                                type='star'
-                                                ratingCount={5}
-                                                imageSize={10}
-                                                isDisabled={true}
-                                            />
-                                        </View>
-                                    </View>
-
-                                    <View style={{ flex: 1, flexDirection: 'column', alignItems: 'flex-end' }}>
-                                        <View style={{ flexDirection: 'row' }}>
-                                            <FontAwesome5 name='trash' style={styles.TransactionMenucustomIcon} size={17} color="#333" />
-                                        </View>
-                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text14, MainStyles.mt30]}>
-                                            2,000 บาท
-                                        </Text>
-                                    </View>
-                                </View>
+                                ))
+                                }
                             </View>
                         </View>
                     </View>

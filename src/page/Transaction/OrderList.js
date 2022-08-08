@@ -41,7 +41,7 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 export default class OrderList extends Component {
 
     state = {
-        tab: "shipping",
+        tab: "cart",
         count: 1,
         value: 500,
         checkCart1: false,
@@ -109,7 +109,7 @@ export default class OrderList extends Component {
         this.props.navigation.navigate('Favorite')
     }
     onGoToNoti() {
-        this.props.navigation.navigate('Notify')
+        this.props.navigation.navigate('ChatList')
     }
 
     onCheckCart(type) {
@@ -1324,7 +1324,6 @@ export default class OrderList extends Component {
                             null
                         }
 
-
                         {/* REVIEW */}
                         {tab === "review" ?
                             <View>
@@ -1371,9 +1370,66 @@ export default class OrderList extends Component {
                                         justifyContent: 'center',
                                         marginBottom: 10
                                     }}>
-                                        <FontAwesome5 name='comments' style={styles.customIcon} size={15} solid color="#448165" />
+                                        <FontAwesome5 name='star' style={styles.customIcon} size={15} solid color="#448165" />
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml10]}>
                                             ให้คะแนนรีวิว
+                                        </Text>
+                                    </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        marginBottom: 10
+                                    }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml10]}>
+                                            • ความคุ้มค่า
+                                        </Text>
+                                        <View style={[{ flex: 1, alignItems: 'flex-end' }]}>
+                                            <Rating
+                                                type='star'
+                                                ratingCount={5}
+                                                imageSize={25}
+                                            />
+                                        </View>
+                                    </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        marginBottom: 10
+                                    }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml10]}>
+                                            • คุณภาพสินค้า
+                                        </Text>
+                                        <View style={[{ flex: 1, alignItems: 'flex-end' }]}>
+                                            <Rating
+                                                type='star'
+                                                ratingCount={5}
+                                                imageSize={25}
+                                            />
+                                        </View>
+                                    </View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        marginBottom: 10
+                                    }}>
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml10]}>
+                                            • การจัดส่ง
+                                        </Text>
+                                        <View style={[{ flex: 1, alignItems: 'flex-end' }]}>
+                                            <Rating
+                                                type='star'
+                                                ratingCount={5}
+                                                imageSize={25}
+                                            />
+                                        </View>
+                                    </View>
+
+                                    <View style={[MainStyles.BorderBottomGrayWhite]}></View>
+                                    <View style={{
+                                        flexDirection: 'row',
+                                        justifyContent: 'center',
+                                        marginBottom: 10
+                                    }}>
+                                        <FontAwesome5 name='comments' style={styles.customIcon} size={15} solid color="#448165" />
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml10]}>
+                                            ความเห็นต่อสินค้า
                                         </Text>
                                     </View>
                                     <View style={InputStyles.contentInputForm}>
@@ -1394,11 +1450,12 @@ export default class OrderList extends Component {
                                     </Text>
                                     <View style={{
                                         borderWidth: 1,
-                                        borderColor: '#1562cd',
+                                        borderColor: '#8b8b8b',
                                         borderRadius: 5,
                                         padding: 10,
                                         marginTop: 10,
-                                        alignItems: 'center'
+                                        alignItems: 'center',
+                                        borderStyle: 'dashed',
                                     }}>
                                         <TouchableOpacity
                                             activeOpacity={1}

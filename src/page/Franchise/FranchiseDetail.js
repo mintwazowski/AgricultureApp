@@ -41,6 +41,10 @@ export default class FranchiseDetail extends Component {
         this.props.navigation.navigate('Franchise')
     }
 
+    onGotoNoti() {
+        this.props.navigation.navigate('ChatList')
+    }
+
     onEventReservation() {
         alert = (<ModalLib isVisible={true}>
             <View style={ModalStyles.ModalEvent}>
@@ -270,7 +274,7 @@ export default class FranchiseDetail extends Component {
                     <TouchableOpacity
                         activeOpacity={1}
                         style={ModalStyles.btnOneYellow}
-                        onPress={() => this.onNextToCart()}
+                    // onPress={() => this.onNextToCart()}
                     >
                         <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                             <FontAwesome5 name='stamp' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
@@ -280,7 +284,7 @@ export default class FranchiseDetail extends Component {
                     <TouchableOpacity
                         activeOpacity={1}
                         style={ModalStyles.btnOneBlue}
-                        onPress={() => this.onNextToProductAgain()}
+                        onPress={() => this.onGotoNoti()}
                     >
                         <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                             <FontAwesome5 name='comment-dots' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
@@ -343,12 +347,12 @@ export default class FranchiseDetail extends Component {
                 }
             ],
             collapseCard: null,
-            Location:"3/13 หมู่ที่ 6 ซอยบางอ้อ 2 ถนนบางรักน้อย 18 ตำบลไทรม้า อำเภอเมือง จังหวัดนนทบุรี",
-            Category:"ตลาดสวนผักคนเมือง",
-            setLocation:"หากสถานที่แห่งนี้ตั้งอยู่ในสถานที่อีกแห่งหนึ่ง ให้ป้อนชื่อสถานที่อย่างหลังแทน",
-            Time:"อา.-ส.: 08:00-17:00",
-            Phone:"089 635 1607",
-            Web:"http://www.suanpak.com",
+            Location: "3/13 หมู่ที่ 6 ซอยบางอ้อ 2 ถนนบางรักน้อย 18 ตำบลไทรม้า อำเภอเมือง จังหวัดนนทบุรี",
+            Category: "ตลาดสวนผักคนเมือง",
+            setLocation: "หากสถานที่แห่งนี้ตั้งอยู่ในสถานที่อีกแห่งหนึ่ง ให้ป้อนชื่อสถานที่อย่างหลังแทน",
+            Time: "อา.-ส.: 08:00-17:00",
+            Phone: "089 635 1607",
+            Web: "http://www.suanpak.com",
             alertEditdata: null,
         };
     }
@@ -358,18 +362,18 @@ export default class FranchiseDetail extends Component {
             alertEditdata: true,
         });
     }
-    
-    setalertEditdata(type){
+
+    setalertEditdata(type) {
         this.setState({
             alertEditdata: type,
         });
     }
-    onOpencheckWeb(){
+    onOpencheckWeb() {
         this.setState({
             CheckWeb: true,
         })
     }
-  
+
     _onChange(index) {
         this.setState({
             activeIndex: index,
@@ -383,10 +387,13 @@ export default class FranchiseDetail extends Component {
         });
     }
 
+    onBackToMain() {
+        this.props.navigation.navigate('Home')
+    }
 
     render() {
 
-        const { col, cards, isAlert , index ,alertEditdata} = this.state;
+        const { col, cards, isAlert, index, alertEditdata } = this.state;
 
 
         const getFavProduct = [
@@ -450,7 +457,7 @@ export default class FranchiseDetail extends Component {
 
         return (
 
-            <SafeAreaView style={[MainStyles.contentBG]}>
+            <View style={[MainStyles.contentBG]}>
                 {isAlert}
 
                 <ModalLib isVisible={alertEditdata} onBackdropPress={() => this.setalertEditdata(false)}>
@@ -463,8 +470,8 @@ export default class FranchiseDetail extends Component {
                                     width: '100%',
                                     height: 65,
                                     alignSelf: 'center',
-                                    borderTopRightRadius:20,
-                                    borderTopLeftRadius:20,
+                                    borderTopRightRadius: 20,
+                                    borderTopLeftRadius: 20,
                                 }}
                             />
                             <Image
@@ -474,30 +481,30 @@ export default class FranchiseDetail extends Component {
                                     width: 50,
                                     height: 50,
                                     alignSelf: 'center',
-                                    position:'absolute',
-                                    left:20
+                                    position: 'absolute',
+                                    left: 20
                                 }}
                             />
-                            <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textWhiteBd , {position:'absolute' , top:20 , left:80}]}>Franchise กาแฟเขาทะลุชุมพร</Text>
+                            <Text allowFontScaling={false} style={[MainStyles.Text16, MainStyles.textWhiteBd, { position: 'absolute', top: 20, left: 80 }]}>Franchise กาแฟเขาทะลุชุมพร</Text>
                         </View>
-                        <TouchableOpacity style={[MainStyles.btnYellowSmall150 , {flexDirection:'row'}]}>
-                            <Ionicons name='chatbox' size={22} color="#fff" style={{ paddingHorizontal:7 , alignSelf:'center' }} />
-                            <Text allowFontScaling={false} style={[ModalStyles.Text18 , MainStyles.textWhite]}>แจ้งแก้ไขข้อมูล</Text>
+                        <TouchableOpacity style={[MainStyles.btnYellowSmall150, { flexDirection: 'row' }]}>
+                            <MaterialIcons name='chat-bubble' size={22} color="#fff" style={{ paddingHorizontal: 7, alignSelf: 'center' }} />
+                            <Text allowFontScaling={false} style={[ModalStyles.Text18, MainStyles.textWhite]}>แจ้งแก้ไขข้อมูล</Text>
                         </TouchableOpacity>
-                        <View style={{ flexDirection:'row' , marginVertical:10}}>
-                            <View style={{ flexDirection:'column' , width:'100%'}}>
-                                <View style={{ flexDirection:'row'}}>
-                                    <MaterialIcons name='category' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>หมวดหมู่</Text>
+                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                            <View style={{ flexDirection: 'column', width: '100%' }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <MaterialIcons name='category' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>หมวดหมู่</Text>
                                 </View>
-                                <TextInput style={styles.input} value={this.state.Category} onChange={e => this.handleChange(e, 'Category')}/>
+                                <TextInput style={styles.input} value={this.state.Category} onChange={e => this.handleChange(e, 'Category')} />
                             </View>
                         </View>
-                        <View style={{ flexDirection:'row' , marginVertical:10}}>
-                            <View style={{ flexDirection:'column' , width:'100%'}}>
-                                <View style={{ flexDirection:'row'}}>
-                                    <Fontisto name='map-marker-alt' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>ตำแหน่ง</Text>
+                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                            <View style={{ flexDirection: 'column', width: '100%' }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Fontisto name='map-marker-alt' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>ตำแหน่ง</Text>
                                 </View>
                                 <TextInput style={styles.input} value={this.state.Location} onChange={e => this.handleChange(e, 'Location')} />
                                 <MapView
@@ -509,35 +516,35 @@ export default class FranchiseDetail extends Component {
                                     }}
                                     style={[styles.map]}
                                 />
-                                <Text allowFontScaling={false} style={[MainStyles.Text10 , MainStyles.mt10 , MainStyles.textGrayLight ,{ marginLeft:20}]}>ตั้งอยู่ภายใน</Text>
-                                <TextInput style={[ModalStyles.Text10 ,styles.inputSmall]} value={this.state.setLocation} onChange={e => this.handleChange(e, 'setLocation')} />
+                                <Text allowFontScaling={false} style={[MainStyles.Text10, MainStyles.mt10, MainStyles.textGrayLight, { marginLeft: 20 }]}>ตั้งอยู่ภายใน</Text>
+                                <TextInput style={[ModalStyles.Text10, styles.inputSmall]} value={this.state.setLocation} onChange={e => this.handleChange(e, 'setLocation')} />
 
-                                <View style={{ flexDirection:'row' , marginTop:15}}>
-                                    <Fontisto name='clock' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>เวลาทำการ</Text>
+                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                    <Fontisto name='clock' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>เวลาทำการ</Text>
                                 </View>
                                 <TextInput style={styles.input} value={this.state.Time} onChange={e => this.handleChange(e, 'Time')} />
 
-                                <View style={{ flexDirection:'row' , marginTop:15}}>
-                                    <FontAwesome name='phone' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>ติดต่อ</Text>
+                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                    <FontAwesome name='phone' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>ติดต่อ</Text>
                                 </View>
                                 <TextInput style={styles.input} value={this.state.Phone} onChange={e => this.handleChange(e, 'Phone')} />
 
-                                <View style={{ flexDirection:'row' , marginTop:15}}>
-                                    <FontAwesome name='globe' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>เว็บไซต์</Text>
+                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                    <FontAwesome name='globe' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>เว็บไซต์</Text>
                                 </View>
-                                { this.state.CheckWeb ? <TextInput style={styles.input} value={this.state.Web} onChange={e => this.handleChange(e, 'Web')} /> : <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textBlue ,{ marginLeft:28}]}  onPress={() => this.onOpencheckWeb()}>เพิ่มเว็บไซต์</Text>}
+                                {this.state.CheckWeb ? <TextInput style={styles.input} value={this.state.Web} onChange={e => this.handleChange(e, 'Web')} /> : <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textBlue, { marginLeft: 28 }]} onPress={() => this.onOpencheckWeb()}>เพิ่มเว็บไซต์</Text>}
                             </View>
                         </View>
-                        <View style={[ModalStyles.content2Button , {justifyContent:'center' , alignItems:'center' , width:"100%"}]}>
+                        <View style={[ModalStyles.content2Button, { justifyContent: 'center', alignItems: 'center', width: "100%" }]}>
                             <TouchableOpacity
                                 activeOpacity={1}
                                 style={ModalStyles.btnSubmit}
-                                onPress={() => this.onNextToCart()}
+                                onPress={() => this.onBackToMain()}
                             >
-                                <View style={{ flexDirection: "row", justifyContent:'center'}}>
+                                <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                                     <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ส่งข้อมูล</Text>
                                 </View>
                             </TouchableOpacity>
@@ -607,7 +614,7 @@ export default class FranchiseDetail extends Component {
                                 </View>
                                 <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}>
                                     <View style={{ backgroundColor: '#666666', paddingVertical: 3, paddingHorizontal: 15, borderRadius: 13 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}  onPress={() => this.onEditData()}>แจ้งแก้ไขข้อมูล</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]} onPress={() => this.onEditData()}>แจ้งแก้ไขข้อมูล</Text>
                                     </View>
                                 </View>
                             </View>
@@ -667,7 +674,7 @@ export default class FranchiseDetail extends Component {
                         </View>
 
                         {/* Content */}
-                        <View style={{ flex: 1, paddingHorizontal:10 }}>
+                        <View style={{ flex: 1, paddingHorizontal: 10 }}>
 
                             <View style={{ flexDirection: "column", flex: 1, marginTop: 15 }}>
                                 <View style={{ flexDirection: "row" }}>
@@ -699,15 +706,18 @@ export default class FranchiseDetail extends Component {
                                     </View>
                                 </View>
 
-                                <Image
-                                    resizeMode={'cover'}
-                                    source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u279.png?token=77a48855b2f1ffeffed1748361bada32f359388d3afea5bf516fe37c364711e7' }}
-                                    style={{
-                                        width: '100%',
-                                        height: 220,
-                                        borderRadius: 10,
-                                    }}
-                                />
+                                <View style={{ flex: 1 }}>
+                                    <MapView
+                                        initialRegion={{
+                                            latitude: 37.78825,
+                                            longitude: -122.4324,
+                                            latitudeDelta: 0.0922,
+                                            longitudeDelta: 0.0421,
+                                        }}
+                                        style={[styles.map2]}
+                                    />
+                                </View>
+
 
                                 <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
                                     <View style={{ flex: 1, flexDirection: "row" }}>
@@ -740,7 +750,7 @@ export default class FranchiseDetail extends Component {
                 </View>
 
 
-            </SafeAreaView>
+            </View>
         );
     }
 }
@@ -789,21 +799,21 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        width:'97%',
-        marginHorizontal:20,
-        borderBottomWidth:1,
-        borderBottomColor:'#e0e0e0',
+        width: '97%',
+        marginHorizontal: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
         padding: 10,
-        fontSize:12,
+        fontSize: 12,
     },
     inputSmall: {
         height: 30,
-        width:'97%',
-        marginHorizontal:20,
-        borderBottomWidth:1,
-        borderBottomColor:'#e0e0e0',
+        width: '97%',
+        marginHorizontal: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
         padding: 8,
-        fontSize:10,
+        fontSize: 10,
     },
     map: {
         position: 'absolute',
@@ -811,6 +821,10 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+    },
+    map2: {
+        height: 180,
+        zIndex: 999
     },
 });
 

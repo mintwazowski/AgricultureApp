@@ -17,6 +17,7 @@ export default StyleSheet.create({
         paddingRight: 10,
         backgroundColor: '#fff',
         borderRadius: 9,
+        flex: 1
     },
 
     ModalTitle: {

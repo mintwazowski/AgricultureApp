@@ -99,7 +99,7 @@ export default class Product extends Component {
     }
 
     onBackToMain() {
-        this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('Home');
     }
 
     render() {
@@ -227,7 +227,11 @@ export default class Product extends Component {
                             <View style={[MainStyles.m15]}>
                                 {/* Search Content */}
                                 <View style={{ flexDirection: 'row', width: '100%' }}>
-                                    <View style={{ justifyContent: 'center', width: '10%' }}>
+                                    <TouchableOpacity
+                                        activeOpacity={1}
+                                        style={{ justifyContent: 'center', width: '10%' }}
+                                        onPress={() => this.onBackToMain()}
+                                    >
                                         <Image
                                             resizeMode={'cover'}
                                             source={require('../../../assets/icon/back.png')}
@@ -236,7 +240,7 @@ export default class Product extends Component {
                                                 height: 25,
                                             }}
                                         />
-                                    </View>
+                                    </TouchableOpacity>
                                     <View style={{ width: '90%' }}>
                                         <Search />
                                     </View>

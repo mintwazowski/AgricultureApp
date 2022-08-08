@@ -63,7 +63,7 @@ export default class Chat extends Component {
         this.props.navigation.navigate('Favorite')
     }
     onGoToNoti() {
-        this.props.navigation.navigate('Notify')
+        this.props.navigation.navigate('ChatList')
     }
     onGoChat() {
         this.props.navigation.navigate('Chat')

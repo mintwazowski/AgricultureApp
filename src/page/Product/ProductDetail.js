@@ -46,7 +46,9 @@ export default class ProductDetail extends Component {
         alert = (<ModalLib isVisible={true}>
             <View style={ModalStyles.ModalContent}>
                 <View style={{ flexDirection: 'row', alignSelf: 'center', marginBottom: 15 }}>
-                    <Image
+                    <FontAwesome5 name='check-circle' style={{ marginRight: 10 }} size={40} solid color="#448165" />
+                    <FontAwesome5 name='shopping-cart' style={{ marginRight: 10 }} size={40} solid color="#448165" />
+                    {/* <Image
                         resizeMode={'cover'}
                         source={require('../../../assets/icon/star.png')}
                         style={{
@@ -55,8 +57,8 @@ export default class ProductDetail extends Component {
                             alignSelf: 'center',
                             marginRight: 10
                         }}
-                    />
-                    <Image
+                    /> */}
+                    {/* <Image
                         resizeMode={'cover'}
                         source={require('../../../assets/icon/star.png')}
                         style={{
@@ -64,7 +66,7 @@ export default class ProductDetail extends Component {
                             height: 35,
                             alignSelf: 'center',
                         }}
-                    />
+                    /> */}
                 </View>
                 <Text allowFontScaling={false} style={ModalStyles.ModalTitle}>คุณได้เพิ่มสินค้าลงในตะกร้าเรียบร้อยแล้ว</Text>
                 <View style={ModalStyles.content2Button}>

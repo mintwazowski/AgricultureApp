@@ -44,37 +44,37 @@ export default class TouristAttractionDetail extends Component {
         this.tog = this.tog.bind(this);
         this.state = {
             col: 0,
-            CheckWeb:false,
+            CheckWeb: false,
             activeIndex: 0,
             cards: [
                 {
-                id:1,
-                title: "ได้รับรางวัลอะไรบ้าง ?",
-                sub_title: "ปี 2560 พระเจ้าหลานเธอ พระองค์เจ้าสิริภาจุฑาภรณ์ พระราชทานพระราชวโรกาสให้ พนักงานร้านลำพูนไทยซิลค์ และ เหล่าช่างทอผ้าไหมลำพูน เฝ้าทูลละอองธุลีพระบาทเป็นการส่วนพระองค์ ณ ที่ประทับกองบิน 41 จ. เชียงใหม่ ถวายรายงานเกี่ยวกับการทอผ้าไหมยกดอกลำพูน เหล่าข้าพระพุทธเจ้า สำนึกในพระมหากรุณาธิคุณ",
+                    id: 1,
+                    title: "ได้รับรางวัลอะไรบ้าง ?",
+                    sub_title: "ปี 2560 พระเจ้าหลานเธอ พระองค์เจ้าสิริภาจุฑาภรณ์ พระราชทานพระราชวโรกาสให้ พนักงานร้านลำพูนไทยซิลค์ และ เหล่าช่างทอผ้าไหมลำพูน เฝ้าทูลละอองธุลีพระบาทเป็นการส่วนพระองค์ ณ ที่ประทับกองบิน 41 จ. เชียงใหม่ ถวายรายงานเกี่ยวกับการทอผ้าไหมยกดอกลำพูน เหล่าข้าพระพุทธเจ้า สำนึกในพระมหากรุณาธิคุณ",
                 },
                 {
-                id:2,
-                title: "ราคาอยู่ที่ผืนละเท่าไหร่ ?",
-                sub_title: "xxxxxxxxxxxxxx",
+                    id: 2,
+                    title: "ราคาอยู่ที่ผืนละเท่าไหร่ ?",
+                    sub_title: "xxxxxxxxxxxxxx",
                 },
                 {
-                id:3,
-                title: "ใช้เวลาท่องเที่ยวได้นานแค่ไหน ?",
-                sub_title: "aaaaaaaaaaaa",
+                    id: 3,
+                    title: "ใช้เวลาท่องเที่ยวได้นานแค่ไหน ?",
+                    sub_title: "aaaaaaaaaaaa",
                 },
                 {
-                id:4,
-                title: "สามารถลองทอผ้าไหมได้หรอไหม ?",
-                sub_title: "bbbbbbbbbbb",
+                    id: 4,
+                    title: "สามารถลองทอผ้าไหมได้หรอไหม ?",
+                    sub_title: "bbbbbbbbbbb",
                 },
                 {
-                id:5,
-                title: "มีการท่องเที่ยวแบบไหนบ้าง ?",
-                sub_title: "ccccccccccc",
+                    id: 5,
+                    title: "มีการท่องเที่ยวแบบไหนบ้าง ?",
+                    sub_title: "ccccccccccc",
                 },
             ],
             isAlert: null,
-            images : [
+            images: [
                 {
                     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRpGmKrfBFE90_MyomlXre9OJhLyjMvfGm5w&usqp=CAU",
                     id: "12345"
@@ -87,12 +87,12 @@ export default class TouristAttractionDetail extends Component {
                 }
             ],
             collapseCard: null,
-            Location:"259 หมู่ 4 ถนนไฮเวเชียงใหม่-ลำปาง ตำบลศรีบัวบาน อำเภอเมืองลำพูน 51000",
-            Category:"ร้านขายผ้าไหม",
-            setLocation:"หากสถานที่แห่งนี้ตั้งอยู่ในสถานที่อีกแห่งหนึ่ง ให้ป้อนชื่อสถานที่อย่างหลังแทน",
-            Time:"อา.-ส.: 08:00-17:00",
-            Phone:"089 635 1607",
-            Web:"http://www.lamphunthaisilk.com",
+            Location: "259 หมู่ 4 ถนนไฮเวเชียงใหม่-ลำปาง ตำบลศรีบัวบาน อำเภอเมืองลำพูน 51000",
+            Category: "ร้านขายผ้าไหม",
+            setLocation: "หากสถานที่แห่งนี้ตั้งอยู่ในสถานที่อีกแห่งหนึ่ง ให้ป้อนชื่อสถานที่อย่างหลังแทน",
+            Time: "อา.-ส.: 08:00-17:00",
+            Phone: "089 635 1607",
+            Web: "http://www.lamphunthaisilk.com",
             alertEditdata: null,
             EventReservation: null,
             EventAndLocation: null,
@@ -109,20 +109,31 @@ export default class TouristAttractionDetail extends Component {
             openSlide: true
         })
     }
+    onGotoNoti() {
+        this.setState({
+            alertEditdata: null,
+            EventReservation: null,
+            EventAndLocation: null,
+            openSlide: false
+        })
+        this.props.navigation.navigate('ChatList')
+    }
+    onBackToMain() {
+        this.props.navigation.navigate('Home')
+    }
 
     onCloseSlide() {
         this.setState({
             openSlide: false
         })
     }
-    
     onEventReservation() {
         this.setState({
             EventReservation: true,
         });
     }
 
-    setEventReservation(type){
+    setEventReservation(type) {
         this.setState({
             EventReservation: type,
         });
@@ -134,13 +145,12 @@ export default class TouristAttractionDetail extends Component {
         });
     }
 
-    setEventAndLocation(type){
+    setEventAndLocation(type) {
         this.setState({
             EventAndLocation: type,
         });
     }
 
-        
     handleChange(e, type) {
         var value = e.nativeEvent.text;
         if (type === "Location") {
@@ -149,24 +159,24 @@ export default class TouristAttractionDetail extends Component {
             })
         }
     }
-    
+
     onEditData(type, info) {
         this.setState({
             alertEditdata: true,
         });
     }
-    
-    setalertEditdata(type){
+
+    setalertEditdata(type) {
         this.setState({
             alertEditdata: type,
         });
     }
-    onOpencheckWeb(){
+    onOpencheckWeb() {
         this.setState({
             CheckWeb: true,
         })
     }
-  
+
     _onChange(index) {
         this.setState({
             activeIndex: index,
@@ -181,7 +191,7 @@ export default class TouristAttractionDetail extends Component {
     }
 
     render() {
-        const { col, isAlert, collapseCard, index , alertEditdata , openSlide , EventReservation , EventAndLocation} = this.state;
+        const { col, isAlert, collapseCard, index, alertEditdata, openSlide, EventReservation, EventAndLocation } = this.state;
 
         const getFavProduct = [
             { id: 1, img_src: require('../../../assets/image/22.png'), name: 'เสื้อคลุมผ้าคราม', price: '8,000', rating: 5 },
@@ -264,7 +274,7 @@ export default class TouristAttractionDetail extends Component {
 
         return (
 
-            <SafeAreaView style={[MainStyles.contentBG]}>
+            <View style={[MainStyles.contentBG]}>
                 {isAlert}
 
                 <Modal visible={openSlide} statusBarTranslucent={true}>
@@ -340,8 +350,8 @@ export default class TouristAttractionDetail extends Component {
                                     width: '100%',
                                     height: 65,
                                     alignSelf: 'center',
-                                    borderTopRightRadius:20,
-                                    borderTopLeftRadius:20,
+                                    borderTopRightRadius: 20,
+                                    borderTopLeftRadius: 20,
                                 }}
                             />
                             <Image
@@ -351,70 +361,79 @@ export default class TouristAttractionDetail extends Component {
                                     width: 50,
                                     height: 50,
                                     alignSelf: 'center',
-                                    position:'absolute',
-                                    left:20
+                                    position: 'absolute',
+                                    left: 20
                                 }}
                             />
-                            <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textWhiteBd , {position:'absolute' , top:20 , left:80}]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
+                            <Text allowFontScaling={false} style={[MainStyles.Text16, MainStyles.textWhiteBd, { position: 'absolute', top: 20, left: 80 }]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
                         </View>
-                        <TouchableOpacity style={[MainStyles.btnYellowSmall150 , {flexDirection:'row'}]}>
-                            <Ionicons name='chatbox' size={22} color="#fff" style={{ paddingHorizontal:7 , alignSelf:'center' }} />
-                            <Text allowFontScaling={false} style={[ModalStyles.Text18 , MainStyles.textWhite]}>แจ้งแก้ไขข้อมูล</Text>
+                        <TouchableOpacity style={[MainStyles.btnYellowSmall150, { flexDirection: 'row' }]}>
+                            <MaterialIcons name='chat-bubble' size={22} color="#fff" style={{ paddingHorizontal: 7, alignSelf: 'center' }} />
+                            <Text allowFontScaling={false} style={[ModalStyles.Text18, MainStyles.textWhite]}>แจ้งแก้ไขข้อมูล</Text>
                         </TouchableOpacity>
-                        <View style={{ flexDirection:'row' , marginVertical:10}}>
-                            <View style={{ flexDirection:'column' , width:'100%'}}>
-                                <View style={{ flexDirection:'row'}}>
-                                    <MaterialIcons name='category' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>หมวดหมู่</Text>
+                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                            <View style={{ flexDirection: 'column', width: '100%' }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <MaterialIcons name='category' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>หมวดหมู่</Text>
                                 </View>
-                                <TextInput style={styles.input} value={this.state.Category} onChange={e => this.handleChange(e, 'Category')}/>
+                                <TextInput style={styles.input} value={this.state.Category} onChange={e => this.handleChange(e, 'Category')} />
                             </View>
                         </View>
-                        <View style={{ flexDirection:'row' , marginVertical:10}}>
-                            <View style={{ flexDirection:'column' , width:'100%'}}>
-                                <View style={{ flexDirection:'row'}}>
-                                    <Fontisto name='map-marker-alt' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>ตำแหน่ง</Text>
+                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                            <View style={{ flexDirection: 'column', width: '100%' }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Fontisto name='map-marker-alt' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>ตำแหน่ง</Text>
                                 </View>
                                 <TextInput style={styles.input} value={this.state.Location} onChange={e => this.handleChange(e, 'Location')} />
-                                <MapView
-                                    initialRegion={{
-                                        latitude: 37.78825,
-                                        longitude: -122.4324,
-                                        latitudeDelta: 0.0922,
-                                        longitudeDelta: 0.0421,
-                                    }}
-                                    style={[styles.map]}
-                                />
-                                <Text allowFontScaling={false} style={[MainStyles.Text10 , MainStyles.mt10 , MainStyles.textGrayLight ,{ marginLeft:20}]}>ตั้งอยู่ภายใน</Text>
-                                <TextInput style={[ModalStyles.Text10 ,styles.inputSmall]} value={this.state.setLocation} onChange={e => this.handleChange(e, 'setLocation')} />
+                            </View>
+                        </View>
 
-                                <View style={{ flexDirection:'row' , marginTop:15}}>
-                                    <Fontisto name='clock' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>เวลาทำการ</Text>
+                        <View style={{ flex: 1 }}>
+                            <MapView
+                                initialRegion={{
+                                    latitude: 37.78825,
+                                    longitude: -122.4324,
+                                    latitudeDelta: 0.0922,
+                                    longitudeDelta: 0.0421,
+                                }}
+                                style={[styles.map]}
+                            />
+                        </View>
+
+                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>
+                            <View style={{ flexDirection: 'column', width: '100%' }}>
+                                <Text allowFontScaling={false} style={[MainStyles.Text10, MainStyles.mt10, MainStyles.textGrayLight, { marginLeft: 20 }]}>ตั้งอยู่ภายใน</Text>
+                                <TextInput style={[ModalStyles.Text10, styles.inputSmall]} value={this.state.setLocation} onChange={e => this.handleChange(e, 'setLocation')} />
+
+                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                    <Fontisto name='clock' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>เวลาทำการ</Text>
                                 </View>
                                 <TextInput style={styles.input} value={this.state.Time} onChange={e => this.handleChange(e, 'Time')} />
 
-                                <View style={{ flexDirection:'row' , marginTop:15}}>
-                                    <FontAwesome name='phone' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>ติดต่อ</Text>
+                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                    <FontAwesome name='phone' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>ติดต่อ</Text>
                                 </View>
                                 <TextInput style={styles.input} value={this.state.Phone} onChange={e => this.handleChange(e, 'Phone')} />
 
-                                <View style={{ flexDirection:'row' , marginTop:15}}>
-                                    <FontAwesome name='globe' size={22} color="#838383" style={{ alignSelf:'center' }} />
-                                    <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textGrayLight ,{ marginLeft:10}]}>เว็บไซต์</Text>
+                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                                    <FontAwesome name='globe' size={22} color="#838383" style={{ alignSelf: 'center' }} />
+                                    <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textGrayLight, { marginLeft: 10 }]}>เว็บไซต์</Text>
                                 </View>
-                                { this.state.CheckWeb ? <TextInput style={styles.input} value={this.state.Web} onChange={e => this.handleChange(e, 'Web')} /> : <Text allowFontScaling={false} style={[ModalStyles.Text12 , MainStyles.textBlue ,{ marginLeft:28}]}  onPress={() => this.onOpencheckWeb()}>เพิ่มเว็บไซต์</Text>}
+                                {this.state.CheckWeb ? <TextInput style={styles.input} value={this.state.Web} onChange={e => this.handleChange(e, 'Web')} /> : <Text allowFontScaling={false} style={[ModalStyles.Text12, MainStyles.textBlue, { marginLeft: 28 }]} onPress={() => this.onOpencheckWeb()}>เพิ่มเว็บไซต์</Text>}
                             </View>
                         </View>
-                        <View style={[ModalStyles.content2Button , {justifyContent:'center' , alignItems:'center' , width:"100%"}]}>
+
+                        <View style={[ModalStyles.content2Button, { justifyContent: 'center', alignItems: 'center', width: "100%" }]}>
                             <TouchableOpacity
                                 activeOpacity={1}
                                 style={ModalStyles.btnSubmit}
-                                onPress={() => this.onNextToCart()}
+                                onPress={() => this.onBackToMain()}
                             >
-                                <View style={{ flexDirection: "row", justifyContent:'center'}}>
+                                <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                                     <Text allowFontScaling={false} style={ModalStyles.btnOneText}>ส่งข้อมูล</Text>
                                 </View>
                             </TouchableOpacity>
@@ -609,8 +628,8 @@ export default class TouristAttractionDetail extends Component {
                                     width: '100%',
                                     height: 65,
                                     alignSelf: 'center',
-                                    borderTopRightRadius:20,
-                                    borderTopLeftRadius:20,
+                                    borderTopRightRadius: 20,
+                                    borderTopLeftRadius: 20,
                                 }}
                             />
                             <Image
@@ -620,11 +639,11 @@ export default class TouristAttractionDetail extends Component {
                                     width: 50,
                                     height: 50,
                                     alignSelf: 'center',
-                                    position:'absolute',
-                                    left:20
+                                    position: 'absolute',
+                                    left: 20
                                 }}
                             />
-                            <Text allowFontScaling={false} style={[MainStyles.Text16 , MainStyles.textWhiteBd , {position:'absolute' , top:20 , left:80}]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
+                            <Text allowFontScaling={false} style={[MainStyles.Text16, MainStyles.textWhiteBd, { position: 'absolute', top: 20, left: 80 }]}>ศูนย์เรียนรู้และอนุรักษ์การทอผ้า</Text>
                         </View>
                         <Text allowFontScaling={false} style={[ModalStyles.Text18, MainStyles.textGreen]}>วิสาหกิจชุมชนสภาลำพูนผ้าไหม</Text>
                         <Text allowFontScaling={false} style={[ModalStyles.Text10, MainStyles.textGrayLight]}>ทางกลุ่มผ้า ได้เริ่มรวมกลุ่มกันทอผ้ายกดอกเมื่อต้นปี พ.ศ.2535 และได้อนุรักษ์ลวดลายผ้าแบบโบราณ ซึ่งเป็นเอกลักษณ์ของลำพูน เช่น ลายดอกแก้ว หรือลายพิกุลไว้ ทั้งยังได้คิดค้นลวดลายใหม่ๆ เพิ่มขึ้นเพื่อใช้ในโอกาสงานพระราชพิธีต่างๆ และงานแฟชั่นเครื่องแต่งกายร่วมสมัยในปัจจุบัน โดยมีลวดลายให้เลือกหลายแบบ</Text>
@@ -659,7 +678,7 @@ export default class TouristAttractionDetail extends Component {
                             <TouchableOpacity
                                 activeOpacity={1}
                                 style={ModalStyles.btnOneYellow}
-                                onPress={() => this.onNextToCart()}
+                            // onPress={() => this.onNextToCart()}
                             >
                                 <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                                     <FontAwesome5 name='stamp' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
@@ -669,7 +688,7 @@ export default class TouristAttractionDetail extends Component {
                             <TouchableOpacity
                                 activeOpacity={1}
                                 style={ModalStyles.btnOneBlue}
-                                onPress={() => this.onNextToProductAgain()}
+                                onPress={() => this.onGotoNoti()}
                             >
                                 <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                                     <FontAwesome5 name='comment-dots' size={20} color="#fff" style={{ marginHorizontal: 15 }} />
@@ -679,7 +698,7 @@ export default class TouristAttractionDetail extends Component {
                         </View>
                     </View>
                 </ModalLib>
-                
+
                 <View style={[MainStyles.contentBG]}>
                     <ScrollView showsVerticalScrollIndicator={false} >
                         {/* Banner Content */}
@@ -742,7 +761,7 @@ export default class TouristAttractionDetail extends Component {
                                 </View>
                                 <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: 'row' }}>
                                     <View style={{ backgroundColor: '#666666', paddingVertical: 3, paddingHorizontal: 15, borderRadius: 13 }}>
-                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]}  onPress={() => this.onEditData()}>แจ้งแก้ไขข้อมูล</Text>
+                                        <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12]} onPress={() => this.onEditData()}>แจ้งแก้ไขข้อมูล</Text>
                                     </View>
                                 </View>
                             </View>
@@ -837,15 +856,18 @@ export default class TouristAttractionDetail extends Component {
                                     </View>
                                 </View>
 
-                                <Image
-                                    resizeMode={'cover'}
-                                    source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u279.png?token=77a48855b2f1ffeffed1748361bada32f359388d3afea5bf516fe37c364711e7' }}
-                                    style={{
-                                        width: '100%',
-                                        height: 220,
-                                        borderRadius: 10,
-                                    }}
-                                />
+
+                                <View style={{ flex: 1 }}>
+                                    <MapView
+                                        initialRegion={{
+                                            latitude: 37.78825,
+                                            longitude: -122.4324,
+                                            latitudeDelta: 0.0922,
+                                            longitudeDelta: 0.0421,
+                                        }}
+                                        style={[styles.map2]}
+                                    />
+                                </View>
 
                                 <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
                                     <View style={{ flex: 1, flexDirection: "row" }}>
@@ -1374,7 +1396,7 @@ export default class TouristAttractionDetail extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </SafeAreaView>
+            </View>
         );
     }
 }
@@ -1423,21 +1445,21 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        width:'97%',
-        marginHorizontal:20,
-        borderBottomWidth:1,
-        borderBottomColor:'#e0e0e0',
+        width: '97%',
+        marginHorizontal: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
         padding: 10,
-        fontSize:12,
+        fontSize: 12,
     },
     inputSmall: {
         height: 30,
-        width:'97%',
-        marginHorizontal:20,
-        borderBottomWidth:1,
-        borderBottomColor:'#e0e0e0',
+        width: '97%',
+        marginHorizontal: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
         padding: 8,
-        fontSize:10,
+        fontSize: 10,
     },
     map: {
         position: 'absolute',
@@ -1445,6 +1467,10 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+    },
+    map2: {
+        height: 180,
+        zIndex: 999
     },
 });
 

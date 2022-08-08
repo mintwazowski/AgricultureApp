@@ -61,6 +61,14 @@ export default class Home extends Component {
         })
     }
 
+    onGotoProduct() {
+        this.props.navigation.navigate('Product');
+    }
+
+    onGotoProductDetail() {
+        this.props.navigation.navigate('ProductDetail');
+    }
+
     render() {
         const { slider1ActiveSlide, tabProductSeason } = this.state
 
@@ -156,7 +164,11 @@ export default class Home extends Component {
                 <View style={styles.slide1}>
                     {getBannerFlashSale.map((data, index) => {
                         return (
-                            <View style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}>
+                            <TouchableOpacity
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '25%', paddingHorizontal: 3 }}
+                                activeOpacity={1}
+                                onPress={() => this.onGotoProductDetail()}
+                            >
                                 <Image
                                     resizeMode={'cover'}
                                     source={getBannerFlashSale[index].img_src}
@@ -169,7 +181,7 @@ export default class Home extends Component {
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignLeft, MainStyles.mt10, MainStyles.mb5, styles.getFree]}>ซื้อ 1 แถม 1</Text>
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.Text12, MainStyles.textAlignCenter, MainStyles.mt10, MainStyles.mb5]}>{getBannerFlashSale[index].name}</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>250 บาท</Text>
-                            </View>
+                            </TouchableOpacity>
                         )
                     })}
                 </View>
@@ -183,7 +195,11 @@ export default class Home extends Component {
                 <View style={styles.slide1}>
                     {geBestSale.map((data, index) => {
                         return (
-                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '32%', marginRight: '1%', marginLeft: '1%' }}>
+                            <TouchableOpacity
+                                style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '32%', marginRight: '1%', marginLeft: '1%' }}
+                                activeOpacity={1}
+                                onPress={() => this.onGotoProductDetail()}
+                            >
                                 <Image
                                     resizeMode={'cover'}
                                     source={geBestSale[index].img_src}
@@ -204,7 +220,7 @@ export default class Home extends Component {
                                         </View>
                                     </View>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         )
                     })}
                 </View>
@@ -219,7 +235,11 @@ export default class Home extends Component {
                 <View style={styles.slide1}>
                     {getProductSeason.map((data, index) => {
                         return (
-                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '49%', marginRight: 3, marginLeft: 3 }}>
+                            <TouchableOpacity
+                                style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '49%', marginRight: 3, marginLeft: 3 }}
+                                activeOpacity={1}
+                                onPress={() => this.onGotoProductDetail()}
+                            >
                                 <Image
                                     resizeMode={'cover'}
                                     source={getProductSeason[index].img_src}
@@ -244,7 +264,7 @@ export default class Home extends Component {
                                         </View>
                                     </View>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         )
                     })}
                 </View>
@@ -253,7 +273,11 @@ export default class Home extends Component {
                 <View style={styles.slide1}>
                     {getProductSeasonBefore.map((data, index) => {
                         return (
-                            <View style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '49%', marginRight: 3, marginLeft: 3 }}>
+                            <TouchableOpacity
+                                style={{ backgroundColor: '#fff', flexDirection: 'column', alignContent: 'center', width: '49%', marginRight: 3, marginLeft: 3 }}
+                                activeOpacity={1}
+                                onPress={() => this.onGotoProductDetail()}
+                            >
                                 <Image
                                     resizeMode={'cover'}
                                     source={getProductSeasonBefore[index].img_src}
@@ -278,7 +302,7 @@ export default class Home extends Component {
                                         </View>
                                     </View>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         )
                     })}
                 </View>
@@ -289,7 +313,7 @@ export default class Home extends Component {
         const ProductRecommend = [];
         ProductRecommend.push(
             <View style={styles.slide1}>
-                <View
+                <TouchableOpacity
                     style={{
                         width: '100%',
                         flex: 1,
@@ -297,6 +321,8 @@ export default class Home extends Component {
                         flexWrap: 'wrap',
                         alignItems: 'flex-start'
                     }}
+                    activeOpacity={1}
+                    onPress={() => this.onGotoProductDetail()}
                 >
                     {getProductRecommend.map((data, index) => {
                         return (
@@ -344,7 +370,7 @@ export default class Home extends Component {
                             </View>
                         )
                     })}
-                </View>
+                </TouchableOpacity>
             </View>
         )
 
@@ -387,15 +413,17 @@ export default class Home extends Component {
                                         />
                                         <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>สินค้าราคาพิเศษ</Text>
                                     </View>
-                                    <View
+                                    <TouchableOpacity
                                         style={{
                                             flex: 1,
                                             alignContent: 'flex-end',
                                             marginTop: 13
                                         }}
+                                        activeOpacity={1}
+                                        onPress={() => this.onGotoProduct()}
                                     >
                                         <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}>ดูสินค้าเพิ่มเติม {`>`} </Text>
-                                    </View>
+                                    </TouchableOpacity>
                                 </View>
                                 <Swiper
                                     ref='swiper'
@@ -417,14 +445,16 @@ export default class Home extends Component {
                                 <View style={{ flexDirection: "row" }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>สินค้าขายดีประจำสัปดาห์</Text>
                                 </View>
-                                <View
+                                <TouchableOpacity
                                     style={{
                                         flex: 1,
                                         alignContent: 'flex-end',
                                     }}
+                                    activeOpacity={1}
+                                    onPress={() => this.onGotoProduct()}
                                 >
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}>ดูสินค้าเพิ่มเติม {`>`} </Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                             <Swiper
                                 ref='swiper'
@@ -484,14 +514,16 @@ export default class Home extends Component {
                                 <View style={{ flexDirection: "row" }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>สินค้าสั่งจอง / จำหน่ายตามฤดูกาล</Text>
                                 </View>
-                                <View
+                                <TouchableOpacity
                                     style={{
                                         flex: 1,
                                         alignContent: 'flex-end',
                                     }}
+                                    activeOpacity={1}
+                                    onPress={() => this.onGotoProduct()}
                                 >
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}>ดูสินค้าเพิ่มเติม {`>`} </Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginBottom: 15 }}>
                                 <TouchableOpacity
@@ -543,14 +575,16 @@ export default class Home extends Component {
                                 <View style={{ flexDirection: "row" }}>
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignCenter, MainStyles.textCenterContent]}>สินค้าแนะนำ สำหรับคุณ</Text>
                                 </View>
-                                <View
+                                <TouchableOpacity
                                     style={{
                                         flex: 1,
                                         alignContent: 'flex-end',
                                     }}
+                                    activeOpacity={1}
+                                    onPress={() => this.onGotoProduct()}
                                 >
                                     <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.textAlignRight]}>ดูสินค้าเพิ่มเติม {`>`} </Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                             <Swiper
                                 height='100%'

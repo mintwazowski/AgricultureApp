@@ -139,7 +139,7 @@ export default class Notify extends Component {
                             <View style={styles.contentCartShopProductList}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/image/25.png')}
                                     style={{
                                         width: 60,
                                         height: 60,
@@ -167,7 +167,7 @@ export default class Notify extends Component {
                             <View style={styles.contentCartShopProductList}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/image/26.png')}
                                     style={{
                                         width: 60,
                                         height: 60,
@@ -195,7 +195,7 @@ export default class Notify extends Component {
                             <View style={styles.contentCartShopProductList}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/image/27.png')}
                                     style={{
                                         width: 60,
                                         height: 60,

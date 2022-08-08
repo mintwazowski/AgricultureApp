@@ -32,6 +32,10 @@ export default class Franchise extends Component {
         // this.props.navigation.navigate('SourceOfProduct')
     }
 
+    onBackToMain() {
+        this.props.navigation.navigate('Home')
+    }
+
     render() {
         // Banner
         const Banner = [];
@@ -60,12 +64,12 @@ export default class Franchise extends Component {
                                     style={{
                                         width: 55,
                                         height: 25,
-                                        marginLeft:15,
-                                        padding:0,
-                                        marginTop:7
+                                        marginLeft: 15,
+                                        padding: 0,
+                                        marginTop: 7
                                     }}
                                 />
-                                <View style={{ flexDirection: 'column', justifyContent: 'flex-start'}}>
+                                <View style={{ flexDirection: 'column', justifyContent: 'flex-start' }}>
                                     <Text allowFontScaling={false} style={[MainStyles.Hot]}>HOT</Text>
                                 </View>
                             </View>
@@ -79,10 +83,14 @@ export default class Franchise extends Component {
                 <View style={{ flex: 0.15 }}>
                     <TopTabNavigator navigation={this.props.navigation} />
                 </View>
-                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 , paddingHorizontal :5 , marginTop:10}}>
+                <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, paddingHorizontal: 5, marginTop: 10 }}>
                     {/* Search Content */}
                     <View style={{ flexDirection: 'row', width: '100%' }}>
-                        <View style={{ justifyContent: 'center', width: '10%' }}>
+                        <TouchableOpacity
+                            style={{ justifyContent: 'center', width: '10%' }}
+                            activeOpacity={1}
+                            onPress={() => this.onBackToMain()}
+                        >
                             <Image
                                 resizeMode={'cover'}
                                 source={require('../../../assets/icon/back.png')}
@@ -91,13 +99,13 @@ export default class Franchise extends Component {
                                     height: 25,
                                 }}
                             />
-                        </View>
+                        </TouchableOpacity>
                         <View style={{ width: '70%' }}>
                             <Search />
                         </View>
                         <View style={{ justifyContent: 'center', alignContent: 'center', width: '15%', marginLeft: 5 }}>
                             <TouchableOpacity
-                                onPress={() => this.onLocation()}
+                                onPress={() => this.onBackToMain()}
                             >
                                 <Image
                                     resizeMode={'cover'}
@@ -107,7 +115,7 @@ export default class Franchise extends Component {
                                         height: 22,
                                         alignSelf: 'center'
                                     }}
-                                    
+
                                 />
                                 <Text allowFontScaling={false} style={[MainStyles.textGreen, MainStyles.Text10]} >ค้นหารอบตัว</Text>
                             </TouchableOpacity>
@@ -133,7 +141,7 @@ export default class Franchise extends Component {
                             <TouchableOpacity
                                 activeOpacity={1}
                                 onPress={() => this.onDetail()}
-                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal:5}}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal: 5 }}
                             >
 
                                 <Image
@@ -145,18 +153,18 @@ export default class Franchise extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
-                                <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
+                                <Icon name='heart-o' size={20} style={[styles.heartIcon, { paddingHorizontal: 8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text14]}>แฟรนไชส์ กาแฟเขาทะลุชุมพร</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>กาแฟเขาทะลุชุมพรเริ่มต้นจากการขาย ในงานสหกรณ์ และได้ขยายยัง OTOP</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
-                                        <View style={ {flexDirection: "row"}}>
-                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                    <View style={[MainStyles.mt15, { flexDirection: "row" }]}>
+                                        <View style={{ flexDirection: "row" }}>
+                                            <Icon name='map-marker' size={15} color="#448165" style={{ paddingHorizontal: 8 }} />
                                             <Text style={[MainStyles.textGreen, MainStyles.Text14]}>ชุมพร</Text>
                                         </View>
-                                        
-                                        <View style={[MainStyles.textAlignRight , {flex: 1 , flexDirection: "row" , justifyContent:'flex-end' , paddingEnd:15}] } >
-                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+
+                                        <View style={[MainStyles.textAlignRight, { flex: 1, flexDirection: "row", justifyContent: 'flex-end', paddingEnd: 15 }]} >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd: 6 }} />
                                             <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
@@ -166,7 +174,7 @@ export default class Franchise extends Component {
                             <TouchableOpacity
                                 activeOpacity={1}
                                 onPress={() => this.onDetail()}
-                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%' , paddingHorizontal:5}}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal: 5 }}
                             >
                                 <Image
                                     resizeMode={'cover'}
@@ -177,31 +185,31 @@ export default class Franchise extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
-                                <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
+                                <Icon name='heart-o' size={20} style={[styles.heartIcon, { paddingHorizontal: 8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text14]}>แฟรนไชส์ ชาวดอยคอฟฟี่</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>กาแฟสดชาวดอยต้องการสื่อให้เห็นถึงแหล่งวัตถุดิบคือ "ยอดดอย"</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
-                                        <View style={ {flexDirection: "row"}}>
-                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                    <View style={[MainStyles.mt15, { flexDirection: "row" }]}>
+                                        <View style={{ flexDirection: "row" }}>
+                                            <Icon name='map-marker' size={15} color="#448165" style={{ paddingHorizontal: 8 }} />
                                             <Text style={[MainStyles.textGreen, MainStyles.Text14]}>เชียงใหม่</Text>
                                         </View>
-                                        
-                                        <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
-                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+
+                                        <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: "row", paddingEnd: 15 }} >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd: 6 }} />
                                             <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
                                 </View>
-                           
+
                             </TouchableOpacity>
                         </View>
                         <View style={{ flexDirection: "row", marginTop: 15 }}>
                             <TouchableOpacity
-                                    activeOpacity={1}
-                                    onPress={() => this.onDetail()}
-                                    style={{ flexDirection: 'column', alignContent: 'center', width: '50%' , paddingHorizontal:5}}
-                                >
+                                activeOpacity={1}
+                                onPress={() => this.onDetail()}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal: 5 }}
+                            >
                                 <Image
                                     resizeMode={'cover'}
                                     source={require('../../../assets/image/60.png')}
@@ -211,18 +219,18 @@ export default class Franchise extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
-                                <Icon name='heart-o' size={20} style={ [styles.heartIcon, {paddingHorizontal:8 }]} />
+                                <Icon name='heart-o' size={20} style={[styles.heartIcon, { paddingHorizontal: 8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text14]}>แฟรนไชส์ H.J. Fresh Milk</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft]}>HJ FRESH MILK คือนมสดที่มาจากฟาร์มโคนมที่สะอาด ถูกสุขลักษณะ</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
-                                        <View style={ {flexDirection: "row"}}>
-                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                    <View style={[MainStyles.mt15, { flexDirection: "row" }]}>
+                                        <View style={{ flexDirection: "row" }}>
+                                            <Icon name='map-marker' size={15} color="#448165" style={{ paddingHorizontal: 8 }} />
                                             <Text style={[MainStyles.textGreen, MainStyles.Text14]}>กรุงเทพ</Text>
                                         </View>
-                                        
-                                        <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
-                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+
+                                        <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: "row", paddingEnd: 15 }} >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd: 6 }} />
                                             <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
@@ -232,7 +240,7 @@ export default class Franchise extends Component {
                             <TouchableOpacity
                                 activeOpacity={1}
                                 onPress={() => this.onDetail()}
-                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%' , paddingHorizontal:5}}
+                                style={{ flexDirection: 'column', alignContent: 'center', width: '50%', paddingHorizontal: 5 }}
                             >
                                 <Image
                                     resizeMode={'cover'}
@@ -243,18 +251,18 @@ export default class Franchise extends Component {
                                         borderRadius: 10,
                                     }}
                                 />
-                                <Icon name='heart-o' size={20} style={ [styles.heartIcon , {paddingHorizontal:8 }]} />
+                                <Icon name='heart-o' size={20} style={[styles.heartIcon, { paddingHorizontal: 8 }]} />
                                 <Text allowFontScaling={false} numberOfLines={2} style={[MainStyles.textGray, MainStyles.textAlignLeft, MainStyles.mt5, MainStyles.mb5, MainStyles.Text14]}>แฟรนไชส์ เนเน่ บุฟเฟ่ต์ผลไม้</Text>
                                 <Text allowFontScaling={false} style={[MainStyles.textGrayLight, MainStyles.Text10, MainStyles.textAlignLeft, MainStyles.textCenterContent]}>ร้านมีทั้งผลไม้สด และผลไม้ดอง ยำมะนาวมะกอกดอง มะม่วงดอง</Text>
                                 <View style={[MainStyles.textBD]}>
-                                    <View style={[MainStyles.mt15 ,{ flexDirection: "row" }]}>
-                                        <View style={ {flexDirection: "row"}}>
-                                            <Icon name='map-marker'size={15} color="#448165" style={{ paddingHorizontal:8 }} />
+                                    <View style={[MainStyles.mt15, { flexDirection: "row" }]}>
+                                        <View style={{ flexDirection: "row" }}>
+                                            <Icon name='map-marker' size={15} color="#448165" style={{ paddingHorizontal: 8 }} />
                                             <Text style={[MainStyles.textGreen, MainStyles.Text14]}>ราชบุรี</Text>
                                         </View>
-                                        
-                                        <View style={{flex: 1 , justifyContent:'flex-end', flexDirection: "row", paddingEnd:15} } >
-                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd:6 }}/>
+
+                                        <View style={{ flex: 1, justifyContent: 'flex-end', flexDirection: "row", paddingEnd: 15 }} >
+                                            <Icon name='star' size={15} color="#e9b266" style={{ marginEnd: 6 }} />
                                             <Text allowFontScaling={false} style={[MainStyles.textAlignRight]} >5</Text>
                                         </View>
                                     </View>
@@ -315,7 +323,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold'
     },
-    heartIcon : {
-        position : 'absolute' , right:5, top: 5 , color:'white'
+    heartIcon: {
+        position: 'absolute', right: 5, top: 5, color: 'white'
     },
 });
