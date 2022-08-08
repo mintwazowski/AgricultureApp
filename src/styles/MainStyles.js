@@ -453,6 +453,16 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignSelf: "center",
     },
+    customBadgeAlert2: {
+        width: 20,
+        height: 20,
+        borderRadius: 50,
+        backgroundColor: "#cc3300",
+        position: 'absolute',
+        right: 5,
+        top: -5,
+        zIndex: 999
+    },
     customBadgeAlert: {
         width: 20,
         height: 20,
@@ -489,9 +499,9 @@ export default StyleSheet.create({
         textDecorationLine: 'underline',
         marginLeft: 5
     },
-    
-    Hot : {
-        position : 'absolute' , right:13, top: 8 , fontWeight: 'bold' , color:'#000'
+
+    Hot: {
+        position: 'absolute', right: 13, top: 8, fontWeight: 'bold', color: '#000'
     }
 });
 

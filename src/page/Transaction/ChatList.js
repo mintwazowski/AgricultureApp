@@ -94,6 +94,9 @@ export default class ChatList extends Component {
                             activeOpacity={1}
                             style={styles.TransactionMenucontentMenu}
                         >
+                            <View style={[MainStyles.customBadgeAlert2]}>
+                                <Text allowFontScaling={false} style={[MainStyles.textWhite, MainStyles.Text12, MainStyles.textAlignCenter]}>3</Text>
+                            </View>
                             <View style={styles.TransactionMenucustomBadgeYellow}>
                                 <MaterialIcons name='chat-bubble' style={styles.TransactionMenucustomIcon} size={22} color="#fff" />
                             </View>
@@ -157,7 +160,7 @@ export default class ChatList extends Component {
                             <View style={styles.contentCartShopProductList}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/images/5.png')}
                                     style={{
                                         width: 60,
                                         height: 60,
@@ -184,7 +187,7 @@ export default class ChatList extends Component {
                             <View style={styles.contentCartShopProductList}>
                                 <Image
                                     resizeMode={'cover'}
-                                    source={require('../../../assets/placeholder.jpg')}
+                                    source={require('../../../assets/images/6.png')}
                                     style={{
                                         width: 60,
                                         height: 60,
@@ -212,7 +215,7 @@ export default class ChatList extends Component {
                                 <View>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
+                                        source={require('../../../assets/images/7.png')}
                                         style={{
                                             width: 60,
                                             height: 60,

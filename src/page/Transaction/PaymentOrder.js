@@ -84,7 +84,7 @@ export default class PaymentOrder extends Component {
                                 <View style={styles.contentCartShop}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
+                                        source={require('../../../assets/images/6.png')}
                                         style={{
                                             width: 55,
                                             height: 55,
@@ -138,7 +138,7 @@ export default class PaymentOrder extends Component {
                                 <View style={styles.contentCartShop}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
+                                        source={require('../../../assets/images/6.png')}
                                         style={{
                                             width: 55,
                                             height: 55,
@@ -198,7 +198,7 @@ export default class PaymentOrder extends Component {
                                 <View style={styles.contentCartShop}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
+                                        source={require('../../../assets/images/6.png')}
                                         style={{
                                             width: 55,
                                             height: 55,
@@ -346,7 +346,7 @@ export default class PaymentOrder extends Component {
                                 <View style={styles.contentCartShop}>
                                     <Image
                                         resizeMode={'cover'}
-                                        source={require('../../../assets/placeholder.jpg')}
+                                        source={require('../../../assets/images/6.png')}
                                         style={{
                                             width: 55,
                                             height: 55,
