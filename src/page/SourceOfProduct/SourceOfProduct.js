@@ -354,8 +354,8 @@ const selectKM = StyleSheet.create({
         color: "#fff"
     },
     iconContainer: {
-        top: 6,
-        right: 10,
+        top: Platform.OS === "ios" ? 0 : 6,
+        right: Platform.OS === "ios" ? 10 : 10,
     },
 });
 
@@ -387,7 +387,7 @@ const selectForm = StyleSheet.create({
         color: "#000"
     },
     iconContainer: {
-        top: 12,
-        right: 15,
+        top: Platform.OS === "ios" ? 5 : 12,
+        right: Platform.OS === "ios" ? 10 : 15,
     },
 });
