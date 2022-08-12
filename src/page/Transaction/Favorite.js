@@ -52,7 +52,7 @@ export default class Favorite extends Component {
         this.props.navigation.navigate('OrderList')
     }
     onGoToNoti() {
-        this.props.navigation.navigate('ChatList')
+        this.props.navigation.navigate('Notify')
     }
     onDelete(id) {
         let isListData = []

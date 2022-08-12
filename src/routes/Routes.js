@@ -10,7 +10,7 @@ import Signin from '../page/Signin/Signin';
 
 import Home from '../page/Home/Home';
 import TouristAttractionDetail from '../page/TouristAttraction/TouristAttractionDetail';
-
+import TouristAttractionDetailMap from '../page/TouristAttraction/TouristAttractionDetailMap';
 import SourceOfProductDetail from '../page/SourceOfProduct/SourceOfProductDetail';
 import SourceOfProductMain from '../page/SourceOfProduct/SourceOfProductMain';
 import SourceOfProduct from '../page/SourceOfProduct/SourceOfProduct';
@@ -52,6 +52,7 @@ function StackNaviga() {
                 <Stack.Screen name="Signin" component={Signin} options={MainPageOptionNoBack} />
                 <Stack.Screen name="Home" component={BottomTabNavigator} options={MainPageOptionNoBack} />
                 <Stack.Screen name="TouristAttractionDetail" component={TouristAttractionDetail} options={MainPageOptionNoBack} />
+                <Stack.Screen name="TouristAttractionDetailMap" component={TouristAttractionDetailMap} options={MainPageOptionNoBack} />
                 <Stack.Screen name="ProductDetail" component={ProductDetail} options={MainPageOptionNoBack} />
                 <Stack.Screen name="OrderList" component={OrderList} options={MainPageOptionNoBack} />
                 <Stack.Screen name="Favorite" component={Favorite} options={MainPageOptionNoBack} />

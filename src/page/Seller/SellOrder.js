@@ -76,7 +76,7 @@ export default class SellOrder extends Component {
                         {/* Shop Content */}
                         <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
                             <ImageBackground
-                                source={require('../../../assets/placeholder.jpg')}
+                                source={require('../../../assets/image/u1361.png')}
                                 style={{
                                     width: '100%',
                                     height: 80
@@ -197,7 +197,7 @@ export default class SellOrder extends Component {
                                     <View style={styles.contentCartShop}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/image/u1731.png')}
                                             style={{
                                                 width: 60,
                                                 height: 60,
@@ -227,7 +227,7 @@ export default class SellOrder extends Component {
                                     <View style={{ paddingHorizontal: 10 }}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/images/26.png')}
                                             style={{
                                                 width: 70,
                                                 height: 70,
@@ -291,7 +291,7 @@ export default class SellOrder extends Component {
                                     <View style={{ paddingHorizontal: 10 }}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/images/25.png')}
                                             style={{
                                                 width: 70,
                                                 height: 70,
@@ -355,7 +355,7 @@ export default class SellOrder extends Component {
                                     <View style={{ paddingHorizontal: 10 }}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/images/24.png')}
                                             style={{
                                                 width: 70,
                                                 height: 70,

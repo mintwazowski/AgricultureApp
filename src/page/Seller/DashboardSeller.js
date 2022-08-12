@@ -153,7 +153,7 @@ export default class DashboardSeller extends Component {
                     <View style={{ flex: 1, marginTop: 15 }}>
                         <Image
                             resizeMode={'cover'}
-                            source={require('../../../assets/placeholder.jpg')}
+                            source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1550.png?token=75912ea1fa75f3e8d3929722fcd6ef0484f65bd9fc019903b685e7b0fb1acbf8' }}
                             style={{
                                 width: '100%',
                                 height: 250,

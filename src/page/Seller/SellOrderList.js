@@ -73,7 +73,7 @@ export default class SellOrderList extends Component {
                         {/* Shop Content */}
                         <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
                             <ImageBackground
-                                source={require('../../../assets/placeholder.jpg')}
+                                source={require('../../../assets/image/u1361.png')}
                                 style={{
                                     width: '100%',
                                     height: 80
@@ -240,7 +240,7 @@ export default class SellOrderList extends Component {
                                     <View style={styles.contentCartShopProductList}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/images/26.png')}
                                             style={{
                                                 width: 60,
                                                 height: 60,
@@ -267,7 +267,7 @@ export default class SellOrderList extends Component {
                                     <View style={styles.contentCartShopProductList}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/images/25.png')}
                                             style={{
                                                 width: 60,
                                                 height: 60,
@@ -294,7 +294,7 @@ export default class SellOrderList extends Component {
                                     <View style={styles.contentCartShopProductList}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/images/24.png')}
                                             style={{
                                                 width: 60,
                                                 height: 60,
@@ -321,7 +321,7 @@ export default class SellOrderList extends Component {
                                     <View style={styles.contentCartShopProductList}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/images/23.png')}
                                             style={{
                                                 width: 60,
                                                 height: 60,

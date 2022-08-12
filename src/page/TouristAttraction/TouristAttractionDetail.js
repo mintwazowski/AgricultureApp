@@ -190,6 +190,10 @@ export default class TouristAttractionDetail extends Component {
         });
     }
 
+    onDetaiMap() {
+        this.props.navigation.navigate('TouristAttractionDetailMap')
+    }
+
     render() {
         const { col, isAlert, collapseCard, index, alertEditdata, openSlide, EventReservation, EventAndLocation } = this.state;
 
@@ -857,7 +861,11 @@ export default class TouristAttractionDetail extends Component {
                                 </View>
 
 
-                                <View style={{ flex: 1 }}>
+                                <TouchableOpacity
+                                    activeOpacity={1}
+                                    style={{ flex: 1 }}
+                                    onPress={() => this.onDetaiMap()}
+                                >
                                     <MapView
                                         initialRegion={{
                                             latitude: 37.78825,
@@ -866,8 +874,9 @@ export default class TouristAttractionDetail extends Component {
                                             longitudeDelta: 0.0421,
                                         }}
                                         style={[styles.map2]}
+                                        onPress={() => this.onDetaiMap()}
                                     />
-                                </View>
+                                </TouchableOpacity>
 
                                 <View style={[MainStyles.textBD, { marginVertical: 20 }]}>
                                     <View style={{ flex: 1, flexDirection: "row" }}>

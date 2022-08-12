@@ -73,7 +73,7 @@ export default class SellOrderDetail extends Component {
                         {/* Shop Content */}
                         <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
                             <ImageBackground
-                                source={require('../../../assets/placeholder.jpg')}
+                                source={require('../../../assets/image/u1361.png')}
                                 style={{
                                     width: '100%',
                                     height: 80
@@ -194,7 +194,7 @@ export default class SellOrderDetail extends Component {
                                     <View style={styles.contentCartShop}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={require('../../../assets/image/u1731.png')}
                                             style={{
                                                 width: 60,
                                                 height: 60,
@@ -239,7 +239,7 @@ export default class SellOrderDetail extends Component {
                                     <View style={{ flexDirection: 'row', marginTop: 20 }}>
                                         <Image
                                             resizeMode={'cover'}
-                                            source={require('../../../assets/placeholder.jpg')}
+                                            source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u2679.png?token=8883c32ba1dded4a9029e4e0a2365bc82ad89049c6a689c37a69aaec4d3452ee' }}
                                             style={{
                                                 width: 200,
                                                 height: 200,

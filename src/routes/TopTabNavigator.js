@@ -68,8 +68,8 @@ export default class TopTabNavigator extends Component {
             this.props.navigation.navigate('SourceOfProductMain')
         } else if (type === "Franchise") {
             this.props.navigation.navigate('Franchise')
-        } else if (type === "") {
-
+        } else if (type === "History") {
+            this.props.navigation.navigate('History')
         }
     }
 
@@ -212,10 +212,19 @@ export default class TopTabNavigator extends Component {
                                     <TouchableOpacity
                                         activeOpacity={1}
                                         style={NavigatorStyles.hamMenuContentList}
-                                        onPress={() => this.onGoToMenu('Home')}
+                                        onPress={() => this.onGoToMenu('DashboardSeller')}
                                     >
                                         <FontAwesome5 name='phone-alt' size={20} color="#448165" />
                                         <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ติดต่อเรา</Text>
+                                    </TouchableOpacity>
+                                    <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
+                                    <TouchableOpacity
+                                        activeOpacity={1}
+                                        style={NavigatorStyles.hamMenuContentList}
+                                        onPress={() => this.onGoToMenu('History')}
+                                    >
+                                        <FontAwesome5 name='history' size={20} color="#448165" />
+                                        <Text allowFontScaling={false} style={[MainStyles.textGray, MainStyles.Text16, MainStyles.ml15, MainStyles.textCenterContent]}>ประวัติการเข้าชม</Text>
                                     </TouchableOpacity>
                                     <View style={[NavigatorStyles.BorderBottomGrayWhite]} />
                                 </View>

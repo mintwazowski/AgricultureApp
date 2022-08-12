@@ -30,7 +30,15 @@ export default class Product extends Component {
         filterType: "",
         filterData: [],
         filterOpen: false,
-        filterSelect: ""
+        filterSelect: "",
+        getBannerFlashSale: [
+            { id: 1, img_src: require('../../../assets/image/25.png'), name: 'กระเช้าของขวัญ ไอริสขนมสำหรับเทศกาลปีใหม่', price: '890' },
+            { id: 2, img_src: require('../../../assets/image/26.png'), name: 'กระเช้าของขวัญ ลีลาวดีรวมเครื่องดื่มสมุนไพรสุขภาพ', price: '1,890' },
+            { id: 3, img_src: require('../../../assets/image/27.png'), name: "ผ้าคราม สิงห์ล้านนา'Singha Lanna'", price: '1,000' },
+            { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+            { id: 5, img_src: require('../../../assets/image/29.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์(ออร์แกนิค 100%)  200 กรัม', price: '25' },
+            { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
+        ]
     }
 
     onDetail() {
@@ -45,7 +53,13 @@ export default class Product extends Component {
                 { label: "ประเภท 3", value: "ประเภท 3" },
             ]
             this.setState({
-                filterData: isType
+                filterData: isType,
+                // getBannerFlashSale: [
+                //     { id: 3, img_src: require('../../../assets/image/27.png'), name: "ผ้าคราม สิงห์ล้านนา'Singha Lanna'", price: '1,000' },
+                //     { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+                //     { id: 5, img_src: require('../../../assets/image/29.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์(ออร์แกนิค 100%)  200 กรัม', price: '25' },
+                //     { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
+                // ]
             })
         } else if (type === "symbol") {
             const symbol = [
@@ -54,7 +68,12 @@ export default class Product extends Component {
                 { label: "symbol 3", value: "symbol 3" },
             ]
             this.setState({
-                filterData: symbol
+                filterData: symbol,
+                // getBannerFlashSale: [
+                //     { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+                //     { id: 5, img_src: require('../../../assets/image/29.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์(ออร์แกนิค 100%)  200 กรัม', price: '25' },
+                //     { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
+                // ]
             })
         } else if (type === "review") {
             const review = [
@@ -63,7 +82,11 @@ export default class Product extends Component {
                 { label: "3 ดาว", value: "3 ดาว" },
             ]
             this.setState({
-                filterData: review
+                filterData: review,
+                // getBannerFlashSale: [
+                //     { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+                //     { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
+                // ]
             })
         } else if (type === "sort") {
             const sort = [
@@ -72,7 +95,11 @@ export default class Product extends Component {
                 { label: "ที่น่าสนใจ", value: "ที่น่าสนใจ" },
             ]
             this.setState({
-                filterData: sort
+                filterData: sort,
+                // getBannerFlashSale: [
+                //     { id: 3, img_src: require('../../../assets/image/27.png'), name: "ผ้าคราม สิงห์ล้านนา'Singha Lanna'", price: '1,000' },
+                //     { id: 2, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+                // ]
             })
         }
         this.setState({
@@ -86,6 +113,14 @@ export default class Product extends Component {
             filterOpen: false,
             filterData: [],
             filterType: "",
+            getBannerFlashSale: [
+                { id: 1, img_src: require('../../../assets/image/25.png'), name: 'กระเช้าของขวัญ ไอริสขนมสำหรับเทศกาลปีใหม่', price: '890' },
+                { id: 2, img_src: require('../../../assets/image/26.png'), name: 'กระเช้าของขวัญ ลีลาวดีรวมเครื่องดื่มสมุนไพรสุขภาพ', price: '1,890' },
+                { id: 3, img_src: require('../../../assets/image/27.png'), name: "ผ้าคราม สิงห์ล้านนา'Singha Lanna'", price: '1,000' },
+                { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+                { id: 5, img_src: require('../../../assets/image/29.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์(ออร์แกนิค 100%)  200 กรัม', price: '25' },
+                { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
+            ]
         })
     }
 
@@ -95,6 +130,10 @@ export default class Product extends Component {
             filterData: [],
             filterType: "",
             filterSelect: label,
+            getBannerFlashSale: [
+                { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
+                { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
+            ]
         })
     }
 
@@ -103,15 +142,8 @@ export default class Product extends Component {
     }
 
     render() {
-        const { filterData, filterOpen, filterType, filterSelect } = this.state
-        const getBannerFlashSale = [
-            { id: 1, img_src: require('../../../assets/image/25.png'), name: 'กระเช้าของขวัญ ไอริสขนมสำหรับเทศกาลปีใหม่', price: '890' },
-            { id: 2, img_src: require('../../../assets/image/26.png'), name: 'กระเช้าของขวัญ ลีลาวดีรวมเครื่องดื่มสมุนไพรสุขภาพ', price: '1,890' },
-            { id: 3, img_src: require('../../../assets/image/27.png'), name: "ผ้าคราม สิงห์ล้านนา'Singha Lanna'", price: '1,000' },
-            { id: 4, img_src: require('../../../assets/image/28.png'), name: 'ชุดของขวัญ Premium fruitb ผลไม้สดคัดสรรอย่างดี', price: '1,299' },
-            { id: 5, img_src: require('../../../assets/image/29.png'), name: 'ข้าวหอมอินทรีย์ 5 สายพันธุ์(ออร์แกนิค 100%)  200 กรัม', price: '25' },
-            { id: 6, img_src: require('../../../assets/image/30.png'), name: 'น้ำผึ้งดอกลำไย และ ชาเขียวมะลิ Premium Gift Boxes', price: '250' },
-        ]
+        const { filterData, filterOpen, filterType, filterSelect, getBannerFlashSale } = this.state
+
 
         // Filter
         const filterCard = [];

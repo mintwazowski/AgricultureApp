@@ -76,7 +76,7 @@ export default class SellerProductAdd extends Component {
                         {/* Shop Content */}
                         <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
                             <ImageBackground
-                                source={require('../../../assets/placeholder.jpg')}
+                                source={require('../../../assets/image/u1361.png')}
                                 style={{
                                     width: '100%',
                                     height: 80
