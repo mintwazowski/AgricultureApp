@@ -34,6 +34,14 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import ModalLib from 'react-native-modal';
 import Timeline from 'react-native-timeline-flatlist'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import {
+    LineChart,
+    BarChart,
+    PieChart,
+    ProgressChart,
+    ContributionGraph,
+    StackedBarChart
+} from "react-native-chart-kit";
 
 export default class DashboardSeller extends Component {
 
@@ -151,15 +159,59 @@ export default class DashboardSeller extends Component {
 
                     {/* Content */}
                     <View style={{ flex: 1, marginTop: 15 }}>
-                        <Image
-                            resizeMode={'cover'}
-                            source={{ uri: 'https://d1icd6shlvmxi6.cloudfront.net/gsc/F0DBRW/a8/56/7c/a8567c272666474f8e09bbe37f087f89/images/mobileapp-front/u1550.png?token=75912ea1fa75f3e8d3929722fcd6ef0484f65bd9fc019903b685e7b0fb1acbf8' }}
-                            style={{
-                                width: '100%',
-                                height: 250,
-                                alignSelf: 'center',
-                            }}
-                        />
+                        <View>
+                            <BarChart
+                                bezier
+                                data={{
+                                    labels: ["Q1", "Q2", "Q3", "Q4"],
+                                    datasets: [
+                                        {
+                                            data: [20, 45, 28, 80],
+                                            svg: { fill: 'rgb(134, 65, 244)', },
+                                            strokeWidth: 2,
+
+                                        },
+                                        {
+                                            data: [30, 15, 18, 10],
+                                            svg: { fill: 'rgb(234, 80, 144)', },
+                                            strokeWidth: 2,
+
+                                        },
+                                    ]
+                                }}
+                                segments={2}
+                                width={Dimensions.get("window").width - 20}
+                                height={220}
+                                verticalLabelRotation={0}
+                                fromZero={true}
+                                yAxisInterval={1} // optional, defaults to 1
+                                chartConfig={{
+                                    backgroundGradientFrom: "#fff",
+                                    backgroundGradientTo: "#fff",
+                                    barPercentage: 0.7,
+                                    height: 3000,
+                                    fillShadowGradient: `#448165`,
+                                    fillShadowGradientOpacity: 1,
+                                    decimalPlaces: 0, // optional, defaults to 2dp
+                                    color: (opacity = 1) => `#448165`,
+                                    labelColor: (opacity = 1) => `rgba(0, 0, 0, 1)`,
+
+                                    style: {
+                                        borderRadius: 16,
+                                        fontFamily: 'Prompt-Regular',
+                                    },
+                                    propsForBackgroundLines: {
+                                        strokeWidth: 1,
+                                        stroke: "#e3e3e3",
+                                        strokeDasharray: "0",
+                                    },
+                                    propsForLabels: {
+                                        fontFamily: 'Prompt-Regular',
+                                    },
+
+                                }}
+                            />
+                        </View>
                         <View style={{ flexDirection: 'row', width: '100%', paddingHorizontal: 7, marginVertical: 15 }}>
                             <View style={{ flexDirection: 'column', width: '50%', paddingHorizontal: 7 }}>
                                 <View style={{ flexDirection: 'row', width: '100%' }}>
