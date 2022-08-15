@@ -34,14 +34,8 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import ModalLib from 'react-native-modal';
 import Timeline from 'react-native-timeline-flatlist'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import {
-    LineChart,
-    BarChart,
-    PieChart,
-    ProgressChart,
-    ContributionGraph,
-    StackedBarChart
-} from "react-native-chart-kit";
+import { BarChart, LineChart, PieChart } from "react-native-gifted-charts";
+
 
 export default class DashboardSeller extends Component {
 
@@ -68,6 +62,45 @@ export default class DashboardSeller extends Component {
 
 
     render() {
+        const barData = [
+            {
+                value: 40,
+                label: 'Q1',
+                spacing: 2,
+                labelWidth: 30,
+                labelTextStyle: { color: 'gray' },
+                frontColor: '#448165',
+            },
+            { value: 20, frontColor: '#e9b266' },
+            {
+                value: 50,
+                label: 'Q2',
+                spacing: 2,
+                labelWidth: 30,
+                labelTextStyle: { color: 'gray' },
+                frontColor: '#448165',
+            },
+            { value: 40, frontColor: '#e9b266' },
+            {
+                value: 75,
+                label: 'Q3',
+                spacing: 2,
+                labelWidth: 30,
+                labelTextStyle: { color: 'gray' },
+                frontColor: '#448165',
+            },
+            { value: 25, frontColor: '#e9b266' },
+            {
+                value: 30,
+                label: 'Q4',
+                spacing: 2,
+                labelWidth: 30,
+                labelTextStyle: { color: 'gray' },
+                frontColor: '#448165',
+            },
+            { value: 20, frontColor: '#e9b266' },
+        ];
+
         return (
             <View style={{ flex: 1 }}>
                 <View style={{ flex: 0.15, backgroundColor: 'white', paddingBottom: 15 }}>
@@ -159,8 +192,22 @@ export default class DashboardSeller extends Component {
 
                     {/* Content */}
                     <View style={{ flex: 1, marginTop: 15 }}>
-                        <View>
+                        <View style={{ marginBottom: 20 }}>
                             <BarChart
+                                data={barData}
+                                barWidth={20}
+                                spacing={24}
+                                xAxisThickness={0}
+                                yAxisThickness={0}
+                                yAxisTextStyle={{ color: 'gray' }}
+                                hideYAxisText={true}
+                                noOfSections={3}
+                                maxValue={100}
+                                label={false}
+                                rulesType={"solid"}
+                                width={Dimensions.get("window").width - 80}
+                            />
+                            {/* <BarChart
                                 bezier
                                 data={{
                                     labels: ["Q1", "Q2", "Q3", "Q4"],
@@ -210,7 +257,7 @@ export default class DashboardSeller extends Component {
                                     },
 
                                 }}
-                            />
+                            /> */}
                         </View>
                         <View style={{ flexDirection: 'row', width: '100%', paddingHorizontal: 7, marginVertical: 15 }}>
                             <View style={{ flexDirection: 'column', width: '50%', paddingHorizontal: 7 }}>
